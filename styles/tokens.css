@@ -1,0 +1,236 @@
+/**
+ * SKLADx design tokens — extracted from Figma (Phase 0.5).
+ *
+ * HSL triplets (H S% L%) so Tailwind can compose alpha via `<alpha-value>`.
+ * No raw color, radius, shadow, or duration values may live outside this file
+ * (and the tailwind.config that re-exposes them). The lint guard in
+ * tests/tokens.guard.test.ts enforces this on PR.
+ */
+
+:root {
+  /* SKLADX electric blue — sampled from Figma CTA fill (≈#1A5BFF / #155EEF),
+     link copy ("Забыли пароль?"), and the "X" in the SKLADX wordmark. The
+     ramp is intentionally more saturated than Tailwind blue-600 so the CTAs
+     do not read as navy/blackish. */
+  --primary-50: 220 100% 97%;
+  --primary-100: 220 100% 93%;
+  --primary-200: 220 100% 87%;
+  --primary-300: 220 100% 78%;
+  --primary-400: 220 100% 67%;
+  --primary-500: 220 100% 58%;
+  --primary-600: 220 95% 53%;
+  --primary-700: 222 85% 45%;
+  --primary-800: 224 78% 36%;
+  --primary-900: 226 70% 26%;
+  --primary-950: 228 62% 16%;
+
+  /* Cool neutrals — matches Figma page bg (#F4F6F9) and card stroke (#E5E8EE). */
+  --neutral-0: 0 0% 100%;
+  --neutral-50: 210 20% 98%;
+  --neutral-100: 0 0% 96%;
+  --neutral-200: 220 18% 89%;
+  --neutral-300: 220 16% 80%;
+  --neutral-400: 220 12% 62%;
+  --neutral-500: 220 10% 47%;
+  --neutral-600: 220 11% 36%;
+  --neutral-700: 222 14% 26%;
+  --neutral-800: 222 18% 17%;
+  --neutral-900: 222 22% 11%;
+  --neutral-950: 222 26% 6%;
+
+  /* Status — Verified pill is mint green; warnings amber; danger red. */
+  --success: 152 60% 38%;
+  --success-foreground: 0 0% 100%;
+  --success-soft: 150 65% 92%;
+  --success-soft-foreground: 152 70% 22%;
+  --warning: 38 92% 50%;
+  --warning-foreground: 38 92% 10%;
+  --warning-soft: 40 95% 92%;
+  --warning-soft-foreground: 30 80% 24%;
+  --danger: 0 75% 55%;
+  --danger-foreground: 0 0% 100%;
+  --danger-soft: 0 85% 95%;
+  --danger-soft-foreground: 0 70% 35%;
+  --info: 220 100% 58%;
+  --info-foreground: 0 0% 100%;
+  --info-soft: 220 100% 95%;
+  --info-soft-foreground: 222 85% 40%;
+
+  /* Surfaces */
+  --bg: var(--neutral-50);
+  --bg-muted: var(--neutral-100);
+  --bg-elevated: var(--neutral-0);
+  --bg-overlay: 222 30% 8%;
+  --border: var(--neutral-200);
+  --border-strong: var(--neutral-300);
+
+  --fg: var(--neutral-900);
+  --fg-muted: var(--neutral-600);
+  --fg-subtle: var(--neutral-400);
+  --fg-on-primary: 0 0% 100%;
+
+  --ring: var(--primary-500);
+
+  /* Chrome (header/navbar/footer) — Figma-exact pure-gray ramp.
+     Distinct from --bg/--border which use the cool neutral palette.
+     #FAFAFA / #FFFFFF / #EEEEEE / #F0F0F0 / #333333 / #E2E2E2 / #292D32
+     / #C4C4C4 / #8A8A8A / #93A3AB / #000000. */
+  --surface-sidebar: 0 0% 98%;
+  --border-chrome: 0 0% 93%;
+  --border-input: 0 0% 94%;
+  --divider-strong: 0 0% 20%;
+  --shortcut-bg: 0 0% 89%;
+  --icon-fg: 215 10% 18%;
+  --avatar-ring: 0 0% 77%;
+  --avatar-fg: 0 0% 54%;
+  --meta-fg: 200 13% 62%;
+  --text-strong: 0 0% 0%;
+
+  /* Seller dashboard specifics — sampled from seller_dashboard_1 Figma frame.
+     KPI icon badges (#4851B1 indigo, #9C48B1 purple) and the trend-chart
+     line/area fill (#355CBF). */
+  --kpi-indigo: 235 42% 49%;
+  --kpi-purple: 288 42% 49%;
+  --chart-trend: 223 57% 48%;
+
+  /* Catalog screen specifics sampled from catalog_1/2/3 Figma frames. */
+  --catalog-active: 212 100% 94%;
+  --catalog-control-border: 0 0% 87%;
+  --catalog-map-muted: 0 0% 91%;
+  --catalog-placeholder: 0 0% 50%;
+  --catalog-verified-soft: 126 77% 48%;
+
+  /* SkladX brand mark — sketchy doodle + isometric box.
+     #464646 doodle, #DCDBDC lid, #0088FF body, #898989/#D9D9D9 interior. */
+  --brand-stroke: 0 0% 27%;
+  --brand-stroke-soft: 0 0% 86%;
+  --brand-accent: 208 100% 50%;
+  --brand-shade-1: 0 0% 54%;
+  --brand-shade-2: 0 0% 85%;
+
+  /* Moderator dashboard — Figma-exact colors sampled from the
+     moderator_dashboard_1..7 frames. Solid action buttons, badge tints
+     (consumed at 20% alpha), surfaces, and meta text greys.
+     #48B173 #FF0000 #FF9500 #B9B9B9 / #19DA30 #D31717 #26A5FF #0077FF
+     #FFAC26 / #F5F5F5 #F0F0F0 #E5E5E5 #C5C5C5 #DFDFDF #E2E2E2 /
+     #7F7F7F #8A8A8A #737373. */
+  --mod-btn-green: 145 42% 49%;
+  --mod-btn-red: 0 100% 50%;
+  --mod-btn-orange: 35 100% 50%;
+  --mod-btn-gray: 0 0% 73%;
+  --mod-badge-green: 127 79% 48%;
+  --mod-badge-red: 0 80% 46%;
+  --mod-badge-blue: 205 100% 57%;
+  --mod-badge-blue-fg: 212 100% 50%;
+  --mod-badge-amber: 37 100% 57%;
+  --mod-card: 0 0% 96%;
+  --mod-border: 0 0% 94%;
+  --mod-desc-box: 0 0% 90%;
+  --mod-menu-border: 0 0% 77%;
+  --mod-menu-hover: 0 0% 87%;
+  --mod-thumb: 0 0% 89%;
+  --mod-meta: 0 0% 50%;
+  --mod-meta-2: 0 0% 54%;
+  --mod-th: 0 0% 45%;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 1.25rem;
+  --radius-full: 9999px;
+
+  /* Moderator dashboard radii — Figma-exact (moderator_dashboard_1..7):
+     4px badges/chips/thumbnails, 7.5px small avatars/icon badges,
+     11.5px cards/rows/buttons, 15.5px KPI cards/dropdown. */
+  --radius-mod-xs: 0.25rem;
+  --radius-mod-sm: 0.46875rem;
+  --radius-mod: 0.71875rem;
+  --radius-mod-lg: 0.96875rem;
+
+  --shadow-xs: 0 1px 2px 0 hsl(220 40% 10% / 0.04);
+  --shadow-sm:
+    0 1px 3px 0 hsl(220 40% 10% / 0.06),
+    0 1px 2px -1px hsl(220 40% 10% / 0.06);
+  --shadow-md:
+    0 6px 16px -4px hsl(220 40% 10% / 0.08),
+    0 2px 4px -2px hsl(220 40% 10% / 0.06);
+  --shadow-lg:
+    0 18px 32px -8px hsl(220 40% 10% / 0.12),
+    0 4px 8px -4px hsl(220 40% 10% / 0.08);
+
+  --duration-fast: 150ms;
+  --duration-normal: 220ms;
+  --duration-slow: 320ms;
+  --easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --easing-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --easing-accelerate: cubic-bezier(0.4, 0, 1, 1);
+}
+
+/**
+ * Dark theme — sampled from frontend/figma-designs/catalog_3.png.
+ *
+ * Only surfaces flip; the primary ramp, status hues, radii, and motion are
+ * shared with light. Every component that consumes `bg`, `bg-muted`,
+ * `bg-elevated`, `border`, `border-strong`, `fg`, `fg-muted`, `fg-subtle`,
+ * `*-soft`, and `ring` automatically picks up the dark variant — no
+ * component-level dark: classes required.
+ */
+:root[data-theme="dark"],
+.dark {
+  --bg: var(--neutral-950);
+  --bg-muted: 222 24% 9%;
+  --bg-elevated: 222 22% 12%;
+  --bg-overlay: 222 50% 3%;
+  --border: 222 18% 18%;
+  --border-strong: 222 18% 26%;
+
+  --fg: var(--neutral-50);
+  --fg-muted: var(--neutral-300);
+  --fg-subtle: var(--neutral-500);
+  --fg-on-primary: 0 0% 100%;
+
+  --ring: var(--primary-400);
+
+  --success-soft: 152 60% 14%;
+  --success-soft-foreground: 150 70% 75%;
+  --warning-soft: 38 60% 16%;
+  --warning-soft-foreground: 40 90% 75%;
+  --danger-soft: 0 50% 18%;
+  --danger-soft-foreground: 0 80% 78%;
+  --info-soft: 217 60% 18%;
+  --info-soft-foreground: 217 90% 80%;
+
+  --shadow-xs: 0 1px 2px 0 hsl(0 0% 0% / 0.4);
+  --shadow-sm:
+    0 1px 3px 0 hsl(0 0% 0% / 0.5),
+    0 1px 2px -1px hsl(0 0% 0% / 0.4);
+  --shadow-md:
+    0 6px 16px -4px hsl(0 0% 0% / 0.55),
+    0 2px 4px -2px hsl(0 0% 0% / 0.45);
+  --shadow-lg:
+    0 18px 32px -8px hsl(0 0% 0% / 0.6),
+    0 4px 8px -4px hsl(0 0% 0% / 0.5);
+
+  /* Chrome — dark mirror of the light-mode pure-gray ramp. */
+  --surface-sidebar: 222 22% 10%;
+  --border-chrome: 222 18% 18%;
+  --border-input: 222 18% 22%;
+  --divider-strong: 0 0% 60%;
+  --shortcut-bg: 222 18% 22%;
+  --icon-fg: 0 0% 88%;
+  --avatar-ring: 222 18% 28%;
+  --avatar-fg: 0 0% 67%;
+  --meta-fg: 200 13% 62%;
+  --text-strong: 0 0% 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+}

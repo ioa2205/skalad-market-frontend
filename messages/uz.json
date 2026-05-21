@@ -1,0 +1,1564 @@
+{
+  "errors": {
+    "generic": "Xatolik yuz berdi.",
+    "notFound": "Sahifa topilmadi.",
+    "withId": "Xatolik yuz berdi. Murojaat kodi: {id}",
+    "unauthorized": "Tizimga kirish talab qilinadi."
+  },
+  "seller": {
+    "onboarding": {
+      "eyebrow": "Kompaniya ro'yxati",
+      "title": "Kompaniyangiz haqida ayting",
+      "description": "Uchta qisqa qadam. Moderator tekshiruvidan so'ng kompaniya katalogga chiqadi.",
+      "steps": {
+        "profile": "Profil",
+        "contact": "Aloqa",
+        "branding": "Logotip va muqova"
+      },
+      "fields": {
+        "name": "Kompaniya nomi",
+        "shortDescription": "Qisqa tavsif",
+        "description": "To'liq tavsif",
+        "stir": "STIR (INN)",
+        "phonePrimary": "Asosiy telefon",
+        "phoneSecondary": "Qo'shimcha telefon",
+        "website": "Veb-sayt",
+        "region": "Viloyat",
+        "district": "Tuman",
+        "address": "Manzil",
+        "logo": "Logotip",
+        "cover": "Profil muqovasi"
+      },
+      "placeholders": {
+        "name": "Masalan, «Altyn Cement»",
+        "shortDescription": "Kompaniyangiz nima bilan shug'ullanadi",
+        "description": "Profil, mintaqalar, tajriba",
+        "stir": "Masalan, 123456789",
+        "phone": "+998 90 123 45 67",
+        "phoneSecondary": "Ixtiyoriy",
+        "website": "https://example.uz",
+        "region": "Viloyat tanlang",
+        "district": "Tuman tanlang",
+        "districtPickRegion": "Avval viloyatni tanlang",
+        "address": "Shahar, ko'cha, uy"
+      },
+      "hints": {
+        "shortDescription": "160 belgigacha — kompaniya kartochkasida ko'rinadi.",
+        "stir": "9–14 raqam.",
+        "logo": "PNG yoki JPEG, 5 MB gacha. Kvadrat rasm yaxshi.",
+        "cover": "PNG yoki JPEG, tavsiya 1600×400.",
+        "coverGap": "Muqova hozircha umumiy profilning API javobida yo'q — backend qo'shgach ko'rsatamiz."
+      },
+      "filePicker": {
+        "choose": "Faylni tanlash"
+      },
+      "validation": {
+        "nameRequired": "Kompaniya nomini kiriting.",
+        "stirRequired": "STIR kiriting.",
+        "stirFormat": "STIR 9–14 raqamdan iborat bo'lishi kerak.",
+        "phoneRequired": "Telefon kiriting.",
+        "phoneFormat": "Telefon formatini tekshiring.",
+        "websiteFormat": "Sayt manzili juda uzun.",
+        "regionRequired": "Viloyatni tanlang.",
+        "districtRequired": "Tumanni tanlang.",
+        "addressRequired": "Manzilni kiriting.",
+        "shortDescMax": "160 belgidan ko'p emas.",
+        "descMax": "2000 belgidan ko'p emas."
+      },
+      "back": "Orqaga",
+      "next": "Davom etish",
+      "submit": "Tekshiruvga yuborish",
+      "submitting": "Yuborilmoqda…",
+      "submitError": "Kompaniya yaratilmadi. Maydonlarni tekshirib qayta urining.",
+      "successToast": "Kompaniya tekshiruvga yuborildi. Natija haqida xabar beramiz.",
+      "correlationId": "Murojaat kodi: {id}"
+    },
+    "dashboard": {
+      "header": {
+        "title": "Sotuvchi paneli",
+        "addProduct": "Mahsulot qo'shish",
+        "addProductAria": "Yangi mahsulot qo'shish",
+        "addProductDisabledTooltip": "Kompaniya tasdiqlangach foydalansa bo'ladi."
+      },
+      "tabs": {
+        "ariaLabel": "Sotuvchi kabineti bo'limlari",
+        "items": {
+          "overview": "Umumiy",
+          "products": "Mahsulotlar",
+          "leads": "So'rovlar",
+          "messages": "Xabarlar",
+          "settings": "Sozlamalar"
+        }
+      },
+      "statusBanner": {
+        "draftTitle": "Anketa yuborilmagan",
+        "draftDescription": "Mahsulot e'lon qilish uchun ro'yxatni yakunlang.",
+        "pendingTitle": "Kompaniya tekshiruvda",
+        "pendingDescription": "Bir necha ish kuni ichida arizani ko'rib chiqamiz. Dashboard kuzatish rejimida ochiq.",
+        "rejectedTitle": "Kompaniya tasdiqlanmadi",
+        "rejectedDescription": "Ma'lumotlarni yangilab qayta yuboring.",
+        "rejectedDescriptionWithReason": "Sabab: {reason}. Ma'lumotlarni yangilab qayta yuboring.",
+        "blockedTitle": "Kompaniya bloklangan",
+        "blockedDescription": "Blokni olib tashlash uchun qo'llab-quvvatlash xizmatiga murojaat qiling."
+      },
+      "overview": {
+        "comingTitle": "Umumiy bo'lim tez orada",
+        "comingDescription": "KPI va savdo trendi keyingi bosqichda.",
+        "loadErrorTitle": "Umumiy bo'lim yuklanmadi",
+        "loadErrorDescription": "Sahifani yangilab ko'ring.",
+        "kpiSectionAria": "Asosiy ko'rsatkichlar",
+        "kpi": {
+          "activeProductsTitle": "Faol mahsulotlar",
+          "openLeadsTitle": "So'rovlar",
+          "contactsTitle": "Aloqalar"
+        },
+        "trend": {
+          "title": "Trend",
+          "ariaLabel": "Savdo trendi",
+          "seriesLeads": "Zaxira",
+          "seriesRevenue": "Umumiy daromad",
+          "seriesProfit": "Umumiy foyda",
+          "stubLeadsValue": "1500",
+          "stubRevenueValue": "3 500 $",
+          "stubProfitValue": "3 500 $",
+          "stubDelta": "+3,4% so'nggi oyda",
+          "tooltipLeads": "Zaxira",
+          "tooltipRevenue": "Daromad",
+          "tooltipProfit": "Foyda"
+        },
+        "recent": {
+          "title": "Yaqinda sotilganlar",
+          "seeAll": "Barcha mahsulotlar",
+          "empty": "Hozircha sotuv tugallanmagan.",
+          "badge": "Sotilgan",
+          "priceNegotiable": "Kelishilgan"
+        }
+      },
+      "products": {
+        "comingTitle": "Mahsulotlar bo'limi tez orada",
+        "comingDescription": "Mahsulotlarni yuklash va katalog boshqaruvi keyingi qadamda.",
+        "loadErrorTitle": "Mahsulotlar yuklanmadi",
+        "loadErrorDescription": "Internetni tekshirib qayta urining.",
+        "listTitle": "Mahsulotlar ro'yxati",
+        "emptyTitle": "Hali mahsulot yo'q",
+        "emptyDescription": "Birinchi mahsulotni qo'shing.",
+        "emptyCta": "Mahsulot qo'shish",
+        "moderation": {
+          "approved": "Chop etilgan",
+          "pending": "Tekshiruvda",
+          "rejected": "Rad etilgan",
+          "archived": "Arxiv"
+        },
+        "row": {
+          "active": "Faol",
+          "inactive": "Yashirilgan",
+          "priceFromPrefix": "dan",
+          "priceNegotiable": "Kelishilgan",
+          "editAria": "«{name}» mahsulotini tahrirlash",
+          "deleteAria": "«{name}» mahsulotini o'chirish",
+          "confirmTitle": "«{name}» o'chirilsinmi?",
+          "confirmDescription": "Bu amalni qaytarib bo'lmaydi.",
+          "deleteError": "Mahsulot o'chmadi. Qayta urining.",
+          "deleted": "«{name}» o'chirildi",
+          "cancel": "Bekor",
+          "confirm": "O'chirish",
+          "deleting": "O'chirilmoqda…"
+        },
+        "form": {
+          "createTitle": "Yangi mahsulot",
+          "editTitle": "«{name}» — tahrir",
+          "noCompanyTitle": "Avval kompaniyani ro'yxatdan o'tkazing",
+          "noCompanyDescription": "Kompaniyasiz mahsulot qo'shib bo'lmaydi.",
+          "categoryErrorTitle": "Kategoriyalar yuklanmadi",
+          "categoryErrorDescription": "Internetni tekshiring.",
+          "loadErrorTitle": "Mahsulot yuklanmadi",
+          "loadErrorDescription": "Sahifani yangilang.",
+          "fields": {
+            "name": "Nomi",
+            "shortDescription": "Qisqa tavsif",
+            "description": "Tavsif",
+            "category": "Kategoriya",
+            "priceType": "Narx turi",
+            "saleType": "Sotish formati",
+            "price": "Narx",
+            "currency": "Valyuta",
+            "minProduct": "Minimal buyurtma",
+            "region": "Viloyat",
+            "district": "Tuman"
+          },
+          "placeholders": {
+            "name": "Masalan, «Galvan rulon»",
+            "shortDescription": "Qisqa tavsif",
+            "description": "O'lcham, tarkib, yetkazib berish",
+            "category": "Kategoriyani tanlang",
+            "price": "0",
+            "region": "Viloyat tanlang",
+            "district": "Tuman tanlang",
+            "districtPickRegion": "Avval viloyatni tanlang"
+          },
+          "priceTypes": {
+            "FIXED": "Belgilangan",
+            "FROM_PRICE": "Narxdan",
+            "NEGOTIABLE": "Kelishilgan"
+          },
+          "saleTypes": {
+            "WHOLESALE": "Optom",
+            "RETAIL": "Chakana"
+          },
+          "attributesGap": "Dinamik atributlar API tayyor bo'lgach qo'shiladi.",
+          "submitError": "Mahsulot saqlanmadi.",
+          "correlationId": "Murojaat kodi: {id}",
+          "submitting": "Saqlanmoqda…",
+          "submitCreate": "Yaratish",
+          "submitUpdate": "Saqlash",
+          "createSuccess": "Mahsulot yaratildi va tekshiruvga yuborildi.",
+          "updateSuccess": "O'zgarishlar saqlandi.",
+          "cancel": "Bekor"
+        },
+        "validation": {
+          "nameRequired": "Nomini kiriting.",
+          "shortDescMax": "160 belgidan ko'p emas.",
+          "descriptionRequired": "Mahsulotni tavsiflang.",
+          "categoryRequired": "Kategoriyani tanlang.",
+          "priceRequired": "Narxni kiriting.",
+          "regionRequired": "Viloyatni tanlang.",
+          "minProductRequired": "Minimumni kiriting."
+        }
+      },
+      "leads": {
+        "comingTitle": "So'rovlar tez orada",
+        "comingDescription": "Xaridor so'rovlari shu yerda paydo bo'ladi.",
+        "loadErrorTitle": "So'rovlar yuklanmadi",
+        "loadErrorDescription": "Sahifani yangilang.",
+        "listTitle": "Sotib olish so'rovlari",
+        "emptyTitle": "Hali so'rov yo'q",
+        "emptyDescription": "Xaridor so'rovlari shu yerda paydo bo'ladi.",
+        "itemSummaryEmpty": "Pozitsiya yo'q",
+        "status": {
+          "NEW": "Yangi",
+          "VIEWED": "Ko'rilgan",
+          "CONTACTED": "Jarayonda",
+          "CLOSED": "Yopilgan",
+          "CANCELED": "Bekor qilingan"
+        },
+        "row": {
+          "accept": "Qabul qilish",
+          "acceptPending": "Saqlanmoqda…",
+          "reject": "Rad etish",
+          "write": "Yozish",
+          "rejectTitle": "So'rov rad etilsinmi?",
+          "rejectDescription": "Sababini ayting — xaridorga ko'rinadi.",
+          "reasonLabel": "Sabab",
+          "reasonPlaceholder": "Masalan: omborda yo'q",
+          "reasonMinError": "Minimum {min} belgi.",
+          "reasonMaxError": "Maksimum {max} belgi.",
+          "rejectConfirm": "Rad etish",
+          "rejectPending": "Rad etilmoqda…",
+          "cancel": "Bekor",
+          "acceptedToast": "So'rov qabul qilindi.",
+          "rejectedToast": "So'rov rad etildi.",
+          "updateError": "Statusni yangilab bo'lmadi."
+        }
+      },
+      "messages": {
+        "comingTitle": "Xabarlar tez orada",
+        "comingDescription": "Xaridorlar bilan chat keyingi modulda ishga tushadi.",
+        "placeholderTitle": "Suhbatni tanlang",
+        "placeholderDescription": "Chap tomondagi suhbatni oching — chatda to'liq ko'rinadi.",
+        "openFullChats": "Barcha chatlar"
+      },
+      "settings": {
+        "comingTitle": "Sozlamalar tez orada",
+        "comingDescription": "Kompaniya profili va tariflar — keyingi bosqichda.",
+        "noCompanyTitle": "Kompaniya topilmadi",
+        "noCompanyDescription": "Sozlamalarni ochish uchun ro'yxatni yakunlang.",
+        "loadErrorTitle": "Sozlamalar yuklanmadi",
+        "loadErrorDescription": "Internetni tekshirib qayta urining.",
+        "profile": {
+          "title": "Kompaniya profili",
+          "verified": "Tasdiqlangan",
+          "name": "Kompaniya nomi",
+          "industry": "Soha",
+          "industryUnknown": "—",
+          "phone": "Telefon",
+          "email": "Email",
+          "emailMissing": "Ko'rsatilmagan",
+          "website": "Sayt",
+          "websiteMissing": "Ko'rsatilmagan",
+          "city": "Shahar",
+          "edit": "O'zgartirish",
+          "editFieldAria": "«{label}» ni o'zgartirish"
+        },
+        "tariffs": {
+          "title": "Tarif rejasi",
+          "plans": {
+            "basic": { "name": "Basic", "price": "Bepul" },
+            "business": { "name": "Business", "price": "99 000 UZS / oy" },
+            "premium": { "name": "Premium", "price": "299 000 UZS / oy" }
+          },
+          "features": {
+            "productsLimit10": "10 ta mahsulot",
+            "basicSearch": "Oddiy qidiruv",
+            "productsLimit100": "100 ta mahsulot",
+            "searchPriority": "Qidiruvda ustuvorlik",
+            "salesAnalytics": "Savdo analitikasi",
+            "productsUnlimited": "∞ mahsulot",
+            "topRanking": "Top reyting",
+            "advertising": "Reklama",
+            "aiTools": "AI vositalar"
+          }
+        }
+      }
+    }
+  },
+  "districtsStub": {
+    "tashkentChilanzar": "Chilonzor tumani",
+    "tashkentMirzoUlugbek": "Mirzo Ulug'bek tumani",
+    "tashkentYunusobod": "Yunusobod tumani",
+    "tashkentSergeli": "Sergeli tumani",
+    "samarkandCenter": "Markaz",
+    "samarkandUrgut": "Urgut",
+    "bukharaCenter": "Markaz",
+    "bukharaKagan": "Kogon",
+    "ferghanaCenter": "Markaz",
+    "ferghanaKokand": "Qo'qon",
+    "namanganCenter": "Markaz",
+    "namanganChartak": "Chortoq",
+    "andijanCenter": "Markaz",
+    "andijanAsaka": "Asaka"
+  },
+  "system": {
+    "phaseZero": "Phase 0 — poydevor tayyor."
+  },
+  "common": {
+    "retry": "Qayta urinib ko'rish",
+    "tryAgain": "Qayta urinib ko'rish",
+    "backHome": "Bosh sahifaga",
+    "appName": "SKLADx",
+    "loading": "Yuklanmoqda…",
+    "save": "Saqlash",
+    "saving": "Saqlanmoqda…",
+    "cancel": "Bekor qilish",
+    "close": "Yopish"
+  },
+  "home": {
+    "search": {
+      "placeholder": "Mahsulot qidirish"
+    },
+    "popular": {
+      "title": "Ommabop mahsulotlar",
+      "sectionLabel": "Ommabop mahsulotlar",
+      "emptyTitle": "Mahsulotlar hali yo'q",
+      "emptyDescription": "Keyinroq qayting — tanlovni yangilaymiz.",
+      "searchPlaceholder": "Mahsulot qidirish"
+    },
+    "priceView": {
+      "label": "Narx turi",
+      "wholesale": "Optom",
+      "retail": "Dona"
+    },
+    "banners": {
+      "topAria": "Reklama bannerlari — yuqori",
+      "middleAria": "Reklama bannerlari — o'rta",
+      "sidebarAria": "Reklama bannerlari — yon panel",
+      "scheduled": "Tez orada bu yerda takliflar paydo bo'ladi",
+      "itemAria": "Banner {index}"
+    }
+  },
+  "catalog": {
+    "title": "Mahsulotlar katalogi",
+    "count": {
+      "total": "{count, plural, =0 {Mahsulot yo'q} one {# mahsulot} other {# ta mahsulot}}",
+      "loading": "Yuklanmoqda…"
+    },
+    "search": {
+      "placeholder": "Mahsulot qidirish",
+      "suggestionsLabel": "Qidiruv takliflari"
+    },
+    "filters": {
+      "title": "Filtrlar",
+      "categories": "Kategoriyalar",
+      "allCategories": "Barcha kategoriyalar",
+      "price": "Narx",
+      "priceFrom": "dan",
+      "priceTo": "gacha",
+      "priceBackendGap": "Narx filtri API tayyor bo'lgach ishga tushadi.",
+      "regions": "Viloyatlar",
+      "allRegions": "Barcha viloyatlar",
+      "inStockOnly": "Faqat mavjudlari",
+      "verifiedOnly": "Tasdiqlangan sotuvchilar",
+      "toggles": "Qo'shimcha filtrlar",
+      "reset": "Filtrlarni tozalash"
+    },
+    "map": {
+      "switchToMap": "Xarita bo'yicha qidirish",
+      "switchToGrid": "Mahsulotlar ro'yxati",
+      "surfaceLabel": "Mahsulotlar xaritasi",
+      "surfaceTitle": "Mahsulotlar xaritasi",
+      "pinLabel": "{id}-belgi"
+    },
+    "empty": {
+      "title": "Mos mahsulot topilmadi",
+      "description": "Filtrlarni o'zgartiring yoki boshqa so'rov kiriting."
+    }
+  },
+  "regionsStub": {
+    "tashkent": "Toshkent",
+    "samarkand": "Samarqand",
+    "bukhara": "Buxoro",
+    "ferghana": "Farg'ona",
+    "namangan": "Namangan",
+    "andijan": "Andijon"
+  },
+  "productCard": {
+    "openLabel": "«{name}» mahsulot kartasini ochish",
+    "verified": "Verified",
+    "verifiedLabel": "Tasdiqlangan sotuvchi",
+    "price": {
+      "fromPrefix": "dan",
+      "negotiable": "Kelishiladi"
+    },
+    "favorite": {
+      "addLabel": "Sevimlilarga qo'shish",
+      "removeLabel": "Sevimlilardan olib tashlash",
+      "comingSoonTitle": "Sevimlilar tez orada",
+      "comingSoonDescription": "Bu funksiya keyingi fazada yoqiladi.",
+      "failureTitle": "Sevimlilarni yangilab bo'lmadi"
+    },
+    "cart": {
+      "add": "Savatga qo'shish",
+      "addedToast": "«{name}» savatda",
+      "addedToastDescription": "So'rov yuborish uchun savatga o'ting.",
+      "comingSoonTitle": "Savat tez orada",
+      "comingSoonDescription": "Savatga qo'shish keyingi fazada yoqiladi."
+    }
+  },
+  "shell": {
+    "common": {
+      "home": "Bosh sahifa"
+    },
+    "sidebar": {
+      "label": "Yon menyu",
+      "navLabel": "Asosiy navigatsiya",
+      "goHome": "Bosh sahifaga",
+      "collapse": "Yopish",
+      "expand": "Ochish",
+      "comingSoon": "Tez orada",
+      "items": {
+        "home": "Bosh sahifa",
+        "catalog": "Katalog",
+        "products": "Mahsulotlar",
+        "profile": "Profil",
+        "companies": "Kompaniyalar",
+        "seller": "Sotuvchi paneli",
+        "tariffs": "Tariflar"
+      }
+    },
+    "topbar": {
+      "brand": "SkladX Market",
+      "favorites": {
+        "label": "Sevimlilar",
+        "countAria": "Sevimlilar, {count, plural, one {# mahsulot} other {# mahsulot}}",
+        "comingSoonTitle": "Sevimlilar tez orada"
+      },
+      "messages": {
+        "label": "Xabarlar",
+        "countAria": "Xabarlar, {count, plural, one {# o'qilmagan} other {# o'qilmagan}}",
+        "comingSoonTitle": "Xabarlar tez orada"
+      },
+      "cart": {
+        "label": "Savat",
+        "countAria": "Savat, {count, plural, one {# mahsulot} other {# mahsulot}}",
+        "comingSoonTitle": "Savat tez orada"
+      },
+      "comingSoonDescription": "Bu funksiya keyingi fazada yoqiladi."
+    },
+    "notifications": {
+      "label": "Bildirishnomalar",
+      "emptyTitle": "Bildirishnomalar yo'q",
+      "emptyBody": "Muhim voqealar shu yerda ko'rinadi."
+    },
+    "userMenu": {
+      "openLabel": "{name} profili menyusini ochish",
+      "login": "Kirish",
+      "register": "Ro'yxatdan o'tish",
+      "logout": "Akkauntdan chiqish",
+      "logoutPending": "Chiqmoqda…",
+      "logoutFailed": "Chiqib bo'lmadi. Qayta urinib ko'ring.",
+      "leads": "Mening so'rovlarim",
+      "sellerPanel": "Sotuvchi paneli",
+      "moderatorPanel": "Moderator paneli",
+      "companyProfile": "Kompaniya profili",
+      "settings": "Sozlamalar",
+      "role": {
+        "admin": "Admin",
+        "moderator": "Moderator",
+        "seller": "Sotuvchi",
+        "buyer": "Xaridor"
+      }
+    }
+  },
+  "categoryExplorer": {
+    "label": "Katalog",
+    "title": "Barcha kategoriyalar",
+    "empty": "Kategoriyalar hali yuklanmagan"
+  },
+  "feedback": {
+    "emptyDefault": {
+      "title": "Bu yerda hali hech narsa yo'q",
+      "description": "Ma'lumot paydo bo'lishi bilanoq shu yerda ko'rinadi.",
+      "cta": "Yangilash"
+    },
+    "errorDefault": {
+      "title": "Ma'lumotni yuklab bo'lmadi",
+      "description": "Qayta urinib ko'ring. Agar xato qaytarsa, murojaat kodini yuboring.",
+      "retry": "Qayta urinish",
+      "correlationId": "Murojaat kodi: {id}"
+    }
+  },
+  "pagination": {
+    "label": "Sahifalash",
+    "previous": "Orqaga",
+    "next": "Oldinga",
+    "of": "{current}-sahifa / {total}",
+    "pageLabel": "{page}-sahifa"
+  },
+  "search": {
+    "placeholder": "Qidirish…",
+    "clear": "Qidiruvni tozalash"
+  },
+  "status": {
+    "verification": {
+      "draft": "Qoralama",
+      "pending": "Tekshiruvda",
+      "verified": "Tasdiqlangan",
+      "rejected": "Rad etilgan"
+    },
+    "lead": {
+      "NEW": "Yangi",
+      "VIEWED": "Ko'rildi",
+      "CONTACTED": "Ishda",
+      "CLOSED": "Yopildi",
+      "CANCELED": "Bekor qilindi"
+    },
+    "product": {
+      "DRAFT": "Qoralama",
+      "PENDING": "Moderatsiyada",
+      "APPROVED": "E'lon qilingan",
+      "ARCHIVED": "Arxivda"
+    },
+    "report": {
+      "NEW": "Yangi",
+      "RESOLVED": "Hal qilindi",
+      "REJECTED": "Rad etildi"
+    }
+  },
+  "productDetail": {
+    "notFoundTitle": "Mahsulot topilmadi",
+    "notFoundBody": "Havolani tekshiring yoki katalogga qayting — mahsulot olib tashlangan bo'lishi mumkin.",
+    "backToCatalog": "Katalogga qaytish",
+    "views": "{count, plural, =0 {Ko'rishlar yo'q} one {# marta ko'rilgan} other {# marta ko'rilgan}}",
+    "stock": {
+      "inStock": "Sotuvda"
+    },
+    "rating": {
+      "ariaLabel": "Reyting {rating} / 5",
+      "noReviews": "Hali sharhlar yo'q"
+    },
+    "price": {
+      "fromPrefix": "dan",
+      "negotiable": "So'rov asosida",
+      "perUnit": "{unit} uchun",
+      "minOrder": "Minimal buyurtma: {quantity} {unit}",
+      "minOrderNoUnit": "Minimal buyurtma: {quantity}",
+      "totalLabel": "Jami"
+    },
+    "quantity": {
+      "label": "Miqdor",
+      "decrease": "Bir donaga kamaytirish",
+      "increase": "Bir donaga oshirish",
+      "unit": "{unit, select, ton {tonna} kg {kg} piece {dona} m {m} m2 {m²} other {{unit}}}"
+    },
+    "cta": {
+      "addToCart": "Savatga qo'shish",
+      "addToCartComingSoon": "Savat keyingi bosqichda ulanadi.",
+      "contactSeller": "Sotuvchiga yozish",
+      "call": "Sotuvchiga qo'ng'iroq",
+      "addToFavorites": "Sevimlilarga qo'shish",
+      "share": "Ulashish",
+      "shareCopied": "Havola nusxalandi",
+      "shareFailed": "Havolani nusxalab bo'lmadi"
+    },
+    "tabs": {
+      "description": "Tavsif",
+      "attributes": "Xususiyatlari",
+      "delivery": "Yetkazib berish",
+      "reviews": "Sharhlar"
+    },
+    "description": {
+      "empty": {
+        "title": "Tavsif hali qo'shilmagan",
+        "description": "Sotuvchi tavsif kiritmagan. Chat orqali so'rang."
+      }
+    },
+    "attributes": {
+      "empty": {
+        "title": "Xususiyatlar ko'rsatilmagan",
+        "description": "Sotuvchi mahsulot xususiyatlarini kiritmagan."
+      },
+      "label": {
+        "category": "Kategoriya",
+        "material": "Material",
+        "dimensions": "O'lchamlari",
+        "weight": "Og'irligi",
+        "color": "Rangi",
+        "minOrder": "Minimal buyurtma",
+        "leadTime": "Ishlab chiqarish muddati",
+        "availability": "Mavjudligi",
+        "unit": "O'lchov birligi"
+      },
+      "value": {
+        "yes": "Ha",
+        "no": "Yo'q"
+      }
+    },
+    "delivery": {
+      "placeholder": "Yetkazib berish shartlarini sotuvchi bilan aniqlashtiring.",
+      "safeDeal": {
+        "title": "Xavfsiz bitim",
+        "body": "To'lov platforma orqali amalga oshiriladi."
+      },
+      "verifiedCompany": {
+        "title": "Tasdiqlangan kompaniya",
+        "body": "Sotuvchi tekshiruvdan o'tgan."
+      },
+      "originalDocs": {
+        "title": "Asl hujjatlar",
+        "body": "Sertifikatlar va yo'lxatlar ilova qilinadi."
+      }
+    },
+    "reviews": {
+      "emptyTitle": "Sharhlar hali yo'q",
+      "emptyBody": "Sharhlarni keyingi bosqichda qo'shamiz."
+    },
+    "seller": {
+      "heading": "Sotuvchi haqida",
+      "rating": "Reyting",
+      "reviews": "Sharhlar",
+      "products": "Mahsulotlar",
+      "gotoProfile": "Kompaniya sahifasiga o'tish"
+    },
+    "similar": {
+      "heading": "O'xshash mahsulotlar"
+    },
+    "trust": {
+      "safeDeal": "Platforma orqali xavfsiz bitim",
+      "verifiedData": "Kompaniya ma'lumotlari tekshirilgan",
+      "originalProducts": "Hujjatlar bilan asl mahsulotlar"
+    },
+    "contactSeller": {
+      "comingSoonTitle": "Xabarlar tez orada",
+      "comingSoonBody": "Sotuvchi bilan chatni keyingi bosqichda ulaymiz.",
+      "cta": "Sotuvchiga yozish"
+    },
+    "imageGallery": {
+      "label": "Mahsulot fotosuratlari",
+      "next": "Keyingi rasm",
+      "previous": "Oldingi rasm",
+      "thumbnailLabel": "Rasm {index} / {total}",
+      "placeholder": "Fotosuratlar hali yuklanmagan."
+    }
+  },
+  "favorites": {
+    "title": "Sevimlilar",
+    "count": "{count, plural, =0 {Mahsulotlar yo'q} one {# mahsulot} other {# mahsulot}}",
+    "search": {
+      "placeholder": "Mahsulot qidirish"
+    },
+    "map": {
+      "switchToMap": "Xaritada qidirish",
+      "comingSoonTitle": "Xarita keyinroq qo'shiladi",
+      "comingSoonDescription": "Sevimlilar uchun xaritani keyingi bosqichda ulaymiz."
+    },
+    "tabs": {
+      "products": "Mahsulotlar",
+      "companies": "Kompaniyalar",
+      "companiesDisabledTooltip": "Kompaniyalar sevimlilari API tayyor bo'lganda qo'shiladi."
+    },
+    "empty": {
+      "title": "Sevimlilar bo'sh",
+      "description": "Yoqqan mahsulotlarni qo'shing — ular shu yerda paydo bo'ladi.",
+      "cta": "Katalogga"
+    },
+    "error": {
+      "title": "Sevimlilarni yuklab bo'lmadi",
+      "description": "Sahifani yangilang. Agar xato qaytarsa, murojaat kodini yuboring.",
+      "correlationLabel": "Murojaat kodi:"
+    },
+    "toggle": {
+      "addedToast": "Sevimlilarga qo'shildi",
+      "removedToast": "Sevimlilardan olib tashlandi",
+      "errorToast": "Sevimlilarni yangilab bo'lmadi.",
+      "errorWithId": "Murojaat kodi: {id}"
+    }
+  },
+  "cart": {
+    "title": "Savat",
+    "addMore": "Yana mahsulot qo'shish",
+    "empty": {
+      "title": "Savat bo'sh",
+      "description": "Sotuvchilarga so'rov yuborish uchun katalogdan mahsulot qo'shing.",
+      "cta": "Katalogga"
+    },
+    "lineItem": {
+      "removeAria": "«{name}» savatdan olib tashlash",
+      "unitPriceSuffix": " / dona",
+      "negotiable": "So'rov asosida"
+    },
+    "summary": {
+      "title": "Jami",
+      "total": "Jami",
+      "totalNegotiationNote": "Yakuniy narx sotuvchi bilan kelishiladi.",
+      "submit": "So'rov yuborish",
+      "submitting": "Yuborilmoqda…",
+      "messageSeller": "Sotuvchiga yozish",
+      "messageSellerComingSoonTitle": "Xabarlar tez orada",
+      "messageSellerComingSoonBody": "Sotuvchi bilan chat keyingi fazada yoqiladi.",
+      "trustTitle": "Xavfsiz bitim",
+      "trustBody": "Sizning so'rovingiz to'g'ridan-to'g'ri sotuvchiga yo'naltiriladi. Narx va shartlar suhbatda kelishiladi.",
+      "negotiable": "So'rov asosida"
+    },
+    "submit": {
+      "successToast": "So'rov sotuvchilarga yuborildi.",
+      "errorToast": "So'rovni yuborib bo'lmadi. Qayta urinib ko'ring.",
+      "partialFailureToast": "Ba'zi sotuvchilarga so'rov yetib bormadi.",
+      "partialFailureTitle": "Ba'zi so'rovlar yuborilmadi",
+      "partialFailureBody": "{count, plural, one {# sotuvchi bilan} other {# sotuvchi bilan}} bog'lanib bo'lmadi. Qayta urinib ko'ring.",
+      "correlationLabel": "Murojaat kodi:",
+      "retryFailed": "Qayta urinish"
+    },
+    "contact": {
+      "title": "Kontakt ma'lumotlari",
+      "description": "Sotuvchilar shu ma'lumotlar orqali bog'lanadi. Yuborishdan oldin tahrirlashingiz mumkin.",
+      "nameLabel": "Ism",
+      "namePlaceholder": "Ism va familiya",
+      "phoneLabel": "Telefon",
+      "phonePlaceholder": "+998…",
+      "commentLabel": "Izoh",
+      "commentHint": "Ixtiyoriy. Shartlar yoki muddatlarni qo'shing.",
+      "commentPlaceholder": "Masalan: 1-may oldidan yetkazib berish kerak",
+      "submit": "So'rov yuborish",
+      "submitting": "Yuborilmoqda…",
+      "signedOutHint": "Kontakt ma'lumotlari avtomatik to'ldirilishi uchun tizimga kiring."
+    }
+  },
+  "company": {
+    "directory": {
+      "title": "Kompaniyalar",
+      "searchPlaceholder": "Kompaniya qidirish",
+      "viewToggle": {
+        "grid": "Kompaniyalar ro'yxati",
+        "map": "Xaritada qidirish",
+        "ariaLabel": "Ko'rinish rejimi"
+      },
+      "empty": {
+        "title": "So'rovingiz bo'yicha hech narsa topilmadi",
+        "description": "So'rovni o'zgartirib ko'ring yoki to'liq ro'yxatga qayting."
+      },
+      "error": {
+        "title": "Kompaniyalarni yuklab bo'lmadi",
+        "description": "Sahifani yangilab ko'ring. Agar xato takrorlansa — bizga murojaat kodini bildiring.",
+        "correlationLabel": "Murojaat kodi:"
+      },
+      "map": {
+        "regionLabel": "Shahar",
+        "regionTashkent": "Toshkent",
+        "surfaceLabel": "Kompaniyalar xaritasi",
+        "surfaceTitle": "Kompaniyalar bilan xarita",
+        "pinLabel": "Belgi {id}",
+        "stubBody": "Namunaviy ma'lumot"
+      }
+    },
+    "card": {
+      "openLabel": "«{name}» kompaniyasi sahifasini ochish",
+      "tagline": "{industry} {region}",
+      "metrics": {
+        "rating": "Reyting",
+        "reviews": "Sharhlar",
+        "products": "Mahsulot"
+      },
+      "cta": "Kompaniya sahifasiga o'tish",
+      "stubTooltip": "Kompaniya kartochkasi — maket, ommaviy API chiqqach faollashadi.",
+      "favoriteAria": "Kompaniyani saqlash (tez orada)"
+    },
+    "ratingStars": {
+      "ariaLabel": "Reyting: 5 dan {value}",
+      "noRatingAriaLabel": "Reyting yo'q"
+    },
+    "verified": "Tasdiqlangan",
+    "unverified": "Tekshiruvda",
+    "verifiedAriaLabel": "Kompaniya tasdiqlangan",
+    "profile": {
+      "title": "Profil",
+      "sellerPanelCta": "Sotuvchi paneli",
+      "actions": {
+        "message": "Yozish",
+        "messageComingSoonTitle": "Xabarlar tez orada",
+        "messageComingSoonBody": "Sotuvchi bilan chat keyingi bosqichda ulanadi.",
+        "call": "Qo'ng'iroq",
+        "callComingSoon": "Telefon ko'rsatilmagan",
+        "map": "Xarita"
+      },
+      "stats": {
+        "rating": "Reyting",
+        "reviews": "Sharhlar",
+        "products": "Mahsulot"
+      },
+      "about": {
+        "title": "Sotuvchi haqida",
+        "fallback": "Tavsif hali qo'shilmagan."
+      },
+      "info": {
+        "title": "Ma'lumot",
+        "location": "Manzil",
+        "industry": "Soha",
+        "founded": "Tashkil etilgan",
+        "products": "Mahsulot",
+        "founded_pending": "Tez orada",
+        "industry_pending": "Tez orada",
+        "products_pending": "—"
+      },
+      "contacts": {
+        "title": "Aloqa",
+        "phone": "Telefon",
+        "phoneSecondary": "Qo'shimcha telefon",
+        "email": "Email",
+        "emailPending": "Tez orada",
+        "website": "Veb-sayt"
+      },
+      "tabs": {
+        "products": "Mahsulotlar",
+        "productsWithCount": "Mahsulotlar ({count})",
+        "reviews": "Sharhlar",
+        "reviewsWithCount": "Sharhlar ({count})"
+      },
+      "products": {
+        "empty": {
+          "title": "Mahsulotlar tez orada paydo bo'ladi",
+          "description": "Tegishli API tayyor bo'lishi bilan kompaniya mahsulotlarining ommaviy ro'yxatini ulaymiz."
+        }
+      },
+      "reviews": {
+        "empty": {
+          "title": "Hali sharhlar yo'q",
+          "description": "Sharhlarni keyingi bosqichlarda ulaymiz."
+        }
+      },
+      "map": {
+        "title": "Do'konlar bilan xarita",
+        "regionLabel": "Shahar",
+        "pinLabel": "Manzil: {address}",
+        "stubNote": "API koordinatalarni qaytara boshlaganida ko'rinadi."
+      },
+      "notFound": {
+        "title": "Kompaniya topilmadi",
+        "description": "Havolani tekshiring — profil o'chirilgan yoki hali e'lon qilinmagan bo'lishi mumkin.",
+        "cta": "Kompaniyalar ro'yxatiga"
+      },
+      "error": {
+        "title": "Kompaniyani yuklab bo'lmadi",
+        "description": "Sahifani yangilab ko'ring. Agar xato takrorlansa — bizga murojaat kodini bildiring.",
+        "correlationLabel": "Murojaat kodi:"
+      }
+    }
+  },
+  "auth": {
+    "tabs": {
+      "navLabel": "Kirish va ro'yxatdan o'tish o'rtasida almashtirish",
+      "login": "Kirish",
+      "register": "Ro'yxatdan o'tish"
+    },
+    "login": {
+      "title": "SKLADx'ga kirish",
+      "submit": "Kirish",
+      "submitPending": "Kirilmoqda…",
+      "methodPhone": "Telefon",
+      "methodEmail": "Email",
+      "phoneLabel": "Telefon raqami",
+      "phonePlaceholder": "Telefon raqami",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Email manzil",
+      "passwordLabel": "Parol",
+      "passwordPlaceholder": "Parolni kiriting",
+      "passwordShow": "Parolni ko'rsatish",
+      "passwordHide": "Parolni yashirish",
+      "forgotPassword": "Parolni unutdingizmi?",
+      "orDivider": "yoki",
+      "sso": "SKLAD ERP orqali kirish",
+      "ssoTooltip": "Tez orada"
+    },
+    "register": {
+      "title": "Hisob yaratish",
+      "submit": "Ro'yxatdan o'tish",
+      "submitPending": "Ro'yxatga olinmoqda…",
+      "roleBuyer": "Xaridor",
+      "roleBuyerSubtitle": "Mahsulot qidiraman",
+      "roleSeller": "Sotuvchi",
+      "roleSellerSubtitle": "Mahsulot sotaman",
+      "nameLabel": "Ism",
+      "namePlaceholder": "Ism",
+      "companyLabel": "Kompaniya",
+      "companyPlaceholder": "Kompaniya",
+      "phoneLabel": "Telefon raqami",
+      "phonePlaceholder": "Telefon raqami",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Email",
+      "passwordLabel": "Parol",
+      "passwordPlaceholder": "Parolni kiriting",
+      "termsBefore": "Ro'yxatdan o'tib, siz",
+      "termsLink": "foydalanish shartlari",
+      "termsAnd": "va",
+      "privacyLink": "maxfiylik siyosati",
+      "successToast": "{email} manziliga xat yubordik. Kirish uchun uni tasdiqlang."
+    },
+    "verify": {
+      "pendingTitle": "Havola tekshirilmoqda…",
+      "successTitle": "Email tasdiqlandi",
+      "successBody": "Tayyor! Sizni kirish sahifasiga yo'naltiramiz.",
+      "errorTitle": "Havola amal qilmaydi",
+      "errorBody": "Havolaning muddati tugagan yoki ishlatilgan. Yangi xat so'rang.",
+      "redirectingIn": "{seconds} soniyadan so'ng o'tamiz.",
+      "backToLogin": "Kirishga qaytish"
+    },
+    "reset": {
+      "title": "Parolni tiklash",
+      "body": "Ro'yxatdan o'tishda ishlatgan emailni kiriting. Tasdiqlash kodini yuboramiz.",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Email manzil",
+      "submit": "Xat yuborish",
+      "submitPending": "Yuborilmoqda…",
+      "backToLogin": "Kirishga qaytish",
+      "successToast": "{email} manziliga kod yubordik."
+    },
+    "resetConfirm": {
+      "title": "Yangi parol",
+      "body": "Xatdan olgan kodni va yangi parolni kiriting.",
+      "codeLabel": "Tasdiqlash kodi",
+      "newPasswordLabel": "Yangi parol",
+      "newPasswordPlaceholder": "Yangi parol",
+      "newPasswordConfirmLabel": "Parolni takrorlang",
+      "newPasswordConfirmPlaceholder": "Parolni takrorlang",
+      "submit": "Parolni saqlash",
+      "submitPending": "Saqlanmoqda…",
+      "successToast": "Parol yangilandi. Yangi parol bilan kiring."
+    },
+    "validation": {
+      "nameRequired": "Ismingizni kiriting",
+      "nameTwoWords": "Ism va familiyani bo'sh joy bilan kiriting",
+      "passwordMin": "Parol kamida 8 ta belgidan iborat bo'lsin",
+      "passwordRequired": "Parolni kiriting",
+      "passwordMismatch": "Parollar mos emas",
+      "emailRequired": "Email kiriting",
+      "emailInvalid": "To'g'ri email kiriting",
+      "phoneInvalid": "To'g'ri telefon raqam kiriting",
+      "phoneRequired": "Telefon raqamingizni kiriting",
+      "codeFormat": "6 raqamli kodni kiriting",
+      "usernameRequired": "Havolada email topilmadi. Yangi xat so'rang.",
+      "companyRequiredForSeller": "Sotuvchi uchun kompaniya nomini kiriting"
+    },
+    "errors": {
+      "accountLocked": "Juda ko'p urinish. Hisob 15 daqiqaga bloklandi.",
+      "wrongPassword": "Email yoki parol noto'g'ri.",
+      "usernameNotFound": "Bunday foydalanuvchi topilmadi.",
+      "usernameTaken": "Bu email allaqachon ro'yxatdan o'tgan. Kirishni sinab ko'ring.",
+      "verificationWrong": "Tasdiqlash kodi noto'g'ri yoki muddati tugagan.",
+      "refreshExpired": "Sessiya muddati tugadi. Qayta kiring.",
+      "sessionExpired": "Sessiya muddati tugadi. Qayta kiring.",
+      "network": "Serverga ulanib bo'lmadi. Ulanishingizni tekshiring.",
+      "generic": "Xatolik yuz berdi. Keyinroq urinib ko'ring."
+    },
+    "correlationId": "Murojaat kodi: {id}"
+  },
+  "leads": {
+    "title": "Mening so'rovlarim",
+    "count": "{count, plural, =0 {So'rovlar yo'q} one {# so'rov} other {# so'rov}}",
+    "filter": {
+      "label": "Holat bo'yicha filter",
+      "all": "Barchasi"
+    },
+    "source": {
+      "PRODUCT": "Mahsulot sahifasidan",
+      "CART": "Savatchadan"
+    },
+    "row": {
+      "idLabel": "So'rov №{id}",
+      "openLabel": "So'rov №{id} ni ochish",
+      "itemCount": "{count, plural, one {# pozitsiya} other {# pozitsiya}}"
+    },
+    "empty": {
+      "title": "Hali so'rovlar yo'q",
+      "description": "Yetkazib beruvchiga so'rov yuborganingizdan so'ng ular shu yerda paydo bo'ladi.",
+      "cta": "Katalogga"
+    },
+    "emptyFiltered": {
+      "title": "Bu holatdagi so'rovlar yo'q",
+      "description": "Boshqa holatni tanlang yoki filtrni tozalang."
+    },
+    "error": {
+      "title": "So'rovlarni yuklab bo'lmadi",
+      "description": "Sahifani yangilang. Xato takrorlansa, murojaat kodini bizga yuboring.",
+      "correlationLabel": "Murojaat kodi:"
+    },
+    "detail": {
+      "title": "So'rov №{id}",
+      "titleLoading": "So'rov yuklanmoqda…",
+      "contactName": "Aloqa shaxsi",
+      "contactPhone": "Telefon",
+      "comment": "Izoh",
+      "closeReason": "Yopish sababi",
+      "itemsHeading": "So'rov pozitsiyalari",
+      "qtyLabel": "Soni: {qty}",
+      "error": {
+        "title": "Bu so'rovni yuklab bo'lmadi",
+        "description": "Yopib qaytadan oching. Xato takrorlansa, murojaat kodini yuboring.",
+        "correlationLabel": "Murojaat kodi:"
+      }
+    },
+    "cancel": {
+      "button": "So'rovni bekor qilish",
+      "confirmTitle": "So'rov bekor qilinsinmi?",
+      "confirmBody": "№{id} so'rovni bekor qilishga ishonchingiz komilmi? Buni ortga qaytarib bo'lmaydi.",
+      "confirmCta": "Ha, bekor qilish",
+      "confirmPending": "Bekor qilinmoqda…",
+      "cancelCta": "Hozir emas",
+      "successToast": "So'rov bekor qilindi.",
+      "errorToast": "So'rovni bekor qilib bo'lmadi."
+    }
+  },
+  "chats": {
+    "title": "Xabarlar",
+    "list": {
+      "searchPlaceholder": "Xabarlar bo'yicha qidirish",
+      "unreadAria": "{count, plural, one {# o'qilmagan xabar} other {# o'qilmagan xabar}}",
+      "empty": {
+        "title": "Xabarlar hali yo'q",
+        "body": "Sotuvchi javob berganida muloqotlar shu yerda paydo bo'ladi."
+      },
+      "error": {
+        "title": "Xabarlarni yuklab bo'lmadi",
+        "body": "Sahifani yangilang. Agar xato qaytarsa, murojaat kodini yuboring.",
+        "correlationLabel": "Murojaat kodi:",
+        "retry": "Qayta urinish"
+      }
+    },
+    "thread": {
+      "empty": {
+        "title": "Muloqotni tanlang",
+        "body": "Yozishni boshlash uchun chap tomondan kontakt tanlang."
+      },
+      "notFound": {
+        "title": "Muloqot topilmadi",
+        "body": "Ehtimol, u yashirilgan yoki o'chirilgan.",
+        "cta": "Muloqotlar ro'yxatiga"
+      },
+      "presence": {
+        "online": "Onlayn",
+        "stub": "Oflayn"
+      },
+      "callAria": "Qo'ng'iroq",
+      "callStubTitle": "Qo'ng'iroqlar tez orada",
+      "callStubBody": "Kompaniya kartasidagi telefon raqamiga qo'ng'iroq qiling.",
+      "actionsLabel": "Muloqot harakatlari",
+      "hide": "Muloqotni yashirish",
+      "hideSuccess": "Muloqot yashirildi",
+      "hideError": "Muloqotni yashirib bo'lmadi"
+    },
+    "messages": {
+      "empty": {
+        "title": "Birinchi xabarni yozing",
+        "body": "Yozishuv tarixi shu yerda paydo bo'ladi."
+      },
+      "error": {
+        "title": "Yozishuvni yuklab bo'lmadi",
+        "body": "Qayta urinib ko'ring. Agar xato qaytarsa, murojaat kodini yuboring.",
+        "correlationLabel": "Murojaat kodi:",
+        "retry": "Qayta urinish"
+      },
+      "loadOlder": "Avvalgi xabarlarni yuklash",
+      "status": {
+        "sending": "Yuborilmoqda",
+        "sent": "Yuborildi",
+        "delivered": "Yetkazildi",
+        "read": "O'qildi",
+        "failed": "Yuborilmadi"
+      },
+      "retry": "Qayta yuborish",
+      "attachmentLabel": "Biriktirma"
+    },
+    "composer": {
+      "placeholder": "Xabar",
+      "send": "Yuborish",
+      "sendAria": "Xabar yuborish",
+      "attachAria": "Rasm biriktirish",
+      "emojiAria": "Emoji (tez orada)",
+      "rateLimitedToast": "Juda ko'p xabar. Bir necha soniya kuting.",
+      "errorToast": "Xabarni yuborib bo'lmadi.",
+      "errorWithId": "Murojaat kodi: {id}",
+      "uploadFailed": "Biriktirmani yuklab bo'lmadi.",
+      "uploadInProgress": "Biriktirma yuklanmoqda…",
+      "tooLargeToast": "Fayl juda katta.",
+      "wrongTypeToast": "Faqat rasm biriktirish mumkin."
+    },
+    "start": {
+      "errorToast": "Muloqotni ochib bo'lmadi.",
+      "errorWithId": "Murojaat kodi: {id}",
+      "sellerOnlyToast": "Faqat xaridorlar muloqot boshlay oladi.",
+      "sellerOnlyBody": "Xaridor muloqot ochishini kuting."
+    },
+    "typing": "yozmoqda…",
+    "connection": {
+      "reconnectingTitle": "Aloqa tiklanmoqda",
+      "reconnectingBody": "Aloqa tiklanishi bilan xabarlar yuboriladi.",
+      "offlineTitle": "Aloqa uzildi",
+      "offlineBody": "Internetni tekshiring va sahifani yangilang."
+    },
+    "header": {
+      "backToList": "Muloqotlar ro'yxatiga",
+      "productLabel": "Mahsulot bilan bog'langan"
+    }
+  },
+  "notifications": {
+    "inbox": {
+      "title": "Bildirishnomalar",
+      "dropdownLabel": "Bildirishnomalar",
+      "openSettings": "Bildirishnoma sozlamalari",
+      "markAllRead": "Hammasini o'qildi qilish",
+      "markAllPending": "Belgilanmoqda…",
+      "markAllError": "Hammasini o'qildi qilib bo'lmadi",
+      "unreadDotAria": "O'qilmagan",
+      "newBadge": "Yangi",
+      "empty": {
+        "title": "Bildirishnomalar yo'q",
+        "body": "Yangi so'rovlar, sotuvchi javoblari va xabarlar shu yerda paydo bo'ladi."
+      },
+      "error": {
+        "title": "Bildirishnomalarni yuklab bo'lmadi",
+        "body": "Qayta urinib ko'ring. Agar xato qaytarsa, murojaat kodini yuboring.",
+        "correlationLabel": "Murojaat kodi:",
+        "retry": "Qayta urinish"
+      }
+    },
+    "types": {
+      "leadNew": {
+        "title": "Yangi so'rov",
+        "body": "{productName, select, undefined {Sizga yangi so'rov keldi.} other {{productName} bo'yicha so'rov}}"
+      },
+      "leadStatusChanged": {
+        "title": "So'rov holati o'zgardi",
+        "body": "№{leadId} so'rov «{newStatus}» holatiga o'tdi."
+      },
+      "chatNewMessage": {
+        "title": "Yangi xabar",
+        "body": "{fromName, select, undefined {Sizga yangi xabar keldi.} other {{fromName}: yangi xabar}}"
+      },
+      "fallback": {
+        "title": "Bildirishnoma",
+        "body": "Tafsilotlar uchun oching."
+      }
+    },
+    "preferences": {
+      "title": "Bildirishnoma sozlamalari",
+      "subtitle": "Qaysi bildirishnomalarni olishni tanlang.",
+      "inApp": {
+        "title": "Ilovada",
+        "body": "Bildirishnomalarni brauzer va ilovada ko'rsatish."
+      },
+      "push": {
+        "title": "Push-bildirishnomalar",
+        "body": "Mobil ilovaga yetkazib berish."
+      },
+      "email": {
+        "title": "Email",
+        "body": "Bildirishnomalar nusxasini elektron pochtaga yuborish."
+      },
+      "save": "Saqlash",
+      "savePending": "Saqlanmoqda…",
+      "savedToast": "Sozlamalar saqlandi",
+      "errorToast": "Sozlamalarni saqlab bo'lmadi",
+      "errorWithId": "Murojaat kodi: {id}",
+      "loadError": {
+        "title": "Sozlamalarni yuklab bo'lmadi",
+        "body": "Sahifani yangilang. Agar xato qaytarsa, murojaat kodini yuboring.",
+        "correlationLabel": "Murojaat kodi:"
+      },
+      "webPushNote": "Push-bildirishnomalar mobil ilovaga keladi — veb-da hozircha ishlamaydi."
+    }
+  },
+  "account": {
+    "shell": {
+      "title": "Akkaunt",
+      "subtitle": "Profil, bildirishnomalar va interfeys tilini boshqaring."
+    },
+    "nav": {
+      "label": "Akkaunt bo‘limlari",
+      "profile": "Profil",
+      "notifications": "Bildirishnomalar",
+      "leads": "Mening so‘rovlarim"
+    },
+    "profile": {
+      "title": "Profil",
+      "subtitle": "Sotuvchilar bu ma'lumotlarni so‘rovlaringizda ko‘radi.",
+      "fields": {
+        "firstName": "Ism",
+        "lastName": "Familiya",
+        "position": "Lavozim",
+        "telegram": "Telegram",
+        "extraPhone": "Qo‘shimcha telefon",
+        "username": "Login",
+        "usernameHint": "Loginni o‘zgartirib bo‘lmaydi."
+      },
+      "placeholders": {
+        "position": "Masalan, xaridlar bo‘yicha menejer",
+        "telegram": "@username",
+        "extraPhone": "+998 90 123 45 67"
+      },
+      "validation": {
+        "firstNameRequired": "Ismingizni kiriting.",
+        "lastNameRequired": "Familiyangizni kiriting.",
+        "tooLong": "Qiymat juda uzun."
+      },
+      "save": "Saqlash",
+      "savePending": "Saqlanmoqda…",
+      "savedToast": "Profil yangilandi",
+      "errorToast": "Profilni saqlab bo‘lmadi",
+      "errorWithId": "Murojaat kodi: {id}",
+      "loadError": {
+        "title": "Profilni yuklab bo‘lmadi",
+        "body": "Sahifani yangilang. Agar xato qaytarsa, murojaat kodini yuboring.",
+        "correlationLabel": "Murojaat kodi:",
+        "retry": "Qayta urinish"
+      }
+    },
+    "avatar": {
+      "title": "Profil rasmi",
+      "subtitle": "PNG yoki JPEG, 5 MB gacha. Kvadrat rasm tavsiya etiladi.",
+      "choose": "Rasm yuklash",
+      "replace": "Almashtirish",
+      "uploading": "Yuklanmoqda…",
+      "previewAlt": "Avatar ko‘rinishi",
+      "currentAlt": "Joriy avatar",
+      "replacedToast": "Rasm yangilandi",
+      "errorToast": "Rasmni yuklab bo‘lmadi",
+      "errorWithId": "Murojaat kodi: {id}",
+      "validation": {
+        "type": "Faqat PNG yoki JPEG qo‘llab-quvvatlanadi.",
+        "size": "Fayl 5 MB dan katta."
+      }
+    },
+    "language": {
+      "title": "Interfeys tili",
+      "subtitle": "SKLADx xabarlari va xatlari tanlangan tilda keladi.",
+      "options": {
+        "ru": "Русский",
+        "en": "English",
+        "uz": "O‘zbekcha"
+      },
+      "savedToast": "Interfeys tili yangilandi",
+      "errorToast": "Tilni almashtirib bo‘lmadi",
+      "errorWithId": "Murojaat kodi: {id}"
+    },
+    "links": {
+      "leads": {
+        "title": "Mening so‘rovlarim",
+        "body": "Sotuvchilarga yuborilgan so‘rovlar tarixi va holati.",
+        "cta": "Ochish"
+      },
+      "notifications": {
+        "title": "Bildirishnomalar",
+        "body": "Bildirishnoma kanallari va obunalar.",
+        "cta": "Sozlash"
+      }
+    }
+  },
+  "maps": {
+    "leaflet": {
+      "regionLabel": "Xarita",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  "aiAgent": {
+    "button": {
+      "label": "AI agent",
+      "ariaLabel": "AI-agentni ochish (⌘+K)"
+    },
+    "drawer": {
+      "title": "AI-agent tez orada",
+      "body": "SKLADx aqlli yordamchisi yetkazib beruvchi topishga, so‘rov tayyorlashga va keyingi qadamni topishga yordam beradi — biz uni ishga tushirishga tayyorlayapmiz.",
+      "bullet1": "Yetkazib beruvchilarni mahsulot nomi bo‘yicha emas, kerakli vazifa bo‘yicha qidirish.",
+      "bullet2": "Sotib olish tarixiga asoslangan avtomatik savat va so‘rovlar.",
+      "bullet3": "So‘rov holatlari va sotuvchilar bilan yozishmalar bo‘yicha eslatmalar.",
+      "notifyCta": "Ishga tushganida xabar ber",
+      "dismiss": "Yopish",
+      "notifyToastTitle": "Rahmat! Ishga tushganida xat yuboramiz.",
+      "notifyToastBody": "Hisobingizga bog‘langan elektron pochtaga yuboriladi."
+    }
+  },
+  "report": {
+    "trigger": "Shikoyat qilish",
+    "triggerAria": "{target} haqida shikoyat qilish",
+    "title": "Shikoyat yuborish",
+    "descriptionGeneric": "Ushbu {target} bilan nima muammoligini yozing. Moderator 24 soat ichida ko‘rib chiqadi.",
+    "descriptionWithLabel": "{target} haqida shikoyat: {label}. Moderator 24 soat ichida ko‘rib chiqadi.",
+    "target": {
+      "PRODUCT": "mahsulot",
+      "COMPANY": "kompaniya",
+      "CHAT": "yozishma"
+    },
+    "reasonLabel": "Sabab",
+    "reason": {
+      "SAME": {
+        "title": "Takroriy e’lon",
+        "body": "Aynan shu mahsulot bozorda allaqachon mavjud."
+      },
+      "FAKE": {
+        "title": "Noto‘g‘ri ma’lumot",
+        "body": "Narx, mavjudlik yoki tavsif haqiqatga to‘g‘ri kelmaydi."
+      },
+      "OFFENSIVE": {
+        "title": "Haqorat yoki taqiqlangan kontent",
+        "body": "Matn, rasm yoki xulq-atvor jamoa qoidalarini buzadi."
+      },
+      "DUPLICATE": {
+        "title": "Bitta sotuvchidan takror",
+        "body": "Aynan shu mahsulot bir necha marta qo‘yilgan."
+      },
+      "SCAM": {
+        "title": "Aldov / firibgarlik",
+        "body": "Oldindan to‘lov, soxta mahsulot yoki fishing alomatlari."
+      }
+    },
+    "commentLabel": "Izoh",
+    "commentHint": "Ixtiyoriy. Tafsilotlar moderatorga yordam beradi.",
+    "commentPlaceholder": "Masalan: aynan shu mahsulot № 4521 raqami bilan bor.",
+    "submit": "Yuborish",
+    "submitPending": "Yuborilmoqda…",
+    "submitError": "Shikoyat yuborilmadi. Qayta urinib ko‘ring.",
+    "correlationId": "Murojaat kodi: {id}",
+    "toast": {
+      "successTitle": "Rahmat! Shikoyat qabul qilindi.",
+      "successBody": "Moderator 24 soat ichida ko‘rib chiqadi."
+    },
+    "validation": {
+      "reasonRequired": "Sababni tanlang.",
+      "commentMax": "Izoh {max} belgidan oshmasligi kerak."
+    }
+  },
+  "moderator": {
+    "title": "Moderator paneli",
+    "tabs": {
+      "ariaLabel": "Moderator paneli bo'limlari",
+      "overview": "Umumiy",
+      "products": "Mahsulotlar",
+      "companies": "Kompaniyalar",
+      "reports": "Shikoyatlar",
+      "accounts": "Akkauntlar"
+    },
+    "loadError": {
+      "title": "Ma'lumotlarni yuklab bo'lmadi",
+      "description": "Sahifani yangilang.",
+      "retry": "Qayta urinish",
+      "correlationLabel": "Murojaat kodi:"
+    },
+    "common": {
+      "approve": "Tasdiqlash",
+      "reject": "Rad etish",
+      "block": "Bloklash",
+      "unblock": "Blokdan chiqarish",
+      "accept": "Qabul qilish",
+      "loading": "Yuklanmoqda…",
+      "saving": "Saqlanmoqda…",
+      "actionError": "Amal bajarilmadi. Qayta urinib ko'ring.",
+      "actionSuccess": "Tayyor.",
+      "reasonPlaceholder": "Sabab (ixtiyoriy)",
+      "reasonRequired": "Sababni ko'rsating",
+      "cancel": "Bekor qilish",
+      "confirm": "Tasdiqlash"
+    },
+    "overview": {
+      "kpi": {
+        "productsPending": "Tekshiruvdagi mahsulotlar",
+        "companiesPending": "Kutilayotgan kompaniyalar",
+        "reportsNew": "Shikoyatlar"
+      },
+      "recent": {
+        "title": "So'nggi amallar",
+        "empty": "Hozircha moderatsiya uchun amallar yo'q.",
+        "statusPending": "Tekshiruvda"
+      }
+    },
+    "products": {
+      "subtabs": {
+        "pending": "Tekshiruvdagi mahsulotlar",
+        "my": "Mening mahsulotlarim",
+        "draft": "Qoralama"
+      },
+      "queueTitle": "Tekshiruvdagi mahsulotlar",
+      "empty": {
+        "title": "Navbat bo'sh",
+        "description": "Barcha mahsulotlar tekshirilgan."
+      },
+      "approveSuccess": "Mahsulot tasdiqlandi.",
+      "rejectSuccess": "Mahsulot rad etildi.",
+      "noDescriptionBadge": "Tavsif yo'q",
+      "noPhotoBadge": "Surat yo'q",
+      "myEmpty": "Sizning mahsulotlaringiz yo'q.",
+      "draftEmpty": "Qoralamalar yo'q."
+    },
+    "companies": {
+      "queueTitle": "Kompaniyalarni tekshirish",
+      "empty": {
+        "title": "Navbat bo'sh",
+        "description": "Barcha kompaniyalar tekshirilgan."
+      },
+      "approveSuccess": "Kompaniya tasdiqlandi.",
+      "rejectSuccess": "Kompaniya rad etildi.",
+      "statusReady": "Tekshiruvga tayyor",
+      "statusIssues": "Muammolar",
+      "documentsLabel": "Hujjatlar",
+      "documents": {
+        "registration": "Ro'yxatdan o'tish guvohnomasi",
+        "charter": "Kompaniya ustavi",
+        "charterMissing": "Ustav yo'q"
+      }
+    },
+    "reports": {
+      "queueTitle": "Shikoyatlar va buzilishlar",
+      "empty": {
+        "title": "Shikoyatlar yo'q",
+        "description": "Barcha murojaatlar ko'rib chiqilgan."
+      },
+      "resolveSuccess": "Shikoyat hal qilindi.",
+      "rejectSuccess": "Shikoyat rad etildi.",
+      "rejectAction": "Shikoyatni rad etish",
+      "warnAction": "Ogohlantirish",
+      "blockAction": "Bloklash",
+      "warnComingSoon": "Ogohlantirishlar tez orada",
+      "warnComingSoonBody": "API tayyor bo'lganda yoqamiz.",
+      "blockChatUnavailable": "Chatni to'g'ridan-to'g'ri bloklab bo'lmaydi.",
+      "detailsToggle": "Batafsil",
+      "detailsCollapse": "Yopish",
+      "detailError": "Shikoyat tafsilotlarini yuklab bo'lmadi.",
+      "noComment": "Tavsif ko'rsatilmagan.",
+      "targetType": {
+        "PRODUCT": "Mahsulot",
+        "COMPANY": "Kompaniya",
+        "CHAT": "Chat"
+      },
+      "reasonCode": {
+        "SAME": "Dublikat",
+        "FAKE": "Soxta e'lon",
+        "OFFENSIVE": "Haqoratomuz kontent",
+        "DUPLICATE": "Takror",
+        "SCAM": "Firibgarlik"
+      }
+    },
+    "accounts": {
+      "title": "Akkauntlarni boshqarish",
+      "empty": {
+        "title": "Akkauntlar yo'q",
+        "description": "Qidiruv filtrini o'zgartirib ko'ring."
+      },
+      "columns": {
+        "user": "Foydalanuvchilar",
+        "role": "Rollar",
+        "email": "Email",
+        "createdDate": "Ro'yxatdan o'tgan",
+        "warnings": "Ogohlantirishlar",
+        "status": "Status",
+        "actions": "Amallar"
+      },
+      "status": {
+        "ACTIVE": "Faol",
+        "IN_REGISTRATION": "Ro'yxatdan o'tmoqda",
+        "BLOCK": "Bloklangan"
+      },
+      "role": {
+        "BUYER": "Xaridor",
+        "SELLER": "Sotuvchi",
+        "ADMIN": "Admin",
+        "SUPER_ADMIN": "Super-admin",
+        "MODERATOR": "Moderator"
+      },
+      "actions": {
+        "openMenuAria": "{name} uchun amallar",
+        "block": "Bloklash",
+        "unblock": "Blokdan chiqarish",
+        "blockReasonPlaceholder": "Bloklash sababi"
+      },
+      "blockSuccess": "Foydalanuvchi bloklandi.",
+      "unblockSuccess": "Foydalanuvchi blokdan chiqarildi."
+    }
+  },
+  "addProduct": {
+    "trigger": "Mahsulot qo'shish",
+    "title": "Mahsulot qo'shish",
+    "saleType": {
+      "WHOLESALE": "Optom",
+      "RETAIL": "Dona"
+    },
+    "fields": {
+      "name": "Mahsulot nomi",
+      "category": "Kategoriya",
+      "unit": "O'lchov birligi",
+      "price": "Narx",
+      "minOrder": "Min. buyurtma",
+      "description": "Mahsulot tavsifi",
+      "photos": "Mahsulot suratlari"
+    },
+    "placeholders": {
+      "name": "Po'lat list",
+      "category": "Kategoriyani tanlang",
+      "unit": "Tonna",
+      "price": "0",
+      "minOrder": "1",
+      "description": "Mahsulot tavsifi, xususiyatlari ..."
+    },
+    "units": {
+      "TON": "Tonna",
+      "KG": "Kg",
+      "PIECE": "Dona",
+      "M": "m",
+      "M2": "m²",
+      "M3": "m³",
+      "L": "L",
+      "PACK": "Paket"
+    },
+    "upload": {
+      "title": "Faylni bosing yoki tashlang",
+      "hint": "PNG, JPG 5MB gacha",
+      "selectedCount": "{count, plural, =0 {Fayl tanlanmagan} one {# fayl} other {# fayl}}",
+      "tooLarge": "Fayl 5 MB dan oshib ketdi.",
+      "wrongType": "Faqat PNG va JPEG qo'llab-quvvatlanadi.",
+      "uploading": "Suratlar yuklanmoqda…"
+    },
+    "submit": {
+      "draft": "Qoralama saqlash",
+      "moderation": "Moderatsiyaga yuborish",
+      "saving": "Saqlanmoqda…",
+      "successDraft": "Qoralama saqlandi.",
+      "successModeration": "Mahsulot moderatsiyaga yuborildi.",
+      "error": "Mahsulotni saqlab bo'lmadi.",
+      "photoUploadWarning": "Mahsulot saqlandi, lekin ba'zi suratlar yuklanmadi.",
+      "correlationId": "Murojaat kodi: {id}"
+    },
+    "validation": {
+      "nameRequired": "Mahsulot nomini kiriting.",
+      "categoryRequired": "Kategoriyani tanlang.",
+      "unitRequired": "O'lchov birligini tanlang.",
+      "priceRequired": "Narxni kiriting.",
+      "minOrderRequired": "Minimal buyurtmani kiriting.",
+      "descriptionRequired": "Mahsulot haqida yozing."
+    },
+    "noCompanyHint": "Kompaniya hali tasdiqlanmagan. Mahsulot qo'shish uchun tasdiqlashni yakunlang."
+  }
+}

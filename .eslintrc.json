@@ -1,0 +1,53 @@
+{
+  "extends": ["next/core-web-vitals", "plugin:jsx-a11y/recommended", "plugin:tailwindcss/recommended"],
+  "plugins": ["import"],
+  "settings": {
+    "tailwindcss": {
+      "callees": ["cn", "clsx", "cva"]
+    }
+  },
+  "rules": {
+    "no-console": "error",
+    "import/order": [
+      "warn",
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+        "newlines-between": "always",
+        "alphabetize": { "order": "asc", "caseInsensitive": true }
+      }
+    ],
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "Literal[value=/(?:bg|text|border|fill|stroke|from|to|via|ring|outline|decoration|placeholder|caret|accent|divide)-\\[#[0-9a-fA-F]{3,8}\\]/]",
+        "message": "No raw hex colors in Tailwind class strings. Consume a token from styles/tokens.css."
+      },
+      {
+        "selector": "Literal[value=/(?:bg|text|border|ring|from|to|via)-\\[(?:rgb|hsl|rgba|hsla)\\(/]",
+        "message": "No raw rgb/hsl colors in Tailwind class strings. Consume a token from styles/tokens.css."
+      },
+      {
+        "selector": "Literal[value=/\\brounded-\\[(?!inherit\\]|initial\\]|unset\\])[^\\]]+\\]/]",
+        "message": "No arbitrary radius values. Use rounded-sm|md|lg|xl|full tokens."
+      },
+      {
+        "selector": "Literal[value=/\\bshadow-\\[(?!inherit\\]|initial\\]|unset\\]|none\\])[^\\]]+\\]/]",
+        "message": "No arbitrary shadow values. Use shadow-xs|sm|md|lg tokens."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["lib/log.ts"],
+      "rules": { "no-console": "off" }
+    },
+    {
+      "files": ["**/*.test.ts", "**/*.test.tsx", "lib/test/**/*.ts"],
+      "rules": {
+        "no-console": "off",
+        "tailwindcss/no-custom-classname": "off",
+        "tailwindcss/enforces-shorthand": "off"
+      }
+    }
+  ]
+}

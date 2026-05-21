@@ -1,0 +1,1564 @@
+{
+  "errors": {
+    "generic": "Something went wrong.",
+    "notFound": "Page not found.",
+    "withId": "Something went wrong. Reference: {id}",
+    "unauthorized": "You need to sign in."
+  },
+  "seller": {
+    "onboarding": {
+      "eyebrow": "Company registration",
+      "title": "Tell us about your company",
+      "description": "Three short steps. After moderator review your company appears in the directory.",
+      "steps": {
+        "profile": "Profile",
+        "contact": "Contacts",
+        "branding": "Logo and cover"
+      },
+      "fields": {
+        "name": "Company name",
+        "shortDescription": "Short description",
+        "description": "Full description",
+        "stir": "Tax ID (STIR)",
+        "phonePrimary": "Primary phone",
+        "phoneSecondary": "Secondary phone",
+        "website": "Website",
+        "region": "Region",
+        "district": "District",
+        "address": "Address",
+        "logo": "Logo",
+        "cover": "Profile cover"
+      },
+      "placeholders": {
+        "name": "e.g., \"Altyn Cement\"",
+        "shortDescription": "What your company does",
+        "description": "Profile, regions, experience",
+        "stir": "e.g., 123456789",
+        "phone": "+998 90 123 45 67",
+        "phoneSecondary": "Optional",
+        "website": "https://example.uz",
+        "region": "Pick a region",
+        "district": "Pick a district",
+        "districtPickRegion": "Pick a region first",
+        "address": "City, street, building"
+      },
+      "hints": {
+        "shortDescription": "Up to 160 characters — shown on the company card.",
+        "stir": "9–14 digits.",
+        "logo": "PNG or JPEG, up to 5 MB. Square images work best.",
+        "cover": "PNG or JPEG, recommended 1600×400.",
+        "coverGap": "The cover image isn't returned by the public profile endpoint yet — we'll show it as soon as backend exposes it."
+      },
+      "filePicker": {
+        "choose": "Choose file"
+      },
+      "validation": {
+        "nameRequired": "Enter the company name.",
+        "stirRequired": "Enter the tax ID.",
+        "stirFormat": "Tax ID must contain 9–14 digits.",
+        "phoneRequired": "Enter a phone number.",
+        "phoneFormat": "Check the phone format.",
+        "websiteFormat": "Website URL is too long.",
+        "regionRequired": "Pick a region.",
+        "districtRequired": "Pick a district.",
+        "addressRequired": "Enter the address.",
+        "shortDescMax": "160 characters max.",
+        "descMax": "2000 characters max."
+      },
+      "back": "Back",
+      "next": "Next",
+      "submit": "Submit for review",
+      "submitting": "Submitting…",
+      "submitError": "Couldn't create the company. Check the fields and try again.",
+      "successToast": "Company submitted for review. We'll let you know.",
+      "correlationId": "Reference: {id}"
+    },
+    "dashboard": {
+      "header": {
+        "title": "Seller panel",
+        "addProduct": "Add product",
+        "addProductAria": "Add a new product",
+        "addProductDisabledTooltip": "Available after company verification."
+      },
+      "tabs": {
+        "ariaLabel": "Seller dashboard sections",
+        "items": {
+          "overview": "Overview",
+          "products": "Products",
+          "leads": "Leads",
+          "messages": "Messages",
+          "settings": "Settings"
+        }
+      },
+      "statusBanner": {
+        "draftTitle": "Application not submitted",
+        "draftDescription": "Finish company registration to start publishing products.",
+        "pendingTitle": "Company under review",
+        "pendingDescription": "We'll review your application within a few business days. The dashboard is available in read-only mode.",
+        "rejectedTitle": "Company verification rejected",
+        "rejectedDescription": "Update the company info and submit again.",
+        "rejectedDescriptionWithReason": "Reason: {reason}. Update info and resubmit.",
+        "blockedTitle": "Company is blocked",
+        "blockedDescription": "Contact support to lift the block."
+      },
+      "overview": {
+        "comingTitle": "Overview soon",
+        "comingDescription": "KPIs and a sales-trend chart land in the next iteration.",
+        "loadErrorTitle": "Couldn't load overview",
+        "loadErrorDescription": "Try refreshing the page.",
+        "kpiSectionAria": "Key metrics",
+        "kpi": {
+          "activeProductsTitle": "Active products",
+          "openLeadsTitle": "Leads",
+          "contactsTitle": "Contacts"
+        },
+        "trend": {
+          "title": "Trend",
+          "ariaLabel": "Sales trend",
+          "seriesLeads": "Stock",
+          "seriesRevenue": "Total revenue",
+          "seriesProfit": "Total profit",
+          "stubLeadsValue": "1,500",
+          "stubRevenueValue": "$3,500",
+          "stubProfitValue": "$3,500",
+          "stubDelta": "+3.4% last month",
+          "tooltipLeads": "Stock",
+          "tooltipRevenue": "Revenue",
+          "tooltipProfit": "Profit"
+        },
+        "recent": {
+          "title": "Recently sold",
+          "seeAll": "All products",
+          "empty": "No completed deals yet.",
+          "badge": "Sold",
+          "priceNegotiable": "Negotiable"
+        }
+      },
+      "products": {
+        "comingTitle": "Products soon",
+        "comingDescription": "Upload products and manage your catalog — coming in the next step.",
+        "loadErrorTitle": "Couldn't load products",
+        "loadErrorDescription": "Check your connection and try again.",
+        "listTitle": "Product list",
+        "emptyTitle": "No products yet",
+        "emptyDescription": "Add your first product to appear in the catalog.",
+        "emptyCta": "Add product",
+        "moderation": {
+          "approved": "Published",
+          "pending": "In moderation",
+          "rejected": "Rejected",
+          "archived": "Archived"
+        },
+        "row": {
+          "active": "Active",
+          "inactive": "Hidden",
+          "priceFromPrefix": "from",
+          "priceNegotiable": "Negotiable",
+          "editAria": "Edit product «{name}»",
+          "deleteAria": "Delete product «{name}»",
+          "confirmTitle": "Delete «{name}»?",
+          "confirmDescription": "This can't be undone. The product will be removed from the catalog.",
+          "deleteError": "Couldn't delete the product. Please try again.",
+          "deleted": "«{name}» deleted",
+          "cancel": "Cancel",
+          "confirm": "Delete",
+          "deleting": "Deleting…"
+        },
+        "form": {
+          "createTitle": "New product",
+          "editTitle": "Edit «{name}»",
+          "noCompanyTitle": "Register your company first",
+          "noCompanyDescription": "You can't add products without a company. Finish onboarding.",
+          "categoryErrorTitle": "Couldn't load categories",
+          "categoryErrorDescription": "Check your connection and refresh.",
+          "loadErrorTitle": "Couldn't load product",
+          "loadErrorDescription": "Try refreshing the page.",
+          "fields": {
+            "name": "Name",
+            "shortDescription": "Short description",
+            "description": "Description",
+            "category": "Category",
+            "priceType": "Price type",
+            "saleType": "Sale type",
+            "price": "Price",
+            "currency": "Currency",
+            "minProduct": "Minimum order",
+            "region": "Region",
+            "district": "District"
+          },
+          "placeholders": {
+            "name": "e.g., \"Galvanized roll\"",
+            "shortDescription": "Short product blurb",
+            "description": "Sizes, composition, delivery options",
+            "category": "Pick a category",
+            "price": "0",
+            "region": "Pick a region",
+            "district": "Pick a district",
+            "districtPickRegion": "Pick a region first"
+          },
+          "priceTypes": {
+            "FIXED": "Fixed",
+            "FROM_PRICE": "From price",
+            "NEGOTIABLE": "Negotiable"
+          },
+          "saleTypes": {
+            "WHOLESALE": "Wholesale",
+            "RETAIL": "Retail"
+          },
+          "attributesGap": "Dynamic attributes will land once the backend exposes per-category schemas.",
+          "submitError": "Couldn't save the product. Check the fields and try again.",
+          "correlationId": "Reference: {id}",
+          "submitting": "Saving…",
+          "submitCreate": "Create",
+          "submitUpdate": "Save",
+          "createSuccess": "Product created and submitted for moderation.",
+          "updateSuccess": "Changes saved.",
+          "cancel": "Cancel"
+        },
+        "validation": {
+          "nameRequired": "Enter a name.",
+          "shortDescMax": "160 characters max.",
+          "descriptionRequired": "Describe the product.",
+          "categoryRequired": "Pick a category.",
+          "priceRequired": "Enter a price.",
+          "regionRequired": "Pick a region.",
+          "minProductRequired": "Enter the minimum."
+        }
+      },
+      "leads": {
+        "comingTitle": "Leads soon",
+        "comingDescription": "Buyer requests will appear here with accept/reject actions.",
+        "loadErrorTitle": "Couldn't load leads",
+        "loadErrorDescription": "Try refreshing the page.",
+        "listTitle": "Buyer requests",
+        "emptyTitle": "No leads yet",
+        "emptyDescription": "Buyer requests will show up here.",
+        "itemSummaryEmpty": "No items",
+        "status": {
+          "NEW": "New",
+          "VIEWED": "Viewed",
+          "CONTACTED": "In progress",
+          "CLOSED": "Closed",
+          "CANCELED": "Canceled"
+        },
+        "row": {
+          "accept": "Accept",
+          "acceptPending": "Saving…",
+          "reject": "Reject",
+          "write": "Write",
+          "rejectTitle": "Reject this lead?",
+          "rejectDescription": "Tell the buyer why — they'll see the reason.",
+          "reasonLabel": "Reason",
+          "reasonPlaceholder": "e.g., out of stock",
+          "reasonMinError": "Minimum {min} characters.",
+          "reasonMaxError": "Maximum {max} characters.",
+          "rejectConfirm": "Reject",
+          "rejectPending": "Rejecting…",
+          "cancel": "Cancel",
+          "acceptedToast": "Lead accepted.",
+          "rejectedToast": "Lead rejected.",
+          "updateError": "Couldn't update the status."
+        }
+      },
+      "messages": {
+        "comingTitle": "Messages soon",
+        "comingDescription": "Buyer chat lands when the messaging module is ready.",
+        "placeholderTitle": "Pick a conversation",
+        "placeholderDescription": "Open a thread on the left — it expands into the full chat.",
+        "openFullChats": "Open full chats"
+      },
+      "settings": {
+        "comingTitle": "Settings soon",
+        "comingDescription": "Company profile and tariffs — next iteration.",
+        "noCompanyTitle": "No company found",
+        "noCompanyDescription": "Finish onboarding to access settings.",
+        "loadErrorTitle": "Couldn't load settings",
+        "loadErrorDescription": "Check your connection and try again.",
+        "profile": {
+          "title": "Company profile",
+          "verified": "Verified",
+          "name": "Company name",
+          "industry": "Industry",
+          "industryUnknown": "—",
+          "phone": "Phone",
+          "email": "Email",
+          "emailMissing": "Not set",
+          "website": "Website",
+          "websiteMissing": "Not set",
+          "city": "City",
+          "edit": "Edit",
+          "editFieldAria": "Edit «{label}»"
+        },
+        "tariffs": {
+          "title": "Tariff plan",
+          "plans": {
+            "basic": { "name": "Basic", "price": "Free" },
+            "business": { "name": "Business", "price": "99,000 UZS / mo" },
+            "premium": { "name": "Premium", "price": "299,000 UZS / mo" }
+          },
+          "features": {
+            "productsLimit10": "10 products",
+            "basicSearch": "Basic search",
+            "productsLimit100": "100 products",
+            "searchPriority": "Search priority",
+            "salesAnalytics": "Sales analytics",
+            "productsUnlimited": "∞ products",
+            "topRanking": "Top ranking",
+            "advertising": "Advertising",
+            "aiTools": "AI tools"
+          }
+        }
+      }
+    }
+  },
+  "districtsStub": {
+    "tashkentChilanzar": "Chilanzar district",
+    "tashkentMirzoUlugbek": "Mirzo-Ulugbek district",
+    "tashkentYunusobod": "Yunusobod district",
+    "tashkentSergeli": "Sergeli district",
+    "samarkandCenter": "Center",
+    "samarkandUrgut": "Urgut",
+    "bukharaCenter": "Center",
+    "bukharaKagan": "Kagan",
+    "ferghanaCenter": "Center",
+    "ferghanaKokand": "Kokand",
+    "namanganCenter": "Center",
+    "namanganChartak": "Chartak",
+    "andijanCenter": "Center",
+    "andijanAsaka": "Asaka"
+  },
+  "system": {
+    "phaseZero": "Phase 0 — foundations ready."
+  },
+  "common": {
+    "retry": "Retry",
+    "tryAgain": "Try again",
+    "backHome": "Back to home",
+    "appName": "SKLADx",
+    "loading": "Loading…",
+    "save": "Save",
+    "saving": "Saving…",
+    "cancel": "Cancel",
+    "close": "Close"
+  },
+  "home": {
+    "search": {
+      "placeholder": "Search products"
+    },
+    "popular": {
+      "title": "Popular products",
+      "sectionLabel": "Popular products",
+      "emptyTitle": "No products yet",
+      "emptyDescription": "Check back later — we'll refresh the selection.",
+      "searchPlaceholder": "Search product"
+    },
+    "priceView": {
+      "label": "Price view",
+      "wholesale": "Wholesale",
+      "retail": "Per unit"
+    },
+    "banners": {
+      "topAria": "Promo banners — top",
+      "middleAria": "Promo banners — middle",
+      "sidebarAria": "Promo banners — sidebar",
+      "scheduled": "Promotions are coming here soon",
+      "itemAria": "Banner {index}"
+    }
+  },
+  "catalog": {
+    "title": "Product catalog",
+    "count": {
+      "total": "{count, plural, =0 {No products} one {# product} other {# products}}",
+      "loading": "Loading…"
+    },
+    "search": {
+      "placeholder": "Search products",
+      "suggestionsLabel": "Search suggestions"
+    },
+    "filters": {
+      "title": "Filters",
+      "categories": "Categories",
+      "allCategories": "All categories",
+      "price": "Price",
+      "priceFrom": "from",
+      "priceTo": "to",
+      "priceBackendGap": "Price filter ships when the API supports it.",
+      "regions": "Regions",
+      "allRegions": "All regions",
+      "inStockOnly": "In stock only",
+      "verifiedOnly": "Verified sellers",
+      "toggles": "Additional filters",
+      "reset": "Reset filters"
+    },
+    "map": {
+      "switchToMap": "Search on map",
+      "switchToGrid": "Product list",
+      "surfaceLabel": "Map with products",
+      "surfaceTitle": "Map with products",
+      "pinLabel": "Pin {id}"
+    },
+    "empty": {
+      "title": "Nothing matches your search",
+      "description": "Try adjusting your filters or use a different query."
+    }
+  },
+  "regionsStub": {
+    "tashkent": "Tashkent",
+    "samarkand": "Samarkand",
+    "bukhara": "Bukhara",
+    "ferghana": "Ferghana",
+    "namangan": "Namangan",
+    "andijan": "Andijan"
+  },
+  "productCard": {
+    "openLabel": "Open \"{name}\" product page",
+    "verified": "Verified",
+    "verifiedLabel": "Verified seller",
+    "price": {
+      "fromPrefix": "from",
+      "negotiable": "On request"
+    },
+    "favorite": {
+      "addLabel": "Add to favorites",
+      "removeLabel": "Remove from favorites",
+      "comingSoonTitle": "Favorites coming soon",
+      "comingSoonDescription": "We'll enable this feature in the next phase.",
+      "failureTitle": "Couldn't update favorites"
+    },
+    "cart": {
+      "add": "Add to cart",
+      "addedToast": "\"{name}\" added to cart",
+      "addedToastDescription": "Open the cart to send your request.",
+      "comingSoonTitle": "Cart coming soon",
+      "comingSoonDescription": "Adding to cart ships in the next phase."
+    }
+  },
+  "shell": {
+    "common": {
+      "home": "Home"
+    },
+    "sidebar": {
+      "label": "Side menu",
+      "navLabel": "Primary navigation",
+      "goHome": "Go to home",
+      "collapse": "Collapse",
+      "expand": "Expand",
+      "comingSoon": "Coming soon",
+      "items": {
+        "home": "Home",
+        "catalog": "Catalog",
+        "products": "Products",
+        "profile": "Profile",
+        "companies": "Companies",
+        "seller": "Seller panel",
+        "tariffs": "Plans"
+      }
+    },
+    "topbar": {
+      "brand": "SkladX Market",
+      "favorites": {
+        "label": "Favorites",
+        "countAria": "Favorites, {count, plural, one {# item} other {# items}}",
+        "comingSoonTitle": "Favorites coming soon"
+      },
+      "messages": {
+        "label": "Messages",
+        "countAria": "Messages, {count, plural, one {# unread} other {# unread}}",
+        "comingSoonTitle": "Messages coming soon"
+      },
+      "cart": {
+        "label": "Cart",
+        "countAria": "Cart, {count, plural, one {# item} other {# items}}",
+        "comingSoonTitle": "Cart coming soon"
+      },
+      "comingSoonDescription": "We'll enable this feature in the next phase."
+    },
+    "notifications": {
+      "label": "Notifications",
+      "emptyTitle": "No notifications yet",
+      "emptyBody": "You'll see important events here."
+    },
+    "userMenu": {
+      "openLabel": "Open profile menu for {name}",
+      "login": "Sign in",
+      "register": "Register",
+      "logout": "Sign out",
+      "logoutPending": "Signing out…",
+      "logoutFailed": "Couldn't sign out. Try again.",
+      "leads": "My requests",
+      "sellerPanel": "Seller dashboard",
+      "moderatorPanel": "Moderator dashboard",
+      "companyProfile": "Company profile",
+      "settings": "Settings",
+      "role": {
+        "admin": "Admin",
+        "moderator": "Moderator",
+        "seller": "Seller",
+        "buyer": "Buyer"
+      }
+    }
+  },
+  "categoryExplorer": {
+    "label": "Catalog",
+    "title": "All categories",
+    "empty": "No categories loaded yet"
+  },
+  "feedback": {
+    "emptyDefault": {
+      "title": "Nothing here yet",
+      "description": "When there is data to show, it will appear here.",
+      "cta": "Refresh"
+    },
+    "errorDefault": {
+      "title": "We couldn't load this",
+      "description": "Try again. If it keeps failing, share the reference below with support.",
+      "retry": "Retry",
+      "correlationId": "Reference: {id}"
+    }
+  },
+  "pagination": {
+    "label": "Pagination",
+    "previous": "Previous",
+    "next": "Next",
+    "of": "Page {current} of {total}",
+    "pageLabel": "Page {page}"
+  },
+  "search": {
+    "placeholder": "Search…",
+    "clear": "Clear search"
+  },
+  "status": {
+    "verification": {
+      "draft": "Draft",
+      "pending": "Pending review",
+      "verified": "Verified",
+      "rejected": "Rejected"
+    },
+    "lead": {
+      "NEW": "New",
+      "VIEWED": "Viewed",
+      "CONTACTED": "In progress",
+      "CLOSED": "Closed",
+      "CANCELED": "Canceled"
+    },
+    "product": {
+      "DRAFT": "Draft",
+      "PENDING": "In moderation",
+      "APPROVED": "Published",
+      "ARCHIVED": "Archived"
+    },
+    "report": {
+      "NEW": "New",
+      "RESOLVED": "Resolved",
+      "REJECTED": "Rejected"
+    }
+  },
+  "productDetail": {
+    "notFoundTitle": "Product not found",
+    "notFoundBody": "Check the link or head back to the catalog — the product may have been delisted.",
+    "backToCatalog": "Back to catalog",
+    "views": "{count, plural, =0 {No views} one {# view} other {# views}}",
+    "stock": {
+      "inStock": "In stock"
+    },
+    "rating": {
+      "ariaLabel": "Rating {rating} of 5",
+      "noReviews": "No reviews yet"
+    },
+    "price": {
+      "fromPrefix": "from",
+      "negotiable": "On request",
+      "perUnit": "per {unit}",
+      "minOrder": "Minimum order: {quantity} {unit}",
+      "minOrderNoUnit": "Minimum order: {quantity}",
+      "totalLabel": "Total"
+    },
+    "quantity": {
+      "label": "Quantity",
+      "decrease": "Decrease by one",
+      "increase": "Increase by one",
+      "unit": "{unit, select, ton {tons} kg {kg} piece {pcs} m {m} m2 {m²} other {{unit}}}"
+    },
+    "cta": {
+      "addToCart": "Add to cart",
+      "addToCartComingSoon": "Cart is coming in the next phase.",
+      "contactSeller": "Message seller",
+      "call": "Call seller",
+      "addToFavorites": "Add to favorites",
+      "share": "Share",
+      "shareCopied": "Link copied",
+      "shareFailed": "Could not copy link"
+    },
+    "tabs": {
+      "description": "Description",
+      "attributes": "Specifications",
+      "delivery": "Delivery",
+      "reviews": "Reviews"
+    },
+    "description": {
+      "empty": {
+        "title": "No description yet",
+        "description": "The seller has not added a description. Ask via chat."
+      }
+    },
+    "attributes": {
+      "empty": {
+        "title": "No specifications yet",
+        "description": "The seller has not added specifications for this product."
+      },
+      "label": {
+        "category": "Category",
+        "material": "Material",
+        "dimensions": "Dimensions",
+        "weight": "Weight",
+        "color": "Color",
+        "minOrder": "Minimum order",
+        "leadTime": "Lead time",
+        "availability": "Availability",
+        "unit": "Unit"
+      },
+      "value": {
+        "yes": "Yes",
+        "no": "No"
+      }
+    },
+    "delivery": {
+      "placeholder": "Confirm delivery terms with the seller.",
+      "safeDeal": {
+        "title": "Safe transaction",
+        "body": "Payments go through the platform."
+      },
+      "verifiedCompany": {
+        "title": "Verified company",
+        "body": "The seller has passed verification."
+      },
+      "originalDocs": {
+        "title": "Original documents",
+        "body": "Certificates and shipping notes included."
+      }
+    },
+    "reviews": {
+      "emptyTitle": "No reviews yet",
+      "emptyBody": "We will wire reviews in later phases."
+    },
+    "seller": {
+      "heading": "About the seller",
+      "rating": "Rating",
+      "reviews": "Reviews",
+      "products": "Products",
+      "gotoProfile": "Go to company page"
+    },
+    "similar": {
+      "heading": "Similar products"
+    },
+    "trust": {
+      "safeDeal": "Safe deal through the platform",
+      "verifiedData": "Verified company information",
+      "originalProducts": "Original products with documents"
+    },
+    "contactSeller": {
+      "comingSoonTitle": "Messaging coming soon",
+      "comingSoonBody": "We will wire chat with the seller in the next phase.",
+      "cta": "Message seller"
+    },
+    "imageGallery": {
+      "label": "Product photos",
+      "next": "Next photo",
+      "previous": "Previous photo",
+      "thumbnailLabel": "Photo {index} of {total}",
+      "placeholder": "No photos uploaded yet."
+    }
+  },
+  "favorites": {
+    "title": "Favorites",
+    "count": "{count, plural, =0 {No items} one {# item} other {# items}}",
+    "search": {
+      "placeholder": "Search product"
+    },
+    "map": {
+      "switchToMap": "Search on map",
+      "comingSoonTitle": "Map view coming soon",
+      "comingSoonDescription": "We'll wire the map for favorites in the next phase."
+    },
+    "tabs": {
+      "products": "Products",
+      "companies": "Companies",
+      "companiesDisabledTooltip": "Company favorites ship when the API supports them."
+    },
+    "empty": {
+      "title": "Your favorites are empty",
+      "description": "Save products you like — they'll show up here.",
+      "cta": "Browse catalog"
+    },
+    "error": {
+      "title": "We couldn't load favorites",
+      "description": "Try refreshing. If it keeps failing, share the reference below with support.",
+      "correlationLabel": "Reference:"
+    },
+    "toggle": {
+      "addedToast": "Added to favorites",
+      "removedToast": "Removed from favorites",
+      "errorToast": "Couldn't update favorites.",
+      "errorWithId": "Reference: {id}"
+    }
+  },
+  "cart": {
+    "title": "Cart",
+    "addMore": "Add more products",
+    "empty": {
+      "title": "Your cart is empty",
+      "description": "Add products from the catalog to send a request to suppliers.",
+      "cta": "Browse catalog"
+    },
+    "lineItem": {
+      "removeAria": "Remove \"{name}\" from cart",
+      "unitPriceSuffix": " / unit",
+      "negotiable": "On request"
+    },
+    "summary": {
+      "title": "Total",
+      "total": "Total",
+      "totalNegotiationNote": "Final price is negotiated with the supplier.",
+      "submit": "Send request",
+      "submitting": "Sending…",
+      "messageSeller": "Message seller",
+      "messageSellerComingSoonTitle": "Messaging coming soon",
+      "messageSellerComingSoonBody": "We will wire chat with the seller in the next phase.",
+      "trustTitle": "Safe transaction",
+      "trustBody": "Your request goes directly to the supplier. Prices and terms are agreed in chat.",
+      "negotiable": "On request"
+    },
+    "submit": {
+      "successToast": "Request sent to suppliers.",
+      "errorToast": "Couldn't send your request. Try again.",
+      "partialFailureToast": "Some suppliers didn't receive your request.",
+      "partialFailureTitle": "Some requests failed",
+      "partialFailureBody": "Couldn't reach {count, plural, one {# supplier} other {# suppliers}}. Try again.",
+      "correlationLabel": "Reference:",
+      "retryFailed": "Retry"
+    },
+    "contact": {
+      "title": "Contact details",
+      "description": "Suppliers will reach out using these details. You can edit them before sending.",
+      "nameLabel": "Name",
+      "namePlaceholder": "First and last name",
+      "phoneLabel": "Phone",
+      "phonePlaceholder": "+998…",
+      "commentLabel": "Comment",
+      "commentHint": "Optional. Mention specifics or deadlines.",
+      "commentPlaceholder": "e.g. needs delivery by May 1",
+      "submit": "Send request",
+      "submitting": "Sending…",
+      "signedOutHint": "Sign in to autofill your contact details."
+    }
+  },
+  "company": {
+    "directory": {
+      "title": "Companies",
+      "searchPlaceholder": "Search companies",
+      "viewToggle": {
+        "grid": "Company list",
+        "map": "Search on map",
+        "ariaLabel": "View mode"
+      },
+      "empty": {
+        "title": "No results match your query",
+        "description": "Try adjusting your query or returning to the full list."
+      },
+      "error": {
+        "title": "Couldn't load companies",
+        "description": "Try refreshing the page. If the problem persists, share the reference code with us.",
+        "correlationLabel": "Reference code:"
+      },
+      "map": {
+        "regionLabel": "City",
+        "regionTashkent": "Tashkent",
+        "surfaceLabel": "Companies map",
+        "surfaceTitle": "Map with companies",
+        "pinLabel": "Pin {id}",
+        "stubBody": "Sample data"
+      }
+    },
+    "card": {
+      "openLabel": "Open page of company \"{name}\"",
+      "tagline": "{industry} {region}",
+      "metrics": {
+        "rating": "Rating",
+        "reviews": "Reviews",
+        "products": "Products"
+      },
+      "cta": "Open company page",
+      "stubTooltip": "Company card is a mockup — it will be enabled once the public API ships.",
+      "favoriteAria": "Save company (soon)"
+    },
+    "ratingStars": {
+      "ariaLabel": "Rating {value} out of 5",
+      "noRatingAriaLabel": "No rating"
+    },
+    "verified": "Verified",
+    "unverified": "Pending review",
+    "verifiedAriaLabel": "Company is verified",
+    "profile": {
+      "title": "Profile",
+      "sellerPanelCta": "Seller panel",
+      "actions": {
+        "message": "Message",
+        "messageComingSoonTitle": "Messages coming soon",
+        "messageComingSoonBody": "Chat with the seller will be enabled in the next phase.",
+        "call": "Call",
+        "callComingSoon": "Phone not provided",
+        "map": "Map"
+      },
+      "stats": {
+        "rating": "Rating",
+        "reviews": "Reviews",
+        "products": "Products"
+      },
+      "about": {
+        "title": "About the seller",
+        "fallback": "Description not added yet."
+      },
+      "info": {
+        "title": "Information",
+        "location": "Location",
+        "industry": "Industry",
+        "founded": "Founded",
+        "products": "Products",
+        "founded_pending": "Soon",
+        "industry_pending": "Soon",
+        "products_pending": "—"
+      },
+      "contacts": {
+        "title": "Contacts",
+        "phone": "Phone",
+        "phoneSecondary": "Secondary phone",
+        "email": "Email",
+        "emailPending": "Soon",
+        "website": "Website"
+      },
+      "tabs": {
+        "products": "Products",
+        "productsWithCount": "Products ({count})",
+        "reviews": "Reviews",
+        "reviewsWithCount": "Reviews ({count})"
+      },
+      "products": {
+        "empty": {
+          "title": "Products coming soon",
+          "description": "We'll connect the public list of company products once the API is available."
+        }
+      },
+      "reviews": {
+        "empty": {
+          "title": "No reviews yet",
+          "description": "We'll enable reviews in upcoming phases."
+        }
+      },
+      "map": {
+        "title": "Map with stores",
+        "regionLabel": "City",
+        "pinLabel": "Address: {address}",
+        "stubNote": "Coordinates will appear once the API exposes them."
+      },
+      "notFound": {
+        "title": "Company not found",
+        "description": "Check the link — the profile may have been removed or not yet published.",
+        "cta": "Back to companies"
+      },
+      "error": {
+        "title": "Couldn't load company",
+        "description": "Try refreshing the page. If the problem persists, share the reference code with us.",
+        "correlationLabel": "Reference code:"
+      }
+    }
+  },
+  "auth": {
+    "tabs": {
+      "navLabel": "Switch between sign-in and sign-up",
+      "login": "Sign in",
+      "register": "Sign up"
+    },
+    "login": {
+      "title": "Sign in to SKLADx",
+      "submit": "Sign in",
+      "submitPending": "Signing in…",
+      "methodPhone": "Phone",
+      "methodEmail": "Email",
+      "phoneLabel": "Phone number",
+      "phonePlaceholder": "Phone number",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Email address",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter password",
+      "passwordShow": "Show password",
+      "passwordHide": "Hide password",
+      "forgotPassword": "Forgot password?",
+      "orDivider": "or",
+      "sso": "Sign in with SKLAD ERP",
+      "ssoTooltip": "Coming soon"
+    },
+    "register": {
+      "title": "Create your account",
+      "submit": "Register",
+      "submitPending": "Creating account…",
+      "roleBuyer": "Buyer",
+      "roleBuyerSubtitle": "I'm looking for products",
+      "roleSeller": "Seller",
+      "roleSellerSubtitle": "I sell products",
+      "nameLabel": "Name",
+      "namePlaceholder": "Name",
+      "companyLabel": "Company",
+      "companyPlaceholder": "Company",
+      "phoneLabel": "Phone number",
+      "phonePlaceholder": "Phone number",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Email",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter password",
+      "termsBefore": "By registering, you agree to our",
+      "termsLink": "terms of service",
+      "termsAnd": "and",
+      "privacyLink": "privacy policy",
+      "successToast": "We sent an email to {email}. Confirm your address to sign in."
+    },
+    "verify": {
+      "pendingTitle": "Checking your link…",
+      "successTitle": "Email verified",
+      "successBody": "All set. We'll redirect you to the sign-in page in a moment.",
+      "errorTitle": "Link is no longer valid",
+      "errorBody": "This link has expired or has already been used. Request a new email.",
+      "redirectingIn": "Redirecting in {seconds}s.",
+      "backToLogin": "Back to sign-in"
+    },
+    "reset": {
+      "title": "Reset password",
+      "body": "Enter the email you used to sign up. We'll send a confirmation code.",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Email address",
+      "submit": "Send email",
+      "submitPending": "Sending…",
+      "backToLogin": "Back to sign-in",
+      "successToast": "We sent a code to {email}."
+    },
+    "resetConfirm": {
+      "title": "Set a new password",
+      "body": "Enter the code from the email and your new password.",
+      "codeLabel": "Confirmation code",
+      "newPasswordLabel": "New password",
+      "newPasswordPlaceholder": "New password",
+      "newPasswordConfirmLabel": "Repeat password",
+      "newPasswordConfirmPlaceholder": "Repeat password",
+      "submit": "Save password",
+      "submitPending": "Saving…",
+      "successToast": "Password updated. Sign in with the new password."
+    },
+    "validation": {
+      "nameRequired": "Enter your name",
+      "nameTwoWords": "Enter first and last name separated by a space",
+      "passwordMin": "Password must be at least 8 characters",
+      "passwordRequired": "Enter your password",
+      "passwordMismatch": "Passwords do not match",
+      "emailRequired": "Enter your email",
+      "emailInvalid": "Enter a valid email",
+      "phoneInvalid": "Enter a valid phone number",
+      "phoneRequired": "Enter your phone number",
+      "codeFormat": "Enter the 6-digit code",
+      "usernameRequired": "Email not found in the link. Request a new email.",
+      "companyRequiredForSeller": "Enter your company name"
+    },
+    "errors": {
+      "accountLocked": "Too many attempts. Account is locked for 15 minutes.",
+      "wrongPassword": "Wrong email or password.",
+      "usernameNotFound": "No account matches these details.",
+      "usernameTaken": "This email is already registered. Try signing in.",
+      "verificationWrong": "Confirmation code is wrong or expired.",
+      "refreshExpired": "Session expired. Sign in again.",
+      "sessionExpired": "Session expired. Sign in again.",
+      "network": "We couldn't reach the server. Check your connection and try again.",
+      "generic": "Something went wrong. Please try again."
+    },
+    "correlationId": "Reference: {id}"
+  },
+  "leads": {
+    "title": "My requests",
+    "count": "{count, plural, =0 {No requests} one {# request} other {# requests}}",
+    "filter": {
+      "label": "Filter by status",
+      "all": "All"
+    },
+    "source": {
+      "PRODUCT": "From product page",
+      "CART": "From cart"
+    },
+    "row": {
+      "idLabel": "Request #{id}",
+      "openLabel": "Open request #{id}",
+      "itemCount": "{count, plural, one {# item} other {# items}}"
+    },
+    "empty": {
+      "title": "No requests yet",
+      "description": "Once you send a request to a supplier, it will appear here.",
+      "cta": "Browse catalog"
+    },
+    "emptyFiltered": {
+      "title": "No requests with this status",
+      "description": "Try a different status or clear the filter."
+    },
+    "error": {
+      "title": "We couldn't load your requests",
+      "description": "Try refreshing. If it keeps failing, share the reference below with support.",
+      "correlationLabel": "Reference:"
+    },
+    "detail": {
+      "title": "Request #{id}",
+      "titleLoading": "Loading request…",
+      "contactName": "Contact",
+      "contactPhone": "Phone",
+      "comment": "Comment",
+      "closeReason": "Close reason",
+      "itemsHeading": "Request items",
+      "qtyLabel": "Quantity: {qty}",
+      "error": {
+        "title": "We couldn't load this request",
+        "description": "Close and reopen the request. If it keeps failing, share the reference with support.",
+        "correlationLabel": "Reference:"
+      }
+    },
+    "cancel": {
+      "button": "Cancel request",
+      "confirmTitle": "Cancel this request?",
+      "confirmBody": "Are you sure you want to cancel request #{id}? This cannot be undone.",
+      "confirmCta": "Yes, cancel",
+      "confirmPending": "Cancelling…",
+      "cancelCta": "Not now",
+      "successToast": "Request cancelled.",
+      "errorToast": "Couldn't cancel the request."
+    }
+  },
+  "chats": {
+    "title": "Messages",
+    "list": {
+      "searchPlaceholder": "Search messages",
+      "unreadAria": "{count, plural, one {# unread message} other {# unread messages}}",
+      "empty": {
+        "title": "No messages yet",
+        "body": "When a seller replies, your conversations will appear here."
+      },
+      "error": {
+        "title": "Couldn't load messages",
+        "body": "Try refreshing the page. If it keeps failing, share the reference code with support.",
+        "correlationLabel": "Reference:",
+        "retry": "Retry"
+      }
+    },
+    "thread": {
+      "empty": {
+        "title": "Pick a conversation",
+        "body": "Choose a contact on the left to start chatting."
+      },
+      "notFound": {
+        "title": "Conversation not found",
+        "body": "It may have been hidden or removed.",
+        "cta": "Back to conversations"
+      },
+      "presence": {
+        "online": "Online",
+        "stub": "Offline"
+      },
+      "callAria": "Call",
+      "callStubTitle": "Calls coming soon",
+      "callStubBody": "Use the phone number listed on the company card.",
+      "actionsLabel": "Conversation actions",
+      "hide": "Hide conversation",
+      "hideSuccess": "Conversation hidden",
+      "hideError": "Couldn't hide conversation"
+    },
+    "messages": {
+      "empty": {
+        "title": "Send the first message",
+        "body": "Your conversation history will appear here."
+      },
+      "error": {
+        "title": "Couldn't load conversation",
+        "body": "Try again. If it keeps failing, share the reference code with support.",
+        "correlationLabel": "Reference:",
+        "retry": "Retry"
+      },
+      "loadOlder": "Load earlier messages",
+      "status": {
+        "sending": "Sending",
+        "sent": "Sent",
+        "delivered": "Delivered",
+        "read": "Read",
+        "failed": "Not sent"
+      },
+      "retry": "Retry send",
+      "attachmentLabel": "Attachment"
+    },
+    "composer": {
+      "placeholder": "Message",
+      "send": "Send",
+      "sendAria": "Send message",
+      "attachAria": "Attach image",
+      "emojiAria": "Emoji (coming soon)",
+      "rateLimitedToast": "Too many messages. Wait a few seconds.",
+      "errorToast": "Couldn't send the message.",
+      "errorWithId": "Reference: {id}",
+      "uploadFailed": "Couldn't upload attachment.",
+      "uploadInProgress": "Uploading attachment…",
+      "tooLargeToast": "The file is too large.",
+      "wrongTypeToast": "Only images can be attached."
+    },
+    "start": {
+      "errorToast": "Couldn't open the conversation.",
+      "errorWithId": "Reference: {id}",
+      "sellerOnlyToast": "Only buyers can start a conversation.",
+      "sellerOnlyBody": "Wait for the buyer to open a conversation."
+    },
+    "typing": "typing…",
+    "connection": {
+      "reconnectingTitle": "Reconnecting",
+      "reconnectingBody": "Your messages will be sent once the connection returns.",
+      "offlineTitle": "Connection lost",
+      "offlineBody": "Check your internet and refresh the page."
+    },
+    "header": {
+      "backToList": "Back to conversations",
+      "productLabel": "Linked to product"
+    }
+  },
+  "notifications": {
+    "inbox": {
+      "title": "Notifications",
+      "dropdownLabel": "Notifications",
+      "openSettings": "Notification settings",
+      "markAllRead": "Mark all read",
+      "markAllPending": "Marking…",
+      "markAllError": "Couldn't mark all as read",
+      "unreadDotAria": "Unread",
+      "newBadge": "New",
+      "empty": {
+        "title": "No notifications yet",
+        "body": "You'll see new requests, seller replies and messages here."
+      },
+      "error": {
+        "title": "Couldn't load notifications",
+        "body": "Try again. If it keeps failing, share the reference code with support.",
+        "correlationLabel": "Reference:",
+        "retry": "Retry"
+      }
+    },
+    "types": {
+      "leadNew": {
+        "title": "New request",
+        "body": "{productName, select, undefined {You received a new request.} other {Request for {productName}}}"
+      },
+      "leadStatusChanged": {
+        "title": "Request status changed",
+        "body": "Request #{leadId} moved to {newStatus}."
+      },
+      "chatNewMessage": {
+        "title": "New message",
+        "body": "{fromName, select, undefined {You have a new message.} other {{fromName}: new message}}"
+      },
+      "fallback": {
+        "title": "Notification",
+        "body": "Open to see the details."
+      }
+    },
+    "preferences": {
+      "title": "Notification settings",
+      "subtitle": "Choose which notifications you want to receive.",
+      "inApp": {
+        "title": "In-app",
+        "body": "Show notifications inside the browser and app."
+      },
+      "push": {
+        "title": "Push notifications",
+        "body": "Delivered to the mobile app."
+      },
+      "email": {
+        "title": "Email",
+        "body": "Send a copy of notifications to your email."
+      },
+      "save": "Save",
+      "savePending": "Saving…",
+      "savedToast": "Settings saved",
+      "errorToast": "Couldn't save settings",
+      "errorWithId": "Reference: {id}",
+      "loadError": {
+        "title": "Couldn't load settings",
+        "body": "Try refreshing the page. If it keeps failing, share the reference code.",
+        "correlationLabel": "Reference:"
+      },
+      "webPushNote": "Push notifications are delivered to the mobile app — they don't work on the web yet."
+    }
+  },
+  "account": {
+    "shell": {
+      "title": "Account",
+      "subtitle": "Manage your profile, notifications and interface language."
+    },
+    "nav": {
+      "label": "Account sections",
+      "profile": "Profile",
+      "notifications": "Notifications",
+      "leads": "My requests"
+    },
+    "profile": {
+      "title": "Profile",
+      "subtitle": "Sellers see this information when you contact them.",
+      "fields": {
+        "firstName": "First name",
+        "lastName": "Last name",
+        "position": "Position",
+        "telegram": "Telegram",
+        "extraPhone": "Secondary phone",
+        "username": "Login",
+        "usernameHint": "Login can't be changed."
+      },
+      "placeholders": {
+        "position": "e.g. procurement manager",
+        "telegram": "@username",
+        "extraPhone": "+998 90 123 45 67"
+      },
+      "validation": {
+        "firstNameRequired": "Enter your first name.",
+        "lastNameRequired": "Enter your last name.",
+        "tooLong": "Value is too long."
+      },
+      "save": "Save",
+      "savePending": "Saving…",
+      "savedToast": "Profile updated",
+      "errorToast": "Couldn't save the profile",
+      "errorWithId": "Reference: {id}",
+      "loadError": {
+        "title": "Couldn't load the profile",
+        "body": "Try refreshing the page. If it keeps failing, share the reference code.",
+        "correlationLabel": "Reference:",
+        "retry": "Retry"
+      }
+    },
+    "avatar": {
+      "title": "Profile photo",
+      "subtitle": "PNG or JPEG, up to 5 MB. A square image works best.",
+      "choose": "Upload photo",
+      "replace": "Replace",
+      "uploading": "Uploading…",
+      "previewAlt": "Avatar preview",
+      "currentAlt": "Current avatar",
+      "replacedToast": "Photo updated",
+      "errorToast": "Couldn't upload the photo",
+      "errorWithId": "Reference: {id}",
+      "validation": {
+        "type": "Only PNG or JPEG are supported.",
+        "size": "File is larger than 5 MB."
+      }
+    },
+    "language": {
+      "title": "Interface language",
+      "subtitle": "Notifications and emails from SKLADx will use this language.",
+      "options": {
+        "ru": "Русский",
+        "en": "English",
+        "uz": "O‘zbekcha"
+      },
+      "savedToast": "Interface language updated",
+      "errorToast": "Couldn't switch the language",
+      "errorWithId": "Reference: {id}"
+    },
+    "links": {
+      "leads": {
+        "title": "My requests",
+        "body": "History of your requests to sellers and their statuses.",
+        "cta": "Open"
+      },
+      "notifications": {
+        "title": "Notifications",
+        "body": "Notification channels and subscriptions.",
+        "cta": "Configure"
+      }
+    }
+  },
+  "maps": {
+    "leaflet": {
+      "regionLabel": "Map",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  "aiAgent": {
+    "button": {
+      "label": "AI agent",
+      "ariaLabel": "Open the AI agent (⌘+K)"
+    },
+    "drawer": {
+      "title": "AI agent — coming soon",
+      "body": "The SKLADx assistant will help you find suppliers, draft requests, and decide what to do next. We're getting it ready for launch.",
+      "bullet1": "Search suppliers by what you need, not just by product name.",
+      "bullet2": "Auto-build carts and requests from your purchase history.",
+      "bullet3": "Stay on top of request statuses and seller conversations.",
+      "notifyCta": "Notify me at launch",
+      "dismiss": "Close",
+      "notifyToastTitle": "Thanks — we'll email you at launch.",
+      "notifyToastBody": "We'll send it to the address linked to your account."
+    }
+  },
+  "report": {
+    "trigger": "Report",
+    "triggerAria": "Report this {target}",
+    "title": "Report this {target}",
+    "descriptionGeneric": "Tell us what's wrong with this {target}. A moderator will review your report within 24 hours.",
+    "descriptionWithLabel": "Report on {target}: {label}. A moderator will review it within 24 hours.",
+    "target": {
+      "PRODUCT": "product",
+      "COMPANY": "company",
+      "CHAT": "conversation"
+    },
+    "reasonLabel": "Reason",
+    "reason": {
+      "SAME": {
+        "title": "Duplicate listing",
+        "body": "The same product is already on the marketplace."
+      },
+      "FAKE": {
+        "title": "Misleading information",
+        "body": "Price, stock, or specs don't match reality."
+      },
+      "OFFENSIVE": {
+        "title": "Offensive content",
+        "body": "Text, images, or behavior breach community rules."
+      },
+      "DUPLICATE": {
+        "title": "Reposted by the same seller",
+        "body": "The same product has been listed multiple times."
+      },
+      "SCAM": {
+        "title": "Scam or fraud",
+        "body": "Suspected fraud: prepayment, fake goods, phishing."
+      }
+    },
+    "commentLabel": "Comment",
+    "commentHint": "Optional. Adding details helps the moderator triage faster.",
+    "commentPlaceholder": "e.g. The same product is already listed as № 4521.",
+    "submit": "Send",
+    "submitPending": "Sending…",
+    "submitError": "Couldn't send the report. Please try again.",
+    "correlationId": "Reference: {id}",
+    "toast": {
+      "successTitle": "Thanks — your report was sent.",
+      "successBody": "We'll review it within 24 hours."
+    },
+    "validation": {
+      "reasonRequired": "Please choose a reason.",
+      "commentMax": "Comment can't exceed {max} characters."
+    }
+  },
+  "moderator": {
+    "title": "Moderator dashboard",
+    "tabs": {
+      "ariaLabel": "Moderator dashboard sections",
+      "overview": "Overview",
+      "products": "Products",
+      "companies": "Companies",
+      "reports": "Reports",
+      "accounts": "Accounts"
+    },
+    "loadError": {
+      "title": "Couldn't load data",
+      "description": "Try refreshing the page.",
+      "retry": "Retry",
+      "correlationLabel": "Reference:"
+    },
+    "common": {
+      "approve": "Approve",
+      "reject": "Reject",
+      "block": "Block",
+      "unblock": "Unblock",
+      "accept": "Accept",
+      "loading": "Loading…",
+      "saving": "Saving…",
+      "actionError": "Action failed. Try again.",
+      "actionSuccess": "Done.",
+      "reasonPlaceholder": "Reason (optional)",
+      "reasonRequired": "Provide a reason",
+      "cancel": "Cancel",
+      "confirm": "Confirm"
+    },
+    "overview": {
+      "kpi": {
+        "productsPending": "Products in review",
+        "companiesPending": "Companies pending",
+        "reportsNew": "Reports"
+      },
+      "recent": {
+        "title": "Latest activity",
+        "empty": "Nothing to moderate yet.",
+        "statusPending": "Pending review"
+      }
+    },
+    "products": {
+      "subtabs": {
+        "pending": "Products in review",
+        "my": "My products",
+        "draft": "Drafts"
+      },
+      "queueTitle": "Products in review",
+      "empty": {
+        "title": "Queue is empty",
+        "description": "All products are reviewed."
+      },
+      "approveSuccess": "Product approved.",
+      "rejectSuccess": "Product rejected.",
+      "noDescriptionBadge": "Missing description",
+      "noPhotoBadge": "Missing photo",
+      "myEmpty": "No products yet.",
+      "draftEmpty": "No drafts."
+    },
+    "companies": {
+      "queueTitle": "Company verification",
+      "empty": {
+        "title": "Queue is empty",
+        "description": "All companies are reviewed."
+      },
+      "approveSuccess": "Company verified.",
+      "rejectSuccess": "Company rejected.",
+      "statusReady": "Ready to verify",
+      "statusIssues": "Issues",
+      "documentsLabel": "Documents",
+      "documents": {
+        "registration": "Registration certificate",
+        "charter": "Company charter",
+        "charterMissing": "Charter missing"
+      }
+    },
+    "reports": {
+      "queueTitle": "Reports and abuse",
+      "empty": {
+        "title": "No reports",
+        "description": "Everything is handled."
+      },
+      "resolveSuccess": "Report resolved.",
+      "rejectSuccess": "Report dismissed.",
+      "rejectAction": "Dismiss report",
+      "warnAction": "Warn",
+      "blockAction": "Block",
+      "warnComingSoon": "Warnings coming soon",
+      "warnComingSoonBody": "We'll wire this when the API ships.",
+      "blockChatUnavailable": "Chats can't be blocked directly.",
+      "detailsToggle": "Details",
+      "detailsCollapse": "Hide",
+      "detailError": "Couldn't load the report detail.",
+      "noComment": "No description provided.",
+      "targetType": {
+        "PRODUCT": "Product",
+        "COMPANY": "Company",
+        "CHAT": "Chat"
+      },
+      "reasonCode": {
+        "SAME": "Duplicate",
+        "FAKE": "Fake listing",
+        "OFFENSIVE": "Offensive content",
+        "DUPLICATE": "Repeated",
+        "SCAM": "Scam"
+      }
+    },
+    "accounts": {
+      "title": "Account management",
+      "empty": {
+        "title": "No accounts",
+        "description": "Try changing the search filter."
+      },
+      "columns": {
+        "user": "Users",
+        "role": "Roles",
+        "email": "Email",
+        "createdDate": "Registered",
+        "warnings": "Warnings",
+        "status": "Status",
+        "actions": "Actions"
+      },
+      "status": {
+        "ACTIVE": "Active",
+        "IN_REGISTRATION": "In registration",
+        "BLOCK": "Blocked"
+      },
+      "role": {
+        "BUYER": "Buyer",
+        "SELLER": "Seller",
+        "ADMIN": "Admin",
+        "SUPER_ADMIN": "Super admin",
+        "MODERATOR": "Moderator"
+      },
+      "actions": {
+        "openMenuAria": "Actions for {name}",
+        "block": "Block",
+        "unblock": "Unblock",
+        "blockReasonPlaceholder": "Reason for blocking"
+      },
+      "blockSuccess": "User blocked.",
+      "unblockSuccess": "User unblocked."
+    }
+  },
+  "addProduct": {
+    "trigger": "Add product",
+    "title": "Add product",
+    "saleType": {
+      "WHOLESALE": "Wholesale",
+      "RETAIL": "Per unit"
+    },
+    "fields": {
+      "name": "Product name",
+      "category": "Category",
+      "unit": "Unit",
+      "price": "Price",
+      "minOrder": "Min order",
+      "description": "Description",
+      "photos": "Product photos"
+    },
+    "placeholders": {
+      "name": "Steel sheet",
+      "category": "Choose category",
+      "unit": "Ton",
+      "price": "0",
+      "minOrder": "1",
+      "description": "Description, specs ..."
+    },
+    "units": {
+      "TON": "Ton",
+      "KG": "Kg",
+      "PIECE": "Piece",
+      "M": "m",
+      "M2": "m²",
+      "M3": "m³",
+      "L": "L",
+      "PACK": "Pack"
+    },
+    "upload": {
+      "title": "Click or drop a file",
+      "hint": "PNG, JPG up to 5MB",
+      "selectedCount": "{count, plural, =0 {No files selected} one {# file} other {# files}}",
+      "tooLarge": "File exceeds 5 MB.",
+      "wrongType": "Only PNG and JPEG are supported.",
+      "uploading": "Uploading photos…"
+    },
+    "submit": {
+      "draft": "Save draft",
+      "moderation": "Submit for review",
+      "saving": "Saving…",
+      "successDraft": "Draft saved.",
+      "successModeration": "Product submitted for review.",
+      "error": "Couldn't save product.",
+      "photoUploadWarning": "Product saved, but some photos failed to upload.",
+      "correlationId": "Reference: {id}"
+    },
+    "validation": {
+      "nameRequired": "Enter product name.",
+      "categoryRequired": "Choose a category.",
+      "unitRequired": "Choose a unit.",
+      "priceRequired": "Enter price.",
+      "minOrderRequired": "Enter minimum order.",
+      "descriptionRequired": "Describe the product."
+    },
+    "noCompanyHint": "Company isn't verified yet. Finish verification to add products."
+  }
+}

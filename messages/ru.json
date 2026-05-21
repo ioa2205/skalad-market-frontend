@@ -1,0 +1,1564 @@
+{
+  "errors": {
+    "generic": "Что-то пошло не так.",
+    "notFound": "Страница не найдена.",
+    "withId": "Что-то пошло не так. Код обращения: {id}",
+    "unauthorized": "Требуется вход в систему."
+  },
+  "seller": {
+    "onboarding": {
+      "eyebrow": "Регистрация компании",
+      "title": "Расскажите о компании",
+      "description": "Заполните три коротких шага. После проверки модератором ваша компания появится в каталоге.",
+      "steps": {
+        "profile": "Профиль",
+        "contact": "Контакты",
+        "branding": "Логотип и обложка"
+      },
+      "fields": {
+        "name": "Название компании",
+        "shortDescription": "Короткое описание",
+        "description": "Подробное описание",
+        "stir": "ИНН (СТИР)",
+        "phonePrimary": "Основной телефон",
+        "phoneSecondary": "Дополнительный телефон",
+        "website": "Сайт",
+        "region": "Регион",
+        "district": "Район",
+        "address": "Адрес",
+        "logo": "Логотип",
+        "cover": "Обложка профиля"
+      },
+      "placeholders": {
+        "name": "Например, «Алтын Цемент»",
+        "shortDescription": "Чем занимается ваша компания",
+        "description": "Расскажите подробнее: профиль, регионы поставок, опыт",
+        "stir": "Например, 123456789",
+        "phone": "+998 90 123 45 67",
+        "phoneSecondary": "Необязательно",
+        "website": "https://example.uz",
+        "region": "Выберите регион",
+        "district": "Выберите район",
+        "districtPickRegion": "Сначала выберите регион",
+        "address": "Город, улица, дом"
+      },
+      "hints": {
+        "shortDescription": "До 160 символов — отображается в карточке компании.",
+        "stir": "9–14 цифр.",
+        "logo": "PNG или JPEG, до 5 МБ. Используйте квадратное изображение.",
+        "cover": "PNG или JPEG, рекомендуем 1600×400.",
+        "coverGap": "Обложка пока не возвращается из API публичного профиля — мы покажем её, как только бэкенд начнёт её отдавать."
+      },
+      "filePicker": {
+        "choose": "Выбрать файл"
+      },
+      "validation": {
+        "nameRequired": "Введите название компании.",
+        "stirRequired": "Введите ИНН.",
+        "stirFormat": "ИНН должен содержать 9–14 цифр.",
+        "phoneRequired": "Введите телефон.",
+        "phoneFormat": "Проверьте формат телефона.",
+        "websiteFormat": "Слишком длинный адрес сайта.",
+        "regionRequired": "Выберите регион.",
+        "districtRequired": "Выберите район.",
+        "addressRequired": "Введите адрес.",
+        "shortDescMax": "Не более 160 символов.",
+        "descMax": "Не более 2000 символов."
+      },
+      "back": "Назад",
+      "next": "Дальше",
+      "submit": "Отправить на проверку",
+      "submitting": "Отправляем…",
+      "submitError": "Не удалось создать компанию. Проверьте данные и попробуйте ещё раз.",
+      "successToast": "Компания отправлена на проверку. Мы сообщим о результатах.",
+      "correlationId": "Код обращения: {id}"
+    },
+    "dashboard": {
+      "header": {
+        "title": "Панель продавца",
+        "addProduct": "Добавить товар",
+        "addProductAria": "Добавить новый товар",
+        "addProductDisabledTooltip": "Будет доступно после верификации компании."
+      },
+      "tabs": {
+        "ariaLabel": "Разделы кабинета продавца",
+        "items": {
+          "overview": "Обзор",
+          "products": "Товары",
+          "leads": "Запросы",
+          "messages": "Сообщения",
+          "settings": "Настройки"
+        }
+      },
+      "statusBanner": {
+        "draftTitle": "Анкета не отправлена",
+        "draftDescription": "Завершите регистрацию компании, чтобы публиковать товары.",
+        "pendingTitle": "Компания на проверке",
+        "pendingDescription": "Мы рассмотрим заявку в течение нескольких рабочих дней. Дашборд уже доступен в режиме просмотра.",
+        "rejectedTitle": "Компания не прошла верификацию",
+        "rejectedDescription": "Обновите данные компании и отправьте заявку снова.",
+        "rejectedDescriptionWithReason": "Причина: {reason}. Обновите данные и отправьте снова.",
+        "blockedTitle": "Компания заблокирована",
+        "blockedDescription": "Свяжитесь с поддержкой для разблокировки."
+      },
+      "overview": {
+        "comingTitle": "Обзор скоро",
+        "comingDescription": "В следующей итерации здесь появятся KPI и тренд продаж.",
+        "loadErrorTitle": "Не удалось загрузить обзор",
+        "loadErrorDescription": "Попробуйте обновить страницу. Если ошибка повторяется — свяжитесь с поддержкой.",
+        "kpiSectionAria": "Ключевые показатели",
+        "kpi": {
+          "activeProductsTitle": "Активные товары",
+          "openLeadsTitle": "Запросы",
+          "contactsTitle": "Контакты"
+        },
+        "trend": {
+          "title": "Тренд",
+          "ariaLabel": "Тренд продаж",
+          "seriesLeads": "Запасы",
+          "seriesRevenue": "Общее доход продукции",
+          "seriesProfit": "Общее прибыль продукции",
+          "stubLeadsValue": "1500",
+          "stubRevenueValue": "3 500 $",
+          "stubProfitValue": "3 500 $",
+          "stubDelta": "+3,4% за последний месяц",
+          "tooltipLeads": "Запасы",
+          "tooltipRevenue": "Доход",
+          "tooltipProfit": "Прибыль"
+        },
+        "recent": {
+          "title": "Последние проданые товары",
+          "seeAll": "Все товары",
+          "empty": "Пока нет завершённых сделок.",
+          "badge": "Продано",
+          "priceNegotiable": "По запросу"
+        }
+      },
+      "products": {
+        "comingTitle": "Товары скоро",
+        "comingDescription": "Загружайте товары и управляйте каталогом — раздел готовим в следующем шаге.",
+        "loadErrorTitle": "Не удалось загрузить товары",
+        "loadErrorDescription": "Проверьте соединение и попробуйте снова.",
+        "listTitle": "Список товаров",
+        "emptyTitle": "Пока нет товаров",
+        "emptyDescription": "Добавьте первый товар, чтобы появиться в каталоге.",
+        "emptyCta": "Добавить товар",
+        "moderation": {
+          "approved": "Опубликовано",
+          "pending": "На модерации",
+          "rejected": "Отклонено",
+          "archived": "Архив"
+        },
+        "row": {
+          "active": "Активен",
+          "inactive": "Скрыт",
+          "priceFromPrefix": "от",
+          "priceNegotiable": "По запросу",
+          "editAria": "Редактировать товар «{name}»",
+          "deleteAria": "Удалить товар «{name}»",
+          "confirmTitle": "Удалить «{name}»?",
+          "confirmDescription": "Действие необратимо. Товар будет удалён из каталога.",
+          "deleteError": "Не удалось удалить товар. Попробуйте ещё раз.",
+          "deleted": "«{name}» удалён",
+          "cancel": "Отмена",
+          "confirm": "Удалить",
+          "deleting": "Удаляем…"
+        },
+        "form": {
+          "createTitle": "Новый товар",
+          "editTitle": "Редактировать «{name}»",
+          "noCompanyTitle": "Сначала зарегистрируйте компанию",
+          "noCompanyDescription": "Без компании нельзя добавлять товары. Завершите онбординг.",
+          "categoryErrorTitle": "Не удалось загрузить категории",
+          "categoryErrorDescription": "Проверьте соединение и обновите страницу.",
+          "loadErrorTitle": "Не удалось загрузить товар",
+          "loadErrorDescription": "Попробуйте обновить страницу.",
+          "fields": {
+            "name": "Название",
+            "shortDescription": "Короткое описание",
+            "description": "Описание",
+            "category": "Категория",
+            "priceType": "Тип цены",
+            "saleType": "Формат продажи",
+            "price": "Цена",
+            "currency": "Валюта",
+            "minProduct": "Минимальный заказ",
+            "region": "Регион",
+            "district": "Район"
+          },
+          "placeholders": {
+            "name": "Например, «Оцинкованный рулон»",
+            "shortDescription": "Кратко о товаре",
+            "description": "Размеры, состав, особенности доставки",
+            "category": "Выберите категорию",
+            "price": "0",
+            "region": "Выберите регион",
+            "district": "Выберите район",
+            "districtPickRegion": "Сначала выберите регион"
+          },
+          "priceTypes": {
+            "FIXED": "Фиксированная",
+            "FROM_PRICE": "От цены",
+            "NEGOTIABLE": "Договорная"
+          },
+          "saleTypes": {
+            "WHOLESALE": "Оптом",
+            "RETAIL": "В розницу"
+          },
+          "attributesGap": "Динамические атрибуты подключим, когда бэкенд начнёт отдавать схему по категории.",
+          "submitError": "Не удалось сохранить товар. Проверьте поля и попробуйте снова.",
+          "correlationId": "Код обращения: {id}",
+          "submitting": "Сохраняем…",
+          "submitCreate": "Создать",
+          "submitUpdate": "Сохранить",
+          "createSuccess": "Товар создан и отправлен на модерацию.",
+          "updateSuccess": "Изменения сохранены.",
+          "cancel": "Отмена"
+        },
+        "validation": {
+          "nameRequired": "Введите название.",
+          "shortDescMax": "Не более 160 символов.",
+          "descriptionRequired": "Опишите товар.",
+          "categoryRequired": "Выберите категорию.",
+          "priceRequired": "Укажите цену.",
+          "regionRequired": "Выберите регион.",
+          "minProductRequired": "Укажите минимум."
+        }
+      },
+      "leads": {
+        "comingTitle": "Запросы скоро",
+        "comingDescription": "Здесь появятся запросы покупателей с возможностью принять или отклонить.",
+        "loadErrorTitle": "Не удалось загрузить запросы",
+        "loadErrorDescription": "Попробуйте обновить страницу.",
+        "listTitle": "Запросы на покупку",
+        "emptyTitle": "Запросов пока нет",
+        "emptyDescription": "Когда покупатели оставят запрос, он появится здесь.",
+        "itemSummaryEmpty": "Без позиций",
+        "status": {
+          "NEW": "Новый",
+          "VIEWED": "Просмотрен",
+          "CONTACTED": "В обработке",
+          "CLOSED": "Выполнено",
+          "CANCELED": "Отменено"
+        },
+        "row": {
+          "accept": "Принять",
+          "acceptPending": "Сохраняем…",
+          "reject": "Отклонить",
+          "write": "Написать",
+          "rejectTitle": "Отклонить запрос?",
+          "rejectDescription": "Укажите причину — она будет видна покупателю.",
+          "reasonLabel": "Причина",
+          "reasonPlaceholder": "Например: товара нет в наличии",
+          "reasonMinError": "Минимум {min} символов.",
+          "reasonMaxError": "Не более {max} символов.",
+          "rejectConfirm": "Отклонить",
+          "rejectPending": "Отклоняем…",
+          "cancel": "Отмена",
+          "acceptedToast": "Запрос принят в работу.",
+          "rejectedToast": "Запрос отклонён.",
+          "updateError": "Не удалось обновить статус."
+        }
+      },
+      "messages": {
+        "comingTitle": "Сообщения скоро",
+        "comingDescription": "Чат с покупателями появится после готовности модуля сообщений.",
+        "placeholderTitle": "Выберите беседу",
+        "placeholderDescription": "Откройте беседу слева — она развернётся на полный экран в чате.",
+        "openFullChats": "Открыть все чаты"
+      },
+      "settings": {
+        "comingTitle": "Настройки скоро",
+        "comingDescription": "Профиль компании и тарифный план — в следующей итерации.",
+        "noCompanyTitle": "Компания не найдена",
+        "noCompanyDescription": "Завершите онбординг, чтобы открыть настройки.",
+        "loadErrorTitle": "Не удалось загрузить настройки",
+        "loadErrorDescription": "Проверьте соединение и попробуйте снова.",
+        "profile": {
+          "title": "Профиль компании",
+          "verified": "Проверено",
+          "name": "Название компании",
+          "industry": "Отрасль",
+          "industryUnknown": "—",
+          "phone": "Телефон",
+          "email": "Email",
+          "emailMissing": "Не указан",
+          "website": "Сайт",
+          "websiteMissing": "Не указан",
+          "city": "Город",
+          "edit": "Изменить",
+          "editFieldAria": "Изменить «{label}»"
+        },
+        "tariffs": {
+          "title": "Тарифный план",
+          "plans": {
+            "basic": { "name": "Basic", "price": "Бесплатно" },
+            "business": { "name": "Business", "price": "99 000 UZS / мес" },
+            "premium": { "name": "Premium", "price": "299 000 UZS / мес" }
+          },
+          "features": {
+            "productsLimit10": "10 товаров",
+            "basicSearch": "Базовый поиск",
+            "productsLimit100": "100 товаров",
+            "searchPriority": "Приоритет в поиске",
+            "salesAnalytics": "Аналитика продаж",
+            "productsUnlimited": "∞ товаров",
+            "topRanking": "Топ в поиске",
+            "advertising": "Реклама",
+            "aiTools": "AI-инструменты"
+          }
+        }
+      }
+    }
+  },
+  "districtsStub": {
+    "tashkentChilanzar": "Чиланзарский район",
+    "tashkentMirzoUlugbek": "Мирзо-Улугбекский район",
+    "tashkentYunusobod": "Юнусабадский район",
+    "tashkentSergeli": "Сергелийский район",
+    "samarkandCenter": "Центр",
+    "samarkandUrgut": "Ургут",
+    "bukharaCenter": "Центр",
+    "bukharaKagan": "Каган",
+    "ferghanaCenter": "Центр",
+    "ferghanaKokand": "Коканд",
+    "namanganCenter": "Центр",
+    "namanganChartak": "Чартак",
+    "andijanCenter": "Центр",
+    "andijanAsaka": "Асака"
+  },
+  "system": {
+    "phaseZero": "Phase 0 — фундамент готов."
+  },
+  "common": {
+    "retry": "Повторить",
+    "tryAgain": "Попробовать снова",
+    "backHome": "На главную",
+    "appName": "SKLADx",
+    "loading": "Загрузка…",
+    "save": "Сохранить",
+    "saving": "Сохраняем…",
+    "cancel": "Отмена",
+    "close": "Закрыть"
+  },
+  "home": {
+    "search": {
+      "placeholder": "Поиск товара"
+    },
+    "popular": {
+      "title": "Популярные товары",
+      "sectionLabel": "Популярные товары",
+      "emptyTitle": "Пока нет товаров",
+      "emptyDescription": "Загляните позже — мы обновим подборку.",
+      "searchPlaceholder": "Поиск товара"
+    },
+    "priceView": {
+      "label": "Тип цен",
+      "wholesale": "Оптом",
+      "retail": "За штуку"
+    },
+    "banners": {
+      "topAria": "Промо-баннеры — верх",
+      "middleAria": "Промо-баннеры — середина",
+      "sidebarAria": "Промо-баннеры — боковая панель",
+      "scheduled": "Скоро здесь появятся предложения",
+      "itemAria": "Баннер {index}"
+    }
+  },
+  "catalog": {
+    "title": "Каталог товаров",
+    "count": {
+      "total": "{count, plural, =0 {Нет товаров} one {# товар} few {# товара} many {# товаров} other {# товаров}}",
+      "loading": "Загружаем…"
+    },
+    "search": {
+      "placeholder": "Поиск товара",
+      "suggestionsLabel": "Подсказки поиска"
+    },
+    "filters": {
+      "title": "Фильтры",
+      "categories": "Категории",
+      "allCategories": "Все категории",
+      "price": "Цены",
+      "priceFrom": "от",
+      "priceTo": "до",
+      "priceBackendGap": "Ценовой фильтр подключим, когда появится API.",
+      "regions": "Регионы",
+      "allRegions": "Все регионы",
+      "inStockOnly": "Только в наличии",
+      "verifiedOnly": "Верифицированные продавцы",
+      "toggles": "Дополнительные фильтры",
+      "reset": "Сбросить фильтры"
+    },
+    "map": {
+      "switchToMap": "Поиск по карте",
+      "switchToGrid": "Список товаров",
+      "surfaceLabel": "Карта с товарами",
+      "surfaceTitle": "Карта с товарами",
+      "pinLabel": "Метка {id}"
+    },
+    "empty": {
+      "title": "По вашему запросу ничего не найдено",
+      "description": "Попробуйте изменить фильтры или поискать другое."
+    }
+  },
+  "regionsStub": {
+    "tashkent": "Ташкент",
+    "samarkand": "Самарканд",
+    "bukhara": "Бухара",
+    "ferghana": "Фергана",
+    "namangan": "Наманган",
+    "andijan": "Андижан"
+  },
+  "productCard": {
+    "openLabel": "Открыть карточку «{name}»",
+    "verified": "Verified",
+    "verifiedLabel": "Проверенный продавец",
+    "price": {
+      "fromPrefix": "от",
+      "negotiable": "По запросу"
+    },
+    "favorite": {
+      "addLabel": "Добавить в избранное",
+      "removeLabel": "Убрать из избранного",
+      "comingSoonTitle": "Избранное скоро",
+      "comingSoonDescription": "Эту функцию мы подключим в следующей фазе.",
+      "failureTitle": "Не удалось обновить избранное"
+    },
+    "cart": {
+      "add": "Добавить в корзину",
+      "addedToast": "«{name}» в корзине",
+      "addedToastDescription": "Перейдите в корзину, чтобы оформить запрос.",
+      "comingSoonTitle": "Корзина скоро",
+      "comingSoonDescription": "Добавление в корзину подключим в следующей фазе."
+    }
+  },
+  "shell": {
+    "common": {
+      "home": "Главная"
+    },
+    "sidebar": {
+      "label": "Боковое меню",
+      "navLabel": "Основная навигация",
+      "goHome": "На главную",
+      "collapse": "Свернуть",
+      "expand": "Развернуть",
+      "comingSoon": "Скоро",
+      "items": {
+        "home": "Главная",
+        "catalog": "Каталог",
+        "products": "Продукты",
+        "profile": "Профиль",
+        "companies": "Компании",
+        "seller": "Панель продавца",
+        "tariffs": "Тарифы"
+      }
+    },
+    "topbar": {
+      "brand": "SkladX Market",
+      "favorites": {
+        "label": "Избранное",
+        "countAria": "Избранное, {count, plural, one {# товар} few {# товара} many {# товаров} other {# товаров}}",
+        "comingSoonTitle": "Избранное скоро"
+      },
+      "messages": {
+        "label": "Сообщения",
+        "countAria": "Сообщения, {count, plural, one {# непрочитанное} few {# непрочитанных} many {# непрочитанных} other {# непрочитанных}}",
+        "comingSoonTitle": "Сообщения скоро"
+      },
+      "cart": {
+        "label": "Корзина",
+        "countAria": "Корзина, {count, plural, one {# товар} few {# товара} many {# товаров} other {# товаров}}",
+        "comingSoonTitle": "Корзина скоро"
+      },
+      "comingSoonDescription": "Эту функцию мы подключим в следующей фазе."
+    },
+    "notifications": {
+      "label": "Уведомления",
+      "emptyTitle": "Уведомлений пока нет",
+      "emptyBody": "Вы увидите важные события здесь."
+    },
+    "userMenu": {
+      "openLabel": "Открыть меню профиля {name}",
+      "login": "Войти",
+      "register": "Зарегистрироваться",
+      "logout": "Выйти из аккаунта",
+      "logoutPending": "Выходим…",
+      "logoutFailed": "Не удалось выйти. Повторите попытку.",
+      "leads": "Мои запросы",
+      "sellerPanel": "Панель продавца",
+      "moderatorPanel": "Панель модератора",
+      "companyProfile": "Профиль компании",
+      "settings": "Настройка",
+      "role": {
+        "admin": "Админ",
+        "moderator": "Модератор",
+        "seller": "Продавец",
+        "buyer": "Покупатель"
+      }
+    }
+  },
+  "categoryExplorer": {
+    "label": "Каталог",
+    "title": "Все категории",
+    "empty": "Категории пока не загружены"
+  },
+  "feedback": {
+    "emptyDefault": {
+      "title": "Здесь пока ничего нет",
+      "description": "Как только данные появятся, вы увидите их здесь.",
+      "cta": "Обновить"
+    },
+    "errorDefault": {
+      "title": "Не удалось загрузить данные",
+      "description": "Попробуйте повторить запрос. Если ошибка повторяется — сообщите нам код обращения.",
+      "retry": "Повторить",
+      "correlationId": "Код обращения: {id}"
+    }
+  },
+  "pagination": {
+    "label": "Навигация по страницам",
+    "previous": "Назад",
+    "next": "Вперёд",
+    "of": "Страница {current} из {total}",
+    "pageLabel": "Страница {page}"
+  },
+  "search": {
+    "placeholder": "Поиск…",
+    "clear": "Очистить поиск"
+  },
+  "status": {
+    "verification": {
+      "draft": "Черновик",
+      "pending": "На проверке",
+      "verified": "Верифицирован",
+      "rejected": "Отклонён"
+    },
+    "lead": {
+      "NEW": "Новый",
+      "VIEWED": "Просмотрен",
+      "CONTACTED": "В работе",
+      "CLOSED": "Закрыт",
+      "CANCELED": "Отменён"
+    },
+    "product": {
+      "DRAFT": "Черновик",
+      "PENDING": "На модерации",
+      "APPROVED": "Опубликован",
+      "ARCHIVED": "В архиве"
+    },
+    "report": {
+      "NEW": "Новая",
+      "RESOLVED": "Решена",
+      "REJECTED": "Отклонена"
+    }
+  },
+  "productDetail": {
+    "notFoundTitle": "Товар не найден",
+    "notFoundBody": "Проверьте ссылку или вернитесь в каталог — возможно, товар был снят с продажи.",
+    "backToCatalog": "Вернуться в каталог",
+    "views": "{count, plural, =0 {Нет просмотров} one {# просмотр} few {# просмотра} many {# просмотров} other {# просмотров}}",
+    "stock": {
+      "inStock": "В наличии"
+    },
+    "rating": {
+      "ariaLabel": "Рейтинг {rating} из 5",
+      "noReviews": "Отзывов пока нет"
+    },
+    "price": {
+      "fromPrefix": "от",
+      "negotiable": "По запросу",
+      "perUnit": "за {unit}",
+      "minOrder": "Минимальный заказ: {quantity} {unit}",
+      "minOrderNoUnit": "Минимальный заказ: {quantity}",
+      "totalLabel": "Итог"
+    },
+    "quantity": {
+      "label": "Количество",
+      "decrease": "Уменьшить на один",
+      "increase": "Увеличить на один",
+      "unit": "{unit, select, ton {тонн} kg {кг} piece {шт} m {м} m2 {м²} other {{unit}}}"
+    },
+    "cta": {
+      "addToCart": "Добавить в корзину",
+      "addToCartComingSoon": "Корзину подключим в следующей фазе.",
+      "contactSeller": "Написать продавцу",
+      "call": "Позвонить продавцу",
+      "addToFavorites": "Добавить в фавориты",
+      "share": "Поделиться",
+      "shareCopied": "Ссылка скопирована",
+      "shareFailed": "Не удалось скопировать ссылку"
+    },
+    "tabs": {
+      "description": "Описание",
+      "attributes": "Характеристики",
+      "delivery": "Доставка",
+      "reviews": "Отзывы"
+    },
+    "description": {
+      "empty": {
+        "title": "Описание пока не добавлено",
+        "description": "Продавец не заполнил описание. Спросите его через чат."
+      }
+    },
+    "attributes": {
+      "empty": {
+        "title": "Характеристики пока не указаны",
+        "description": "Продавец не заполнил характеристики этого товара."
+      },
+      "label": {
+        "category": "Категория",
+        "material": "Материал",
+        "dimensions": "Размеры",
+        "weight": "Вес",
+        "color": "Цвет",
+        "minOrder": "Минимальный заказ",
+        "leadTime": "Срок производства",
+        "availability": "Наличие",
+        "unit": "Единица измерения"
+      },
+      "value": {
+        "yes": "Да",
+        "no": "Нет"
+      }
+    },
+    "delivery": {
+      "placeholder": "Точные условия доставки уточните у продавца.",
+      "safeDeal": {
+        "title": "Безопасная сделка",
+        "body": "Оплата проходит через платформу."
+      },
+      "verifiedCompany": {
+        "title": "Проверенная компания",
+        "body": "Продавец прошёл верификацию."
+      },
+      "originalDocs": {
+        "title": "Оригинальные документы",
+        "body": "К товару прилагаются сертификаты и ТТН."
+      }
+    },
+    "reviews": {
+      "emptyTitle": "Отзывов пока нет",
+      "emptyBody": "Мы подключим отзывы в следующих фазах."
+    },
+    "seller": {
+      "heading": "О продавце",
+      "rating": "Рейтинг",
+      "reviews": "Отзывы",
+      "products": "Товаров",
+      "gotoProfile": "Перейти на страницу компании"
+    },
+    "similar": {
+      "heading": "Похожие товары"
+    },
+    "trust": {
+      "safeDeal": "Безопасная сделка через платформу",
+      "verifiedData": "Верифицированные данные компании",
+      "originalProducts": "Оригинальная продукция с документами"
+    },
+    "contactSeller": {
+      "comingSoonTitle": "Сообщения скоро",
+      "comingSoonBody": "Чат с продавцом подключим в следующей фазе.",
+      "cta": "Написать продавцу"
+    },
+    "imageGallery": {
+      "label": "Фото товара",
+      "next": "Следующее фото",
+      "previous": "Предыдущее фото",
+      "thumbnailLabel": "Фото {index} из {total}",
+      "placeholder": "Фотографии ещё не загружены."
+    }
+  },
+  "favorites": {
+    "title": "Фавориты",
+    "count": "{count, plural, =0 {Нет товаров} one {# товар} few {# товара} many {# товаров} other {# товаров}}",
+    "search": {
+      "placeholder": "Поиск товара"
+    },
+    "map": {
+      "switchToMap": "Поиск по карте",
+      "comingSoonTitle": "Карта появится позже",
+      "comingSoonDescription": "Подключим карту для избранного в следующей фазе."
+    },
+    "tabs": {
+      "products": "Товары",
+      "companies": "Компании",
+      "companiesDisabledTooltip": "Избранное компаний подключим, когда появится API."
+    },
+    "empty": {
+      "title": "В избранном пока пусто",
+      "description": "Добавляйте товары — они появятся здесь.",
+      "cta": "В каталог"
+    },
+    "error": {
+      "title": "Не удалось загрузить избранное",
+      "description": "Попробуйте обновить страницу. Если ошибка повторяется — сообщите нам код обращения.",
+      "correlationLabel": "Код обращения:"
+    },
+    "toggle": {
+      "addedToast": "Добавлено в избранное",
+      "removedToast": "Убрано из избранного",
+      "errorToast": "Не удалось обновить избранное.",
+      "errorWithId": "Код обращения: {id}"
+    }
+  },
+  "cart": {
+    "title": "Корзина",
+    "addMore": "Добавить ещё товаров",
+    "empty": {
+      "title": "В корзине пока пусто",
+      "description": "Добавьте товары из каталога, чтобы отправить запрос поставщикам.",
+      "cta": "В каталог"
+    },
+    "lineItem": {
+      "removeAria": "Удалить «{name}» из корзины",
+      "unitPriceSuffix": " / шт",
+      "negotiable": "По запросу"
+    },
+    "summary": {
+      "title": "Итог",
+      "total": "Итог",
+      "totalNegotiationNote": "Итоговая цена согласовывается с поставщиком.",
+      "submit": "Отправить запрос",
+      "submitting": "Отправляем…",
+      "messageSeller": "Написать продавцу",
+      "messageSellerComingSoonTitle": "Сообщения скоро",
+      "messageSellerComingSoonBody": "Чат с продавцом подключим в следующей фазе.",
+      "trustTitle": "Безопасная сделка",
+      "trustBody": "Ваш запрос направляется напрямую поставщику. Цены и условия согласовываются в переписке.",
+      "negotiable": "По запросу"
+    },
+    "submit": {
+      "successToast": "Запрос отправлен поставщикам.",
+      "errorToast": "Не удалось отправить запрос. Повторите попытку.",
+      "partialFailureToast": "Запрос отправлен не всем поставщикам.",
+      "partialFailureTitle": "Часть запросов не отправлена",
+      "partialFailureBody": "Не удалось связаться с {count, plural, one {# поставщиком} few {# поставщиками} many {# поставщиками} other {# поставщиками}}. Повторите попытку.",
+      "correlationLabel": "Код обращения:",
+      "retryFailed": "Повторить"
+    },
+    "contact": {
+      "title": "Контактные данные",
+      "description": "Поставщики свяжутся с вами по этим данным. Их можно изменить перед отправкой.",
+      "nameLabel": "Имя",
+      "namePlaceholder": "Имя и фамилия",
+      "phoneLabel": "Телефон",
+      "phonePlaceholder": "+998…",
+      "commentLabel": "Комментарий",
+      "commentHint": "Необязательно. Уточните условия или сроки.",
+      "commentPlaceholder": "Например: нужна доставка до 1 мая",
+      "submit": "Отправить запрос",
+      "submitting": "Отправляем…",
+      "signedOutHint": "Чтобы автоматически подставлять контактные данные, войдите в аккаунт."
+    }
+  },
+  "company": {
+    "directory": {
+      "title": "Компании",
+      "searchPlaceholder": "Поиск компании",
+      "viewToggle": {
+        "grid": "Список компаний",
+        "map": "Поиск по карте",
+        "ariaLabel": "Режим отображения"
+      },
+      "empty": {
+        "title": "По вашему запросу ничего не найдено",
+        "description": "Попробуйте изменить запрос или вернуться к полному списку."
+      },
+      "error": {
+        "title": "Не удалось загрузить компании",
+        "description": "Попробуйте обновить страницу. Если ошибка повторяется — сообщите нам код обращения.",
+        "correlationLabel": "Код обращения:"
+      },
+      "map": {
+        "regionLabel": "Город",
+        "regionTashkent": "Ташкент",
+        "surfaceLabel": "Карта компаний",
+        "surfaceTitle": "Карта с компаниями",
+        "pinLabel": "Метка {id}",
+        "stubBody": "Стуб данных"
+      }
+    },
+    "card": {
+      "openLabel": "Открыть страницу компании «{name}»",
+      "tagline": "{industry} {region}",
+      "metrics": {
+        "rating": "Рейтинг",
+        "reviews": "Отзывы",
+        "products": "Товаров"
+      },
+      "cta": "Перейти на страницу компании",
+      "stubTooltip": "Карточка компании — макет, появится после выпуска публичного API.",
+      "favoriteAria": "Сохранить компанию (скоро)"
+    },
+    "ratingStars": {
+      "ariaLabel": "Рейтинг {value} из 5",
+      "noRatingAriaLabel": "Рейтинг отсутствует"
+    },
+    "verified": "Верифицирован",
+    "unverified": "На проверке",
+    "verifiedAriaLabel": "Компания верифицирована",
+    "profile": {
+      "title": "Профиль",
+      "sellerPanelCta": "Панель продавца",
+      "actions": {
+        "message": "Написать",
+        "messageComingSoonTitle": "Сообщения скоро",
+        "messageComingSoonBody": "Чат с продавцом подключим в следующей фазе.",
+        "call": "Позвонить",
+        "callComingSoon": "Телефон не указан",
+        "map": "Карта"
+      },
+      "stats": {
+        "rating": "Рейтинг",
+        "reviews": "Отзывы",
+        "products": "Товаров"
+      },
+      "about": {
+        "title": "О продавце",
+        "fallback": "Описание пока не добавлено."
+      },
+      "info": {
+        "title": "Информация",
+        "location": "Местоположение",
+        "industry": "Отрасль",
+        "founded": "Основана",
+        "products": "Товаров",
+        "founded_pending": "Скоро",
+        "industry_pending": "Скоро",
+        "products_pending": "—"
+      },
+      "contacts": {
+        "title": "Контакты",
+        "phone": "Телефон",
+        "phoneSecondary": "Доп. телефон",
+        "email": "Email",
+        "emailPending": "Скоро",
+        "website": "Website"
+      },
+      "tabs": {
+        "products": "Товары",
+        "productsWithCount": "Товары ({count})",
+        "reviews": "Отзывы",
+        "reviewsWithCount": "Отзывы ({count})"
+      },
+      "products": {
+        "empty": {
+          "title": "Товары появятся скоро",
+          "description": "Публичный список товаров компании подключим, когда появится соответствующий API."
+        }
+      },
+      "reviews": {
+        "empty": {
+          "title": "Отзывов пока нет",
+          "description": "Мы подключим отзывы в следующих фазах."
+        }
+      },
+      "map": {
+        "title": "Карта с магазинами",
+        "regionLabel": "Город",
+        "pinLabel": "Адрес: {address}",
+        "stubNote": "Координаты появятся, когда API начнёт их возвращать."
+      },
+      "notFound": {
+        "title": "Компания не найдена",
+        "description": "Проверьте ссылку — возможно, профиль был удалён или ещё не опубликован.",
+        "cta": "К списку компаний"
+      },
+      "error": {
+        "title": "Не удалось загрузить компанию",
+        "description": "Попробуйте обновить страницу. Если ошибка повторяется — сообщите нам код обращения.",
+        "correlationLabel": "Код обращения:"
+      }
+    }
+  },
+  "auth": {
+    "tabs": {
+      "navLabel": "Переключение между входом и регистрацией",
+      "login": "Войти",
+      "register": "Регистрация"
+    },
+    "login": {
+      "title": "Вход в SKLADx",
+      "submit": "Войти",
+      "submitPending": "Входим…",
+      "methodPhone": "Телефон",
+      "methodEmail": "Email",
+      "phoneLabel": "Номер телефона",
+      "phonePlaceholder": "Номер телефон",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Email адрес",
+      "passwordLabel": "Пароль",
+      "passwordPlaceholder": "Введите пароль",
+      "passwordShow": "Показать пароль",
+      "passwordHide": "Скрыть пароль",
+      "forgotPassword": "Забыли пароль?",
+      "orDivider": "или",
+      "sso": "Войти через SKLAD ERP",
+      "ssoTooltip": "Скоро"
+    },
+    "register": {
+      "title": "Создание аккаунта",
+      "submit": "Регистрация",
+      "submitPending": "Регистрируем…",
+      "roleBuyer": "Покупатель",
+      "roleBuyerSubtitle": "Ищу товары",
+      "roleSeller": "Продавец",
+      "roleSellerSubtitle": "Продаю товары",
+      "nameLabel": "Имя",
+      "namePlaceholder": "Имя",
+      "companyLabel": "Компания",
+      "companyPlaceholder": "Компания",
+      "phoneLabel": "Номер телефона",
+      "phonePlaceholder": "Номер телефон",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Email",
+      "passwordLabel": "Пароль",
+      "passwordPlaceholder": "Введите пароль",
+      "termsBefore": "Регистрируясь, вы соглашаетесь с",
+      "termsLink": "условиями использования",
+      "termsAnd": "и",
+      "privacyLink": "политикой конфиденциальности",
+      "successToast": "Мы отправили письмо на {email}. Подтвердите адрес, чтобы войти."
+    },
+    "verify": {
+      "pendingTitle": "Проверяем ссылку…",
+      "successTitle": "Email подтверждён",
+      "successBody": "Готово! Сейчас перенаправим вас на страницу входа.",
+      "errorTitle": "Ссылка недействительна",
+      "errorBody": "Срок действия ссылки истёк или она уже была использована. Запросите новое письмо.",
+      "redirectingIn": "Перенаправление через {seconds} сек.",
+      "backToLogin": "Вернуться к входу"
+    },
+    "reset": {
+      "title": "Сброс пароля",
+      "body": "Введите email, который вы использовали при регистрации. Мы отправим письмо с кодом подтверждения.",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Email адрес",
+      "submit": "Отправить письмо",
+      "submitPending": "Отправляем…",
+      "backToLogin": "Вернуться к входу",
+      "successToast": "Мы отправили код на {email}."
+    },
+    "resetConfirm": {
+      "title": "Новый пароль",
+      "body": "Введите код из письма и новый пароль.",
+      "codeLabel": "Код подтверждения",
+      "newPasswordLabel": "Новый пароль",
+      "newPasswordPlaceholder": "Новый пароль",
+      "newPasswordConfirmLabel": "Повторите пароль",
+      "newPasswordConfirmPlaceholder": "Повторите пароль",
+      "submit": "Сохранить пароль",
+      "submitPending": "Сохраняем…",
+      "successToast": "Пароль обновлён. Войдите с новым паролем."
+    },
+    "validation": {
+      "nameRequired": "Введите имя",
+      "nameTwoWords": "Введите имя и фамилию через пробел",
+      "passwordMin": "Пароль должен быть не короче 8 символов",
+      "passwordRequired": "Введите пароль",
+      "passwordMismatch": "Пароли не совпадают",
+      "emailRequired": "Введите email",
+      "emailInvalid": "Введите корректный email",
+      "phoneInvalid": "Введите корректный номер телефона",
+      "phoneRequired": "Введите номер телефона",
+      "codeFormat": "Введите 6-значный код",
+      "usernameRequired": "Email не найден в ссылке. Запросите письмо заново.",
+      "companyRequiredForSeller": "Укажите компанию для продавца"
+    },
+    "errors": {
+      "accountLocked": "Слишком много попыток. Аккаунт заблокирован на 15 минут.",
+      "wrongPassword": "Неверный email или пароль.",
+      "usernameNotFound": "Пользователь с такими данными не найден.",
+      "usernameTaken": "Этот email уже зарегистрирован. Попробуйте войти.",
+      "verificationWrong": "Код подтверждения неверен или устарел.",
+      "refreshExpired": "Сессия устарела. Войдите снова.",
+      "sessionExpired": "Сессия истекла. Войдите снова.",
+      "network": "Не удалось связаться с сервером. Проверьте соединение и повторите.",
+      "generic": "Что-то пошло не так. Повторите попытку позже."
+    },
+    "correlationId": "Код обращения: {id}"
+  },
+  "leads": {
+    "title": "Мои запросы",
+    "count": "{count, plural, =0 {Нет запросов} one {# запрос} few {# запроса} many {# запросов} other {# запросов}}",
+    "filter": {
+      "label": "Фильтр по статусу",
+      "all": "Все"
+    },
+    "source": {
+      "PRODUCT": "Из карточки товара",
+      "CART": "Из корзины"
+    },
+    "row": {
+      "idLabel": "Запрос №{id}",
+      "openLabel": "Открыть запрос №{id}",
+      "itemCount": "{count, plural, one {# позиция} few {# позиции} many {# позиций} other {# позиций}}"
+    },
+    "empty": {
+      "title": "Запросов пока нет",
+      "description": "Когда вы отправите запрос поставщику, он появится здесь.",
+      "cta": "В каталог"
+    },
+    "emptyFiltered": {
+      "title": "Нет запросов с этим статусом",
+      "description": "Попробуйте выбрать другой статус или сбросить фильтр."
+    },
+    "error": {
+      "title": "Не удалось загрузить запросы",
+      "description": "Попробуйте обновить страницу. Если ошибка повторяется — сообщите нам код обращения.",
+      "correlationLabel": "Код обращения:"
+    },
+    "detail": {
+      "title": "Запрос №{id}",
+      "titleLoading": "Загружаем запрос…",
+      "contactName": "Контактное лицо",
+      "contactPhone": "Телефон",
+      "comment": "Комментарий",
+      "closeReason": "Причина закрытия",
+      "itemsHeading": "Позиции запроса",
+      "qtyLabel": "Количество: {qty}",
+      "error": {
+        "title": "Не удалось загрузить запрос",
+        "description": "Попробуйте закрыть и открыть снова. Если ошибка повторяется — сообщите код обращения.",
+        "correlationLabel": "Код обращения:"
+      }
+    },
+    "cancel": {
+      "button": "Отменить запрос",
+      "confirmTitle": "Отменить запрос?",
+      "confirmBody": "Вы уверены, что хотите отменить запрос №{id}? Это действие нельзя отменить.",
+      "confirmCta": "Да, отменить",
+      "confirmPending": "Отменяем…",
+      "cancelCta": "Не сейчас",
+      "successToast": "Запрос отменён.",
+      "errorToast": "Не удалось отменить запрос."
+    }
+  },
+  "chats": {
+    "title": "Сообщения",
+    "list": {
+      "searchPlaceholder": "Поиск сообщений",
+      "unreadAria": "{count, plural, one {# непрочитанное сообщение} few {# непрочитанных сообщения} many {# непрочитанных сообщений} other {# непрочитанных сообщений}}",
+      "empty": {
+        "title": "Сообщений пока нет",
+        "body": "Когда продавец напишет вам — диалоги появятся здесь."
+      },
+      "error": {
+        "title": "Не удалось загрузить сообщения",
+        "body": "Попробуйте обновить страницу. Если ошибка повторяется — сообщите код обращения.",
+        "correlationLabel": "Код обращения:",
+        "retry": "Повторить"
+      }
+    },
+    "thread": {
+      "empty": {
+        "title": "Выберите диалог",
+        "body": "Чтобы начать переписку, выберите контакт слева."
+      },
+      "notFound": {
+        "title": "Диалог не найден",
+        "body": "Возможно, он был скрыт или удалён.",
+        "cta": "К списку диалогов"
+      },
+      "presence": {
+        "online": "В сети",
+        "stub": "Не в сети"
+      },
+      "callAria": "Позвонить",
+      "callStubTitle": "Звонки появятся позже",
+      "callStubBody": "Свяжитесь по телефону, указанному в карточке компании.",
+      "actionsLabel": "Действия с диалогом",
+      "hide": "Скрыть диалог",
+      "hideSuccess": "Диалог скрыт",
+      "hideError": "Не удалось скрыть диалог"
+    },
+    "messages": {
+      "empty": {
+        "title": "Напишите первое сообщение",
+        "body": "История появится здесь, как только начнётся переписка."
+      },
+      "error": {
+        "title": "Не удалось загрузить переписку",
+        "body": "Попробуйте повторить запрос. Если ошибка повторяется — сообщите код обращения.",
+        "correlationLabel": "Код обращения:",
+        "retry": "Повторить"
+      },
+      "loadOlder": "Загрузить более ранние",
+      "status": {
+        "sending": "Отправка",
+        "sent": "Отправлено",
+        "delivered": "Доставлено",
+        "read": "Прочитано",
+        "failed": "Не отправлено"
+      },
+      "retry": "Повторить отправку",
+      "attachmentLabel": "Вложение"
+    },
+    "composer": {
+      "placeholder": "Сообщение",
+      "send": "Отправить",
+      "sendAria": "Отправить сообщение",
+      "attachAria": "Прикрепить изображение",
+      "emojiAria": "Эмодзи (скоро)",
+      "rateLimitedToast": "Слишком много сообщений. Подождите несколько секунд.",
+      "errorToast": "Не удалось отправить сообщение.",
+      "errorWithId": "Код обращения: {id}",
+      "uploadFailed": "Не удалось загрузить вложение.",
+      "uploadInProgress": "Загружаем вложение…",
+      "tooLargeToast": "Файл слишком большой.",
+      "wrongTypeToast": "Можно прикрепить только изображение."
+    },
+    "start": {
+      "errorToast": "Не удалось открыть диалог.",
+      "errorWithId": "Код обращения: {id}",
+      "sellerOnlyToast": "Только покупатели могут писать первыми.",
+      "sellerOnlyBody": "Дождитесь, когда покупатель откроет диалог."
+    },
+    "typing": "печатает…",
+    "connection": {
+      "reconnectingTitle": "Восстанавливаем соединение",
+      "reconnectingBody": "Сообщения отправятся, как только связь восстановится.",
+      "offlineTitle": "Соединение прервано",
+      "offlineBody": "Проверьте интернет и обновите страницу."
+    },
+    "header": {
+      "backToList": "К списку диалогов",
+      "productLabel": "Связан с товаром"
+    }
+  },
+  "notifications": {
+    "inbox": {
+      "title": "Уведомления",
+      "dropdownLabel": "Уведомления",
+      "openSettings": "Настройки уведомлений",
+      "markAllRead": "Прочитать все",
+      "markAllPending": "Отмечаем…",
+      "markAllError": "Не удалось отметить все как прочитанные",
+      "unreadDotAria": "Непрочитано",
+      "newBadge": "Новое",
+      "empty": {
+        "title": "Уведомлений пока нет",
+        "body": "Здесь появятся новые запросы, ответы продавцов и сообщения."
+      },
+      "error": {
+        "title": "Не удалось загрузить уведомления",
+        "body": "Попробуйте повторить запрос. Если ошибка повторяется — сообщите код обращения.",
+        "correlationLabel": "Код обращения:",
+        "retry": "Повторить"
+      }
+    },
+    "types": {
+      "leadNew": {
+        "title": "Новый запрос",
+        "body": "{productName, select, undefined {Покупатель отправил вам запрос.} other {Запрос на «{productName}»}}"
+      },
+      "leadStatusChanged": {
+        "title": "Статус запроса изменён",
+        "body": "Запрос №{leadId} перешёл в статус «{newStatus}»."
+      },
+      "chatNewMessage": {
+        "title": "Новое сообщение",
+        "body": "{fromName, select, undefined {Вам написали новое сообщение.} other {{fromName}: новое сообщение}}"
+      },
+      "fallback": {
+        "title": "Уведомление",
+        "body": "Откройте, чтобы посмотреть подробности."
+      }
+    },
+    "preferences": {
+      "title": "Настройки уведомлений",
+      "subtitle": "Решите, какие уведомления вы хотите получать.",
+      "inApp": {
+        "title": "В приложении",
+        "body": "Показывать уведомления в браузере и приложении."
+      },
+      "push": {
+        "title": "Push-уведомления",
+        "body": "Доставка в мобильное приложение."
+      },
+      "email": {
+        "title": "Email",
+        "body": "Дублирование уведомлений на электронную почту."
+      },
+      "save": "Сохранить",
+      "savePending": "Сохраняем…",
+      "savedToast": "Настройки сохранены",
+      "errorToast": "Не удалось сохранить настройки",
+      "errorWithId": "Код обращения: {id}",
+      "loadError": {
+        "title": "Не удалось загрузить настройки",
+        "body": "Попробуйте обновить страницу. Если ошибка повторяется — сообщите код обращения.",
+        "correlationLabel": "Код обращения:"
+      },
+      "webPushNote": "Push-уведомления приходят на мобильное приложение. На веб они пока не работают."
+    }
+  },
+  "account": {
+    "shell": {
+      "title": "Аккаунт",
+      "subtitle": "Управляйте профилем, уведомлениями и языком интерфейса."
+    },
+    "nav": {
+      "label": "Разделы аккаунта",
+      "profile": "Профиль",
+      "notifications": "Уведомления",
+      "leads": "Мои запросы"
+    },
+    "profile": {
+      "title": "Профиль",
+      "subtitle": "Эти данные видят продавцы при ваших запросах.",
+      "fields": {
+        "firstName": "Имя",
+        "lastName": "Фамилия",
+        "position": "Должность",
+        "telegram": "Telegram",
+        "extraPhone": "Доп. телефон",
+        "username": "Логин",
+        "usernameHint": "Изменить логин нельзя."
+      },
+      "placeholders": {
+        "position": "Например, менеджер по закупкам",
+        "telegram": "@username",
+        "extraPhone": "+998 90 123 45 67"
+      },
+      "validation": {
+        "firstNameRequired": "Введите имя.",
+        "lastNameRequired": "Введите фамилию.",
+        "tooLong": "Слишком длинное значение."
+      },
+      "save": "Сохранить",
+      "savePending": "Сохраняем…",
+      "savedToast": "Профиль обновлён",
+      "errorToast": "Не удалось сохранить профиль",
+      "errorWithId": "Код обращения: {id}",
+      "loadError": {
+        "title": "Не удалось загрузить профиль",
+        "body": "Попробуйте обновить страницу. Если ошибка повторяется — сообщите код обращения.",
+        "correlationLabel": "Код обращения:",
+        "retry": "Повторить"
+      }
+    },
+    "avatar": {
+      "title": "Фото профиля",
+      "subtitle": "PNG или JPEG, до 5 МБ. Рекомендуем квадратное изображение.",
+      "choose": "Загрузить фото",
+      "replace": "Заменить",
+      "uploading": "Загружаем…",
+      "previewAlt": "Предпросмотр аватара",
+      "currentAlt": "Текущий аватар",
+      "replacedToast": "Фото обновлено",
+      "errorToast": "Не удалось загрузить фото",
+      "errorWithId": "Код обращения: {id}",
+      "validation": {
+        "type": "Поддерживаются только PNG и JPEG.",
+        "size": "Файл больше 5 МБ."
+      }
+    },
+    "language": {
+      "title": "Язык интерфейса",
+      "subtitle": "Сообщения и письма от SKLADx будут приходить на выбранном языке.",
+      "options": {
+        "ru": "Русский",
+        "en": "English",
+        "uz": "O‘zbekcha"
+      },
+      "savedToast": "Язык интерфейса обновлён",
+      "errorToast": "Не удалось переключить язык",
+      "errorWithId": "Код обращения: {id}"
+    },
+    "links": {
+      "leads": {
+        "title": "Мои запросы",
+        "body": "История заявок продавцам и их статусы.",
+        "cta": "Открыть"
+      },
+      "notifications": {
+        "title": "Уведомления",
+        "body": "Каналы уведомлений и подписки.",
+        "cta": "Настроить"
+      }
+    }
+  },
+  "maps": {
+    "leaflet": {
+      "regionLabel": "Карта",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  "aiAgent": {
+    "button": {
+      "label": "AI agent",
+      "ariaLabel": "Открыть AI-агента (⌘+K)"
+    },
+    "drawer": {
+      "title": "AI-агент скоро",
+      "body": "Умный помощник SKLADx подберёт поставщика, сформирует заявку и подскажет следующий шаг — мы готовим его к запуску.",
+      "bullet1": "Поиск поставщиков по описанию задачи, а не только по названию.",
+      "bullet2": "Авто-сборка корзины и заявок на основе истории закупок.",
+      "bullet3": "Подсказки по статусам заявок и переписке с продавцами.",
+      "notifyCta": "Сообщить, когда выйдет",
+      "dismiss": "Закрыть",
+      "notifyToastTitle": "Спасибо! Мы напишем, как только запустим.",
+      "notifyToastBody": "Уведомление придёт на почту, привязанную к аккаунту."
+    }
+  },
+  "report": {
+    "trigger": "Пожаловаться",
+    "triggerAria": "Пожаловаться на {target}",
+    "title": "Отправить жалобу",
+    "descriptionGeneric": "Опишите, что не так с этим {target}. Модератор рассмотрит обращение в течение 24 часов.",
+    "descriptionWithLabel": "Жалоба на {target}: {label}. Модератор рассмотрит обращение в течение 24 часов.",
+    "target": {
+      "PRODUCT": "товаре",
+      "COMPANY": "компании",
+      "CHAT": "переписке"
+    },
+    "reasonLabel": "Причина",
+    "reason": {
+      "SAME": {
+        "title": "Дубликат объявления",
+        "body": "Ровно такой же товар уже есть на витрине."
+      },
+      "FAKE": {
+        "title": "Недостоверная информация",
+        "body": "Цена, наличие или характеристики не совпадают с реальностью."
+      },
+      "OFFENSIVE": {
+        "title": "Оскорбительный контент",
+        "body": "Текст, изображения или поведение нарушают правила сообщества."
+      },
+      "DUPLICATE": {
+        "title": "Повтор от того же продавца",
+        "body": "Один и тот же товар выставлен несколько раз."
+      },
+      "SCAM": {
+        "title": "Мошенничество",
+        "body": "Подозрение на обман: предоплата, фиктивные товары, фишинг."
+      }
+    },
+    "commentLabel": "Комментарий",
+    "commentHint": "Необязательно. Расскажите подробности — это помогает модератору.",
+    "commentPlaceholder": "Например: тот же товар уже есть в карточке № 4521.",
+    "submit": "Отправить",
+    "submitPending": "Отправляем…",
+    "submitError": "Не удалось отправить жалобу. Попробуйте ещё раз.",
+    "correlationId": "Код обращения: {id}",
+    "toast": {
+      "successTitle": "Спасибо! Жалоба отправлена.",
+      "successBody": "Мы рассмотрим обращение в течение 24 часов."
+    },
+    "validation": {
+      "reasonRequired": "Выберите причину обращения.",
+      "commentMax": "Комментарий не должен превышать {max} символов."
+    }
+  },
+  "moderator": {
+    "title": "Панель модератора",
+    "tabs": {
+      "ariaLabel": "Разделы панели модератора",
+      "overview": "Обзор",
+      "products": "Товары",
+      "companies": "Компании",
+      "reports": "Жалобы",
+      "accounts": "Аккаунты"
+    },
+    "loadError": {
+      "title": "Не удалось загрузить данные",
+      "description": "Попробуйте обновить страницу.",
+      "retry": "Повторить",
+      "correlationLabel": "Код обращения:"
+    },
+    "common": {
+      "approve": "Одобрить",
+      "reject": "Отклонить",
+      "block": "Заблокировать",
+      "unblock": "Разблокировать",
+      "accept": "Принять",
+      "loading": "Загрузка…",
+      "saving": "Сохраняем…",
+      "actionError": "Не удалось выполнить действие. Попробуйте ещё раз.",
+      "actionSuccess": "Готово.",
+      "reasonPlaceholder": "Причина (необязательно)",
+      "reasonRequired": "Укажите причину",
+      "cancel": "Отмена",
+      "confirm": "Подтвердить"
+    },
+    "overview": {
+      "kpi": {
+        "productsPending": "На проверке товаров",
+        "companiesPending": "Компании в ожидании",
+        "reportsNew": "Жалобы"
+      },
+      "recent": {
+        "title": "Последние действия",
+        "empty": "Пока нет действий для модерации.",
+        "statusPending": "На проверке"
+      }
+    },
+    "products": {
+      "subtabs": {
+        "pending": "Товары на проверке",
+        "my": "Мои товары",
+        "draft": "Черновик"
+      },
+      "queueTitle": "Товары на проверке",
+      "empty": {
+        "title": "Очередь пуста",
+        "description": "Все товары проверены."
+      },
+      "approveSuccess": "Товар одобрен.",
+      "rejectSuccess": "Товар отклонён.",
+      "noDescriptionBadge": "Нет описании товара",
+      "noPhotoBadge": "Нет фото товара",
+      "myEmpty": "У вас нет добавленных товаров.",
+      "draftEmpty": "Черновиков нет."
+    },
+    "companies": {
+      "queueTitle": "Верификация компаний",
+      "empty": {
+        "title": "Очередь пуста",
+        "description": "Все компании проверены."
+      },
+      "approveSuccess": "Компания верифицирована.",
+      "rejectSuccess": "Компания отклонена.",
+      "statusReady": "Готов к верификации",
+      "statusIssues": "Проблемы",
+      "documentsLabel": "Документы",
+      "documents": {
+        "registration": "Свидетельство о регистрации",
+        "charter": "Устав компании",
+        "charterMissing": "Отсудствует Устав компании"
+      }
+    },
+    "reports": {
+      "queueTitle": "Жалобы и нарушения",
+      "empty": {
+        "title": "Жалоб нет",
+        "description": "Все обращения обработаны."
+      },
+      "resolveSuccess": "Жалоба решена.",
+      "rejectSuccess": "Жалоба отклонена.",
+      "rejectAction": "Отклонить жалобу",
+      "warnAction": "Предупредить",
+      "blockAction": "Заблокировать",
+      "warnComingSoon": "Предупреждение скоро",
+      "warnComingSoonBody": "Эту функцию мы подключим, когда появится API.",
+      "blockChatUnavailable": "Переписку нельзя заблокировать напрямую.",
+      "detailsToggle": "Подробнее",
+      "detailsCollapse": "Свернуть",
+      "detailError": "Не удалось загрузить детали жалобы.",
+      "noComment": "Описание не указано.",
+      "targetType": {
+        "PRODUCT": "Товар",
+        "COMPANY": "Компания",
+        "CHAT": "Переписка"
+      },
+      "reasonCode": {
+        "SAME": "Дубликат",
+        "FAKE": "Фейковое объявление",
+        "OFFENSIVE": "Оскорбительный контент",
+        "DUPLICATE": "Повтор",
+        "SCAM": "Мошенничество"
+      }
+    },
+    "accounts": {
+      "title": "Управление аккаунтами",
+      "empty": {
+        "title": "Аккаунтов нет",
+        "description": "Попробуйте изменить фильтр поиска."
+      },
+      "columns": {
+        "user": "Пользователи",
+        "role": "Роли",
+        "email": "Email",
+        "createdDate": "Дата регистрации",
+        "warnings": "Предупреждении",
+        "status": "Статус",
+        "actions": "Действия"
+      },
+      "status": {
+        "ACTIVE": "Активный",
+        "IN_REGISTRATION": "В регистрации",
+        "BLOCK": "Заблокирован"
+      },
+      "role": {
+        "BUYER": "Покупатель",
+        "SELLER": "Продавец",
+        "ADMIN": "Админ",
+        "SUPER_ADMIN": "Супер-админ",
+        "MODERATOR": "Модератор"
+      },
+      "actions": {
+        "openMenuAria": "Действия для {name}",
+        "block": "Заблокировать",
+        "unblock": "Разблокировать",
+        "blockReasonPlaceholder": "Укажите причину блокировки"
+      },
+      "blockSuccess": "Пользователь заблокирован.",
+      "unblockSuccess": "Пользователь разблокирован."
+    }
+  },
+  "addProduct": {
+    "trigger": "Добавить товар",
+    "title": "Добавить товар",
+    "saleType": {
+      "WHOLESALE": "Оптом",
+      "RETAIL": "За штуку"
+    },
+    "fields": {
+      "name": "Название товара",
+      "category": "Категория",
+      "unit": "Единица",
+      "price": "Цена",
+      "minOrder": "Мин.заказ",
+      "description": "Описание товара",
+      "photos": "Фото товара"
+    },
+    "placeholders": {
+      "name": "Стальной лист",
+      "category": "Выберите категорию",
+      "unit": "Тонна",
+      "price": "0",
+      "minOrder": "1",
+      "description": "Описание товара, характеристики ..."
+    },
+    "units": {
+      "TON": "Тонна",
+      "KG": "Кг",
+      "PIECE": "Шт",
+      "M": "м",
+      "M2": "м²",
+      "M3": "м³",
+      "L": "л",
+      "PACK": "Упаковка"
+    },
+    "upload": {
+      "title": "Нажмите или перетащите файл",
+      "hint": "PNG, JPG до 5MB",
+      "selectedCount": "{count, plural, =0 {Файлы не выбраны} one {# файл} few {# файла} many {# файлов} other {# файлов}}",
+      "tooLarge": "Файл превышает 5 МБ.",
+      "wrongType": "Поддерживаются только PNG и JPEG.",
+      "uploading": "Загружаем фото…"
+    },
+    "submit": {
+      "draft": "Черновик",
+      "moderation": "Отправить на модерацию",
+      "saving": "Сохраняем…",
+      "successDraft": "Черновик сохранён.",
+      "successModeration": "Товар отправлен на модерацию.",
+      "error": "Не удалось сохранить товар.",
+      "photoUploadWarning": "Товар сохранён, но не все фото загрузились.",
+      "correlationId": "Код обращения: {id}"
+    },
+    "validation": {
+      "nameRequired": "Введите название товара.",
+      "categoryRequired": "Выберите категорию.",
+      "unitRequired": "Укажите единицу измерения.",
+      "priceRequired": "Укажите цену.",
+      "minOrderRequired": "Укажите минимальный заказ.",
+      "descriptionRequired": "Опишите товар."
+    },
+    "noCompanyHint": "Компания не верифицирована. Завершите верификацию, чтобы добавлять товары."
+  }
+}
