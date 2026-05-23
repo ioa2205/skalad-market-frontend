@@ -1,6 +1,8 @@
-import { z, type ZodSchema } from "zod";
+import { z, type ZodType, type ZodTypeDef } from "zod";
 
-export function apiResponseSchema<T>(dataSchema: ZodSchema<T>) {
+export type ApiDataSchema<T> = ZodType<T, ZodTypeDef, any>;
+
+export function apiResponseSchema<T>(dataSchema: ApiDataSchema<T>) {
   return z.object({
     success: z.boolean(),
     data: dataSchema.optional(),

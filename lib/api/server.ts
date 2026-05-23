@@ -1,17 +1,16 @@
 import { cookies } from "next/headers";
-import type { ZodSchema } from "zod";
 
 import { readAccessToken, readLocaleCookie } from "../auth/cookies";
 import { REQUEST_ID_HEADER, mintRequestId } from "../http/requestId";
 import { toAcceptLanguage } from "../i18n/config";
 
 import { ApiError } from "./errors";
-import { apiResponseSchema } from "./response";
+import { apiResponseSchema, type ApiDataSchema } from "./response";
 
 export interface ServerFetchOptions<T> {
   method?: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
   body?: unknown;
-  schema: ZodSchema<T>;
+  schema: ApiDataSchema<T>;
   signal?: AbortSignal;
   timeoutMs?: number;
   headers?: Record<string, string>;

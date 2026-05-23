@@ -23,7 +23,7 @@ describe("ProfileFormSchema", () => {
     }
   });
 
-  it("treats blank optional fields as empty strings", () => {
+  it("rejects blank profile fields required by the backend", () => {
     const result = ProfileFormSchema.safeParse({
       firstName: "Иван",
       lastName: "Петров",
@@ -31,11 +31,16 @@ describe("ProfileFormSchema", () => {
       telegram: "",
       extraPhone: "",
     });
-    expect(result.success).toBe(true);
-    if (result.success) {
-      expect(result.data.position).toBe("");
-      expect(result.data.telegram).toBe("");
-      expect(result.data.extraPhone).toBe("");
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      const messages = result.error.issues.map((issue) => issue.message);
+      expect(messages).toEqual(
+        expect.arrayContaining([
+          "positionRequired",
+          "telegramRequired",
+          "extraPhoneRequired",
+        ]),
+      );
     }
   });
 
@@ -43,9 +48,9 @@ describe("ProfileFormSchema", () => {
     const result = ProfileFormSchema.safeParse({
       firstName: "   ",
       lastName: "Петров",
-      position: "",
-      telegram: "",
-      extraPhone: "",
+      position: "Закупки",
+      telegram: "@ivanp",
+      extraPhone: "+998 99 123 45 67",
     });
     expect(result.success).toBe(false);
     if (!result.success) {
@@ -60,9 +65,9 @@ describe("ProfileFormSchema", () => {
     const result = ProfileFormSchema.safeParse({
       firstName: "Иван",
       lastName: "",
-      position: "",
-      telegram: "",
-      extraPhone: "",
+      position: "Закупки",
+      telegram: "@ivanp",
+      extraPhone: "+998 99 123 45 67",
     });
     expect(result.success).toBe(false);
     if (!result.success) {
@@ -79,8 +84,8 @@ describe("ProfileFormSchema", () => {
       firstName: "Иван",
       lastName: "Петров",
       position: long,
-      telegram: "",
-      extraPhone: "",
+      telegram: "@ivanp",
+      extraPhone: "+998 99 123 45 67",
     });
     expect(result.success).toBe(false);
     if (!result.success) {

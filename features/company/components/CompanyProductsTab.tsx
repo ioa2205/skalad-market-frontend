@@ -2,22 +2,42 @@ import { Box } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { EmptyState } from "@/components/feedback";
+import { ProductCard } from "@/features/product";
+import type { CompanyProductResponse } from "@/lib/api/schemas";
 
-/**
- * Empty state. There is no public endpoint that lists products by company:
- * `/catalog` accepts q/category/regionId/currency only, `/products/my`
- * requires SELLER auth and only returns the caller's own products. We
- * deliberately do NOT fall back to a fuzzy `/catalog?q=<companyName>`
- * search — it'd risk surfacing products from a different company with the
- * same name. Render a clean empty state until backend exposes a filter.
- */
-export function CompanyProductsTab() {
+export interface CompanyProductsTabProps {
+  products: CompanyProductResponse[];
+  companyName: string;
+  verified: boolean;
+}
+
+export function CompanyProductsTab({
+  products,
+  companyName,
+  verified,
+}: CompanyProductsTabProps) {
   const t = useTranslations("company.profile.products");
+
+  if (products.length === 0) {
+    return (
+      <EmptyState
+        icon={Box}
+        title={t("empty.title")}
+        description={t("empty.description")}
+      />
+    );
+  }
+
   return (
-    <EmptyState
-      icon={Box}
-      title={t("empty.title")}
-      description={t("empty.description")}
-    />
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+      {products.map((product) => (
+        <ProductCard
+          key={product.id}
+          product={product}
+          companyName={companyName}
+          verified={verified}
+        />
+      ))}
+    </div>
   );
 }

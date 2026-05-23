@@ -21,9 +21,9 @@ export interface CompanyCardData {
   slug: string;
   logoInitials?: string | undefined;
   logoUrl?: string | null | undefined;
-  shortDescription: string;
-  industry: string;
-  region: string;
+  shortDescription: string | null;
+  industry: string | null;
+  region: string | null;
   verified: boolean;
   ratingStub: number | null;
   reviewsCountStub: number | null;
@@ -79,9 +79,11 @@ export function CompanyCard({ company, className }: CompanyCardProps) {
                 />
               ) : null}
             </div>
-            <span className="truncate text-caption text-fg-muted">
-              {company.industry} {company.region}
-            </span>
+            {company.industry || company.region ? (
+              <span className="truncate text-caption text-fg-muted">
+                {[company.industry, company.region].filter(Boolean).join(" ")}
+              </span>
+            ) : null}
           </div>
         </div>
 
@@ -105,7 +107,7 @@ export function CompanyCard({ company, className }: CompanyCardProps) {
       </div>
 
       <p className="relative line-clamp-2 text-body-sm text-fg-muted">
-        {company.shortDescription}
+        {company.shortDescription ?? t("card.descriptionPending")}
       </p>
 
       <div className="relative grid grid-cols-3 gap-2 text-center">

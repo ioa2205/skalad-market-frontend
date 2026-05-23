@@ -64,7 +64,7 @@ describe("ProfileForm", () => {
     const save = screen.getByRole("button", { name: "Сохранить" });
     expect(save).toBeDisabled();
 
-    const positionInput = screen.getByLabelText("Должность");
+    const positionInput = screen.getByLabelText(/^Должность/);
     await user.clear(positionInput);
     await user.type(positionInput, "  Главный закупщик  ");
 
@@ -108,11 +108,13 @@ describe("ProfileForm", () => {
     const user = userEvent.setup();
     withClient(<ProfileForm initial={initial} />);
 
-    await user.clear(screen.getByLabelText("Должность"));
-    await user.type(screen.getByLabelText("Должность"), "ABC");
+    await user.clear(screen.getByLabelText(/^Должность/));
+    await user.type(screen.getByLabelText(/^Должность/), "ABC");
     await user.click(screen.getByRole("button", { name: "Сохранить" }));
 
-    const matches = await screen.findAllByText("Не удалось сохранить профиль");
+    const matches = await screen.findAllByText(
+      "Не удалось сохранить профиль",
+    );
     expect(matches.length).toBeGreaterThan(0);
     expect(await screen.findAllByText(/req-profile-boom/)).not.toHaveLength(0);
   });

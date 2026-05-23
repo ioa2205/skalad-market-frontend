@@ -71,6 +71,9 @@ export function ProfileForm({ initial, username }: ProfileFormProps) {
     if (!key) return undefined;
     if (key === "firstNameRequired") return t("validation.firstNameRequired");
     if (key === "lastNameRequired") return t("validation.lastNameRequired");
+    if (key === "positionRequired") return t("validation.positionRequired");
+    if (key === "telegramRequired") return t("validation.telegramRequired");
+    if (key === "extraPhoneRequired") return t("validation.extraPhoneRequired");
     if (key === "tooLong") return t("validation.tooLong");
     return key;
   };
@@ -109,6 +112,7 @@ export function ProfileForm({ initial, username }: ProfileFormProps) {
 
       <FormField
         label={t("fields.position")}
+        required
         error={validationMessage(errors.position?.message)}
       >
         <FormFieldControl>
@@ -123,6 +127,7 @@ export function ProfileForm({ initial, username }: ProfileFormProps) {
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
         <FormField
           label={t("fields.telegram")}
+          required
           error={validationMessage(errors.telegram?.message)}
         >
           <FormFieldControl>
@@ -135,6 +140,7 @@ export function ProfileForm({ initial, username }: ProfileFormProps) {
 
         <FormField
           label={t("fields.extraPhone")}
+          required
           error={validationMessage(errors.extraPhone?.message)}
         >
           <FormFieldControl>

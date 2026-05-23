@@ -281,6 +281,7 @@
           "industry": "Industry",
           "industryUnknown": "—",
           "phone": "Phone",
+          "phoneMissing": "Not set",
           "email": "Email",
           "emailMissing": "Not set",
           "website": "Website",
@@ -776,19 +777,20 @@
         "surfaceLabel": "Companies map",
         "surfaceTitle": "Map with companies",
         "pinLabel": "Pin {id}",
-        "stubBody": "Sample data"
+        "stubBody": "Address not provided"
       }
     },
     "card": {
       "openLabel": "Open page of company \"{name}\"",
       "tagline": "{industry} {region}",
+      "descriptionPending": "Company description has not been added yet.",
       "metrics": {
         "rating": "Rating",
         "reviews": "Reviews",
         "products": "Products"
       },
       "cta": "Open company page",
-      "stubTooltip": "Company card is a mockup — it will be enabled once the public API ships.",
+      "stubTooltip": "Company favorites are not available yet.",
       "favoriteAria": "Save company (soon)"
     },
     "ratingStars": {
@@ -832,6 +834,7 @@
         "title": "Contacts",
         "phone": "Phone",
         "phoneSecondary": "Secondary phone",
+        "phonePending": "Phone not provided",
         "email": "Email",
         "emailPending": "Soon",
         "website": "Website"
@@ -844,8 +847,8 @@
       },
       "products": {
         "empty": {
-          "title": "Products coming soon",
-          "description": "We'll connect the public list of company products once the API is available."
+          "title": "No products yet",
+          "description": "This company does not have approved public products yet."
         }
       },
       "reviews": {
@@ -858,7 +861,7 @@
         "title": "Map with stores",
         "regionLabel": "City",
         "pinLabel": "Address: {address}",
-        "stubNote": "Coordinates will appear once the API exposes them."
+        "stubNote": "Coordinates are not available for this company yet."
       },
       "notFound": {
         "title": "Company not found",
@@ -1225,6 +1228,9 @@
       "validation": {
         "firstNameRequired": "Enter your first name.",
         "lastNameRequired": "Enter your last name.",
+        "positionRequired": "Enter your position.",
+        "telegramRequired": "Enter your Telegram username.",
+        "extraPhoneRequired": "Enter a secondary phone.",
         "tooLong": "Value is too long."
       },
       "save": "Save",

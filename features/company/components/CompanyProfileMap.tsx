@@ -7,25 +7,36 @@ import { featureFlags } from "@/lib/featureFlags";
 export interface CompanyProfileMapProps {
   /** Used as the pin's tooltip and aria label. */
   address: string;
-  /** Anchor id for the "Карта" header CTA to scroll to. */
+  lat?: string | null;
+  lng?: string | null;
+  /** Anchor id for the map header CTA to scroll to. */
   anchorId?: string;
 }
 
-// CompanyResponseDTO doesn't expose lat/lng, so the single profile pin is
-// hard-coded to the centre of Tashkent until the backend exposes coordinates.
+// Fallback used only when the backend omits or returns invalid coordinates.
 const PROFILE_CENTER = { lat: 41.2995, lng: 69.2401 };
 
-/**
- * Profile-page map stub. CompanyResponseDTO has no `lat/lng`, so we render
- * a single decorative pin centered on the placeholder map. The "Координаты
- * скоро" footer note flags the gap so it's truthful rather than fake.
- */
+function toNumber(value: string | null | undefined): number | null {
+  if (!value) return null;
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
 export function CompanyProfileMap({
   address,
+  lat,
+  lng,
   anchorId = "company-profile-map",
 }: CompanyProfileMapProps) {
   const t = useTranslations("company.profile.map");
   const tDir = useTranslations("company.directory.map");
+  const parsedLat = toNumber(lat);
+  const parsedLng = toNumber(lng);
+  const center =
+    parsedLat !== null && parsedLng !== null
+      ? { lat: parsedLat, lng: parsedLng }
+      : PROFILE_CENTER;
+  const hasCoordinates = parsedLat !== null && parsedLng !== null;
 
   if (featureFlags.leafletMap) {
     return (
@@ -47,22 +58,24 @@ export function CompanyProfileMap({
           </button>
         </div>
         <LeafletMap
-          center={PROFILE_CENTER}
+          center={center}
           zoom={12}
           height={420}
           ariaLabel={t("title")}
           pins={[
             {
               id: anchorId,
-              lat: PROFILE_CENTER.lat,
-              lng: PROFILE_CENTER.lng,
+              lat: center.lat,
+              lng: center.lng,
               label: address,
             },
           ]}
         />
-        <p className="border-t border-border px-4 py-2 text-caption text-fg-subtle">
-          {t("stubNote")}
-        </p>
+        {!hasCoordinates ? (
+          <p className="border-t border-border px-4 py-2 text-caption text-fg-subtle">
+            {t("stubNote")}
+          </p>
+        ) : null}
       </section>
     );
   }
@@ -128,9 +141,11 @@ export function CompanyProfileMap({
           </span>
         </div>
       </div>
-      <p className="border-t border-border px-4 py-2 text-caption text-fg-subtle">
-        {t("stubNote")}
-      </p>
+      {!hasCoordinates ? (
+        <p className="border-t border-border px-4 py-2 text-caption text-fg-subtle">
+          {t("stubNote")}
+        </p>
+      ) : null}
     </section>
   );
 }

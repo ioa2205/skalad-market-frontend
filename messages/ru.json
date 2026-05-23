@@ -281,6 +281,7 @@
           "industry": "Отрасль",
           "industryUnknown": "—",
           "phone": "Телефон",
+          "phoneMissing": "Не указан",
           "email": "Email",
           "emailMissing": "Не указан",
           "website": "Сайт",
@@ -776,19 +777,20 @@
         "surfaceLabel": "Карта компаний",
         "surfaceTitle": "Карта с компаниями",
         "pinLabel": "Метка {id}",
-        "stubBody": "Стуб данных"
+        "stubBody": "Адрес не указан"
       }
     },
     "card": {
       "openLabel": "Открыть страницу компании «{name}»",
       "tagline": "{industry} {region}",
+      "descriptionPending": "Описание компании пока не добавлено.",
       "metrics": {
         "rating": "Рейтинг",
         "reviews": "Отзывы",
         "products": "Товаров"
       },
       "cta": "Перейти на страницу компании",
-      "stubTooltip": "Карточка компании — макет, появится после выпуска публичного API.",
+      "stubTooltip": "Избранные компании пока недоступны.",
       "favoriteAria": "Сохранить компанию (скоро)"
     },
     "ratingStars": {
@@ -832,6 +834,7 @@
         "title": "Контакты",
         "phone": "Телефон",
         "phoneSecondary": "Доп. телефон",
+        "phonePending": "Телефон не указан",
         "email": "Email",
         "emailPending": "Скоро",
         "website": "Website"
@@ -844,8 +847,8 @@
       },
       "products": {
         "empty": {
-          "title": "Товары появятся скоро",
-          "description": "Публичный список товаров компании подключим, когда появится соответствующий API."
+          "title": "Товаров пока нет",
+          "description": "У этой компании пока нет опубликованных товаров."
         }
       },
       "reviews": {
@@ -858,7 +861,7 @@
         "title": "Карта с магазинами",
         "regionLabel": "Город",
         "pinLabel": "Адрес: {address}",
-        "stubNote": "Координаты появятся, когда API начнёт их возвращать."
+        "stubNote": "Координаты этой компании пока недоступны."
       },
       "notFound": {
         "title": "Компания не найдена",
@@ -1225,6 +1228,9 @@
       "validation": {
         "firstNameRequired": "Введите имя.",
         "lastNameRequired": "Введите фамилию.",
+        "positionRequired": "Введите должность.",
+        "telegramRequired": "Введите Telegram.",
+        "extraPhoneRequired": "Введите дополнительный телефон.",
         "tooLong": "Слишком длинное значение."
       },
       "save": "Сохранить",

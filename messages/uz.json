@@ -281,6 +281,7 @@
           "industry": "Soha",
           "industryUnknown": "—",
           "phone": "Telefon",
+          "phoneMissing": "Ko'rsatilmagan",
           "email": "Email",
           "emailMissing": "Ko'rsatilmagan",
           "website": "Sayt",
@@ -776,19 +777,20 @@
         "surfaceLabel": "Kompaniyalar xaritasi",
         "surfaceTitle": "Kompaniyalar bilan xarita",
         "pinLabel": "Belgi {id}",
-        "stubBody": "Namunaviy ma'lumot"
+        "stubBody": "Manzil ko'rsatilmagan"
       }
     },
     "card": {
       "openLabel": "«{name}» kompaniyasi sahifasini ochish",
       "tagline": "{industry} {region}",
+      "descriptionPending": "Kompaniya tavsifi hali qo'shilmagan.",
       "metrics": {
         "rating": "Reyting",
         "reviews": "Sharhlar",
         "products": "Mahsulot"
       },
       "cta": "Kompaniya sahifasiga o'tish",
-      "stubTooltip": "Kompaniya kartochkasi — maket, ommaviy API chiqqach faollashadi.",
+      "stubTooltip": "Kompaniyalarni saqlash hozircha mavjud emas.",
       "favoriteAria": "Kompaniyani saqlash (tez orada)"
     },
     "ratingStars": {
@@ -832,6 +834,7 @@
         "title": "Aloqa",
         "phone": "Telefon",
         "phoneSecondary": "Qo'shimcha telefon",
+        "phonePending": "Telefon ko'rsatilmagan",
         "email": "Email",
         "emailPending": "Tez orada",
         "website": "Veb-sayt"
@@ -844,8 +847,8 @@
       },
       "products": {
         "empty": {
-          "title": "Mahsulotlar tez orada paydo bo'ladi",
-          "description": "Tegishli API tayyor bo'lishi bilan kompaniya mahsulotlarining ommaviy ro'yxatini ulaymiz."
+          "title": "Hali mahsulot yo'q",
+          "description": "Bu kompaniyada hali tasdiqlangan ommaviy mahsulotlar yo'q."
         }
       },
       "reviews": {
@@ -858,7 +861,7 @@
         "title": "Do'konlar bilan xarita",
         "regionLabel": "Shahar",
         "pinLabel": "Manzil: {address}",
-        "stubNote": "API koordinatalarni qaytara boshlaganida ko'rinadi."
+        "stubNote": "Bu kompaniya koordinatalari hozircha mavjud emas."
       },
       "notFound": {
         "title": "Kompaniya topilmadi",
@@ -1225,6 +1228,9 @@
       "validation": {
         "firstNameRequired": "Ismingizni kiriting.",
         "lastNameRequired": "Familiyangizni kiriting.",
+        "positionRequired": "Lavozimingizni kiriting.",
+        "telegramRequired": "Telegram foydalanuvchi nomingizni kiriting.",
+        "extraPhoneRequired": "Qo'shimcha telefon raqamini kiriting.",
         "tooLong": "Qiymat juda uzun."
       },
       "save": "Saqlash",

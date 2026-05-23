@@ -23,7 +23,11 @@ interface NotificationsListResponse {
   meta: { total: number; page: number; perPage: number; totalPages: number };
 }
 
-async function parseJson<T>(response: Response, fallbackCode: string): Promise<T> {
+async function parseJson<T>(
+  response: Response,
+  fallbackCode: string,
+  options: { allowEmpty?: boolean } = {},
+): Promise<T> {
   const correlationId = response.headers.get(REQUEST_ID_HEADER) ?? undefined;
   let json: ProxyEnvelope<T>;
   try {
@@ -36,7 +40,7 @@ async function parseJson<T>(response: Response, fallbackCode: string): Promise<T
       correlationId,
     });
   }
-  if (!response.ok || !json.success || json.data === undefined) {
+  if (!response.ok || !json.success || (!options.allowEmpty && json.data === undefined)) {
     throw new ApiError({
       code: json.message ?? fallbackCode,
       message: json.message ?? fallbackCode,
@@ -44,7 +48,7 @@ async function parseJson<T>(response: Response, fallbackCode: string): Promise<T
       correlationId,
     });
   }
-  return json.data;
+  return json.data as T;
 }
 
 export async function fetchNotifications(
@@ -90,7 +94,9 @@ async function callMarkRead(input: MarkReadInput): Promise<void> {
     headers: { accept: "application/json", "content-type": "application/json" },
     body: JSON.stringify(body),
   });
-  await parseJson<unknown>(response, "notifications.mark-read.failed");
+  await parseJson<unknown>(response, "notifications.mark-read.failed", {
+    allowEmpty: true,
+  });
 }
 
 export function useMarkNotificationsRead() {

@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 import type { CompanyRequestDTO } from "@/lib/api/schemas/company";
+import { findDistrict } from "@/lib/data/regions";
 
 /**
  * Form schemas for the company onboarding wizard. Field-level zod messages
@@ -99,6 +100,7 @@ export type CompanyWizardValues = z.infer<typeof CompanyWizardSchema>;
 export function toCompanyRequestDTO(
   values: CompanyWizardValues,
 ): CompanyRequestDTO {
+  const district = findDistrict(values.regionId, values.districtId);
   const dto: CompanyRequestDTO = {
     name: values.name,
     stir: values.stir,
@@ -106,6 +108,8 @@ export function toCompanyRequestDTO(
     regionId: values.regionId,
     districtId: values.districtId,
     address: values.address,
+    lat: district?.lat ?? "41.2995",
+    lng: district?.lng ?? "69.2401",
   };
   if (values.shortDescription && values.shortDescription.length > 0) {
     dto.shortDescription = values.shortDescription;

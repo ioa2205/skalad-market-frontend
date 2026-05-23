@@ -121,9 +121,9 @@ export default async function ProductDetailPage({ params }: PageProps) {
         id: product.company.id,
         name: product.company.name,
         slug: product.company.slug,
-        logoPath: product.company.logo_path ?? company?.logoUrl ?? null,
-        shortDescription: company?.shortDescription ?? null,
-        verified: company?.verificationStatus === "VERIFIED",
+        logoPath: product.company.logo_path ?? null,
+        shortDescription: null,
+        verified: company?.status === "VERIFIED",
       }
     : null;
 
@@ -184,7 +184,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
             currency={product.currency}
             unit={unit}
             minOrder={minOrder}
-            sellerPhone={company?.phonePrimary ?? undefined}
+            sellerPhone={undefined}
             categoryName={categoryName}
             views={views}
             className="border-chrome-border"

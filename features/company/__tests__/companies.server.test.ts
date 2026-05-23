@@ -25,7 +25,7 @@ describe("fetchCompanyDetail", () => {
     expect(result.data).toMatchObject({
       slug: "uzmetal-pro",
       name: "UzMetal Pro",
-      verificationStatus: "VERIFIED",
+      status: "VERIFIED",
     });
   });
 

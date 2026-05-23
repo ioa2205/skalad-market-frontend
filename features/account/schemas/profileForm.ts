@@ -9,21 +9,15 @@ const required = (requiredMessage: string) =>
     .refine((value) => value.length > 0, { message: requiredMessage })
     .refine((value) => value.length <= TEXT_MAX, { message: "tooLong" });
 
-const optional = trimmed.refine((value) => value.length <= TEXT_MAX, {
-  message: "tooLong",
-});
-
 /**
- * Mirrors `UsersUpdateRequestDTO` (firstName, lastName, position, telegram,
- * extraPhone — all required on the wire). Only the names are non-empty;
- * the optional fields ride as the empty string when the user clears them.
+ * Mirrors `UsersUpdateRequestDTO`; all fields are required by the backend.
  */
 export const ProfileFormSchema = z.object({
   firstName: required("firstNameRequired"),
   lastName: required("lastNameRequired"),
-  position: optional,
-  telegram: optional,
-  extraPhone: optional,
+  position: required("positionRequired"),
+  telegram: required("telegramRequired"),
+  extraPhone: required("extraPhoneRequired"),
 });
 
 export type ProfileFormInput = z.input<typeof ProfileFormSchema>;

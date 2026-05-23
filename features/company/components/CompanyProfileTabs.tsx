@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import type { CompanyProductResponse } from "@/lib/api/schemas";
 
 import { useCompanyProfileParams } from "../hooks/useCompanyProfileParams";
 
@@ -10,9 +11,10 @@ import { CompanyProductsTab } from "./CompanyProductsTab";
 import { CompanyReviewsTab } from "./CompanyReviewsTab";
 
 export interface CompanyProfileTabsProps {
-  /** Optional product count rendered next to the tab label. Backend doesn't
-   * yet expose a per-company products count, so this is only shown when a
-   * caller has the number on hand. */
+  products: CompanyProductResponse[];
+  companyName: string;
+  verified: boolean;
+  /** Optional product count rendered next to the tab label. */
   productsCount?: number | null;
   /** Optional review count rendered next to the tab label. Reviews aren't in
    * scope of the current backend; left wired so the figma layout slots in
@@ -27,9 +29,12 @@ const TABS_TRIGGER_CLASSNAME =
   "rounded-none bg-transparent px-0 pb-3 pt-0 text-body font-medium border-b-2 border-transparent shadow-none data-[state=active]:bg-transparent data-[state=active]:text-fg data-[state=active]:border-primary-500 data-[state=active]:shadow-none";
 
 export function CompanyProfileTabs({
+  products,
+  companyName,
+  verified,
   productsCount,
   reviewsCount,
-}: CompanyProfileTabsProps = {}) {
+}: CompanyProfileTabsProps) {
   const t = useTranslations("company.profile.tabs");
   const [params, setParams] = useCompanyProfileParams();
 
@@ -61,7 +66,11 @@ export function CompanyProfileTabs({
         </TabsTrigger>
       </TabsList>
       <TabsContent value="products">
-        <CompanyProductsTab />
+        <CompanyProductsTab
+          products={products}
+          companyName={companyName}
+          verified={verified}
+        />
       </TabsContent>
       <TabsContent value="reviews">
         <CompanyReviewsTab />

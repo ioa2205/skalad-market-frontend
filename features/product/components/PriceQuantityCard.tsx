@@ -111,7 +111,7 @@ export function PriceQuantityCard({
   return (
     <Card className={cn("flex flex-col gap-[18px] rounded-xl p-[18px]", className)}>
       <div className="flex items-center justify-between gap-2">
-        <span className="inline-flex h-[22px] items-center rounded px-2 text-[12px] font-medium text-[#0088FF] bg-[#DEECFF]">
+        <span className="inline-flex h-[22px] items-center rounded px-2 text-[12px] font-medium bg-info-soft text-info-soft-foreground">
           {inStockLabel}
         </span>
         {typeof views === "number" ? (
@@ -186,7 +186,7 @@ export function PriceQuantityCard({
           variant="secondary"
           sellerCompanyId={companyId}
           productId={productId}
-          className="h-[47px] rounded-2xl border border-[#DFDFDF] bg-bg-elevated text-fg hover:bg-bg-muted"
+          className="h-[47px] rounded-2xl border border-catalog-control-border bg-bg-elevated text-fg hover:bg-bg-muted"
         >
           {t("cta.contactSeller")}
         </StartChatButton>
@@ -194,7 +194,7 @@ export function PriceQuantityCard({
           <Button
             variant="secondary"
             asChild
-            className="h-[47px] rounded-2xl border border-[#DFDFDF] bg-bg-elevated text-fg hover:bg-bg-muted"
+            className="h-[47px] rounded-2xl border border-catalog-control-border bg-bg-elevated text-fg hover:bg-bg-muted"
           >
             <a href={`tel:${sellerPhone.replace(/\s+/g, "")}`}>
               <Phone aria-hidden="true" />
@@ -205,7 +205,7 @@ export function PriceQuantityCard({
         <Button
           variant="secondary"
           onClick={onAddToFavorites}
-          className="h-[47px] rounded-2xl border border-[#DFDFDF] bg-bg-elevated text-fg hover:bg-bg-muted"
+          className="h-[47px] rounded-2xl border border-catalog-control-border bg-bg-elevated text-fg hover:bg-bg-muted"
         >
           <Heart aria-hidden="true" />
           {t("cta.addToFavorites")}
@@ -213,7 +213,7 @@ export function PriceQuantityCard({
         <Button
           variant="outline"
           onClick={onShare}
-          className="h-[47px] rounded-2xl border border-[#DFDFDF] bg-bg-elevated text-fg hover:bg-bg-muted"
+          className="h-[47px] rounded-2xl border border-catalog-control-border bg-bg-elevated text-fg hover:bg-bg-muted"
         >
           <Share2 aria-hidden="true" />
           {tShare("share")}

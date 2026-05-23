@@ -6,12 +6,20 @@ import { useTranslations } from "next-intl";
 import { VerifiedBadge } from "@/components/badges";
 import { Button } from "@/components/ui/button";
 import { StartChatButton } from "@/features/chat";
-import type { CompanyResponseDTO } from "@/lib/api/schemas";
+import type { VerificationStatus } from "@/lib/api/schemas";
 
 import { CompanyLogoMark } from "./CompanyLogoMark";
 
 export interface CompanyHeaderProps {
-  company: CompanyResponseDTO;
+  company: {
+    id: number;
+    name: string;
+    logoUrl?: string | null;
+    shortDescription?: string | null;
+    phonePrimary?: string | null;
+    verificationStatus?: VerificationStatus;
+    status?: VerificationStatus;
+  };
   /** Element id of the map section so the "Карта" button can scroll to it. */
   mapAnchorId?: string;
 }
@@ -21,8 +29,8 @@ export function CompanyHeader({
   mapAnchorId = "company-profile-map",
 }: CompanyHeaderProps) {
   const t = useTranslations("company");
-  const verified = company.verificationStatus === "VERIFIED";
-  const phone = company.phonePrimary;
+  const verified = (company.verificationStatus ?? company.status) === "VERIFIED";
+  const phone = company.phonePrimary ?? null;
 
   const handleMapJump = () => {
     if (typeof document === "undefined") return;
@@ -33,9 +41,8 @@ export function CompanyHeader({
 
   return (
     <section className="overflow-hidden rounded-lg border border-border bg-bg-elevated">
-      {/* Cover hero. CompanyResponseDTO has no `coverUrl`; figma shows a
-          flat tinted band, so we render solid `primary-100` until backend
-          exposes a real cover image (Decision #10). */}
+      {/* The public slug detail has no cover image, so keep the profile hero
+          as a stable tinted band. */}
       <div aria-hidden="true" className="h-44 w-full bg-primary-100" />
       <div className="relative -mt-16 flex flex-col gap-4 px-6 pb-6 md:flex-row md:items-end md:justify-between">
         <div className="flex flex-col items-start gap-4 md:flex-row md:items-end">

@@ -12,7 +12,10 @@ import {
   CompanyProfileMap,
   CompanyProfileTabs,
 } from "@/features/company";
-import { fetchCompanyDetail } from "@/features/company/api/companies.server";
+import {
+  fetchCompanyDetail,
+  fetchCompanyProducts,
+} from "@/features/company/api/companies.server";
 import { getSession } from "@/lib/auth/session";
 
 export const dynamic = "force-dynamic";
@@ -25,7 +28,10 @@ export default async function CompanyProfilePage({ params }: PageProps) {
   const { slug } = await params;
   const t = await getTranslations("company.profile");
 
-  const result = await fetchCompanyDetail(slug);
+  const [result, productsResult] = await Promise.all([
+    fetchCompanyDetail(slug),
+    fetchCompanyProducts({ slug }),
+  ]);
   if (result.status === "not-found") notFound();
   if (result.status === "error" || !result.data) {
     throw Object.assign(new Error("company.detail.failed"), {
@@ -34,6 +40,7 @@ export default async function CompanyProfilePage({ params }: PageProps) {
   }
 
   const company = result.data;
+  const verified = company.status === "VERIFIED";
   const session = await getSession();
   const showSellerPanelCta = session?.roles.includes("SELLER") ?? false;
 
@@ -56,11 +63,11 @@ export default async function CompanyProfilePage({ params }: PageProps) {
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[280px_minmax(0,1fr)]">
         <aside className="flex flex-col gap-4">
           <CompanyAboutCard
-            description={company.description}
+            description={null}
             stats={{
               rating: null,
               reviewsCount: null,
-              productsCount: null,
+              productsCount: productsResult.totalElements,
             }}
           />
           <CompanyInfoCard
@@ -70,15 +77,24 @@ export default async function CompanyProfilePage({ params }: PageProps) {
             productsCount={null}
           />
           <CompanyContactsCard
-            phonePrimary={company.phonePrimary}
-            phoneSecondary={company.phoneSecondary ?? null}
-            website={company.website ?? null}
+            phonePrimary={null}
+            phoneSecondary={null}
+            website={null}
           />
         </aside>
 
         <main className="flex flex-col gap-6">
-          <CompanyProfileTabs />
-          <CompanyProfileMap address={company.address} />
+          <CompanyProfileTabs
+            products={productsResult.items}
+            productsCount={productsResult.totalElements}
+            companyName={company.name}
+            verified={verified}
+          />
+          <CompanyProfileMap
+            address={company.address}
+            lat={company.lat}
+            lng={company.lng}
+          />
         </main>
       </div>
     </div>

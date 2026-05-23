@@ -11,9 +11,9 @@ export function TrustList({ className }: { className?: string }) {
     text: string;
     color: string;
   }> = [
-    { Icon: ShieldCheck, text: t("safeDeal"), color: "text-[#155DFC]" },
-    { Icon: CheckCircle2, text: t("verifiedData"), color: "text-[#00C950]" },
-    { Icon: FileCheck2, text: t("originalProducts"), color: "text-[#155DFC]" },
+    { Icon: ShieldCheck, text: t("safeDeal"), color: "text-primary-600" },
+    { Icon: CheckCircle2, text: t("verifiedData"), color: "text-success" },
+    { Icon: FileCheck2, text: t("originalProducts"), color: "text-primary-600" },
   ];
   return (
     <Card className={cn("flex flex-col gap-[10px] rounded-xl p-[18px]", className)}>

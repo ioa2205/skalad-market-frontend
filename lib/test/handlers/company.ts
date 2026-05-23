@@ -6,31 +6,16 @@ export const sampleCompanyDetail = {
   id: 10,
   name: "UzMetal Pro",
   slug: "uzmetal-pro",
-  shortDescription: "Металлургия Ташкент",
-  description:
-    "Ведущий производитель металлопроката в Центральной Азии. Более 20 лет на рынке.",
-  logoUrl: null,
-  stir: "123456789",
-  phonePrimary: "+998 90 123 45 67",
-  phoneSecondary: null,
-  website: "www.uzmetall.uz",
+  status: "VERIFIED",
   regionId: 1,
   districtId: 1,
-  address: "Ташкент, Узбекистан",
-  verificationStatus: "VERIFIED",
-  isBlocked: false,
-  verifiedAt: "2025-12-01T00:00:00",
-  createdAt: "2003-01-01T00:00:00",
+  address: "Tashkent, Uzbekistan",
+  lat: "41.2995",
+  lng: "69.2401",
 } as const;
 
 const requestId = (slug: string) => `req-test-company-${slug}`;
 
-/**
- * Registered before the legacy product-fixtures `companies/:slug` handler
- * so this one wins for the dedicated profile tests. The product-detail
- * tests still pass because they hit different slugs (`uzmetal-pro` and
- * `missing-company` were the originals — both supported here).
- */
 export const companyHandlers = [
   http.get(`${TEST_GATEWAY}/api/v1/companies/:slug`, ({ params }) => {
     const slug = String(params.slug);

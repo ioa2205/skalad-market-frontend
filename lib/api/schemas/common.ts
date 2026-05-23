@@ -1,6 +1,8 @@
-import { z, type ZodSchema } from "zod";
+import { z } from "zod";
 
-export function pagedResponseSchema<T>(itemSchema: ZodSchema<T>) {
+import type { ApiDataSchema } from "../response";
+
+export function pagedResponseSchema<T>(itemSchema: ApiDataSchema<T>) {
   return z.object({
     items: z.array(itemSchema),
     meta: z.object({
@@ -12,7 +14,7 @@ export function pagedResponseSchema<T>(itemSchema: ZodSchema<T>) {
   });
 }
 
-export function springPageSchema<T>(itemSchema: ZodSchema<T>) {
+export function springPageSchema<T>(itemSchema: ApiDataSchema<T>) {
   return z.object({
     content: z.array(itemSchema),
     number: z.number(),
@@ -22,7 +24,7 @@ export function springPageSchema<T>(itemSchema: ZodSchema<T>) {
   });
 }
 
-export function productListResponseSchema<T>(itemSchema: ZodSchema<T>) {
+export function productListResponseSchema<T>(itemSchema: ApiDataSchema<T>) {
   return z.object({
     items: z.array(itemSchema),
     page: z.number(),

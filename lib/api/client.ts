@@ -1,14 +1,12 @@
-import type { ZodSchema } from "zod";
-
 import { REQUEST_ID_HEADER } from "../http/requestId";
 
 import { ApiError } from "./errors";
-import { apiResponseSchema } from "./response";
+import { apiResponseSchema, type ApiDataSchema } from "./response";
 
 export interface ApiFetchOptions<T> {
   method?: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
   body?: unknown;
-  schema: ZodSchema<T>;
+  schema: ApiDataSchema<T>;
   signal?: AbortSignal;
   headers?: Record<string, string>;
   baseUrl?: string;

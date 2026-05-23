@@ -5,31 +5,34 @@ import { renderWithIntl, screen } from "@/lib/test/render";
 
 import { CompanyProfileTabs } from "../components/CompanyProfileTabs";
 
-// nuqs's testing adapter mocks router transitions; we just assert that the
-// tab switch flows through, since URL writes happen via the testing adapter.
+const defaultProps = {
+  products: [],
+  companyName: "UzMetal Pro",
+  verified: true,
+};
 
 describe("CompanyProfileTabs", () => {
   it("defaults to the products tab when no ?tab is set", () => {
-    renderWithIntl(<CompanyProfileTabs />);
+    renderWithIntl(<CompanyProfileTabs {...defaultProps} />);
     expect(
       screen.getByRole("tab", { name: "Товары", selected: true }),
     ).toBeInTheDocument();
-    expect(screen.getByText("Товары появятся скоро")).toBeInTheDocument();
+    expect(screen.getByRole("status")).toBeInTheDocument();
   });
 
   it("honours ?tab=reviews from the URL", () => {
-    renderWithIntl(<CompanyProfileTabs />, {
+    renderWithIntl(<CompanyProfileTabs {...defaultProps} />, {
       searchParams: { tab: "reviews" },
     });
     expect(
       screen.getByRole("tab", { name: "Отзывы", selected: true }),
     ).toBeInTheDocument();
-    expect(screen.getByText("Отзывов пока нет")).toBeInTheDocument();
+    expect(screen.getByRole("status")).toBeInTheDocument();
   });
 
-  it("clicking the Отзывы tab activates it", async () => {
+  it("clicking the reviews tab activates it", async () => {
     const user = userEvent.setup();
-    renderWithIntl(<CompanyProfileTabs />);
+    renderWithIntl(<CompanyProfileTabs {...defaultProps} />);
     await user.click(screen.getByRole("tab", { name: "Отзывы" }));
     expect(
       screen.getByRole("tab", { name: "Отзывы", selected: true }),
@@ -37,8 +40,7 @@ describe("CompanyProfileTabs", () => {
   });
 
   it("ignores the ?tab value when it is not a known tab", () => {
-    // nuqs parseAsStringLiteral falls back to the default ("products").
-    renderWithIntl(<CompanyProfileTabs />, {
+    renderWithIntl(<CompanyProfileTabs {...defaultProps} />, {
       searchParams: { tab: "nonsense" },
     });
     expect(
@@ -46,4 +48,3 @@ describe("CompanyProfileTabs", () => {
     ).toBeInTheDocument();
   });
 });
-

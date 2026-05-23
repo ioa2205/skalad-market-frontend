@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { Card } from "@/components/ui/card";
 
 export interface CompanyContactsCardProps {
-  phonePrimary: string;
+  phonePrimary?: string | null;
   phoneSecondary?: string | null;
   website?: string | null;
 }
@@ -24,8 +24,9 @@ export function CompanyContactsCard({
         <Row
           icon={Phone}
           label={t("phone")}
-          value={phonePrimary}
-          href={`tel:${phonePrimary}`}
+          value={phonePrimary ?? null}
+          fallback={t("phonePending")}
+          {...(phonePrimary ? { href: `tel:${phonePrimary}` } : {})}
         />
         {phoneSecondary ? (
           <Row

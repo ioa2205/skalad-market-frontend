@@ -17,4 +17,3 @@ export { CompanyProductsTab } from "./components/CompanyProductsTab";
 export { CompanyProfileMap, type CompanyProfileMapProps } from "./components/CompanyProfileMap";
 export { CompanyProfileTabs } from "./components/CompanyProfileTabs";
 export { CompanyReviewsTab } from "./components/CompanyReviewsTab";
-export { STUB_COMPANIES, type DirectoryStubEntry } from "./api/fixtures";

@@ -41,7 +41,7 @@ describe("AvatarUploader", () => {
     mswServer.use(
       http.post(`${PROXY}/attach/upload`, () =>
         HttpResponse.json(
-          { success: true, data: { id: "att-success", url: "http://x" } },
+          { id: "att-success", url: "http://x" },
           { headers: { "x-request-id": "req-upload-ok" } },
         ),
       ),
@@ -70,7 +70,7 @@ describe("AvatarUploader", () => {
     mswServer.use(
       http.post(`${PROXY}/attach/upload`, () =>
         HttpResponse.json(
-          { success: true, data: { id: "att-orphan", url: "http://x" } },
+          { id: "att-orphan", url: "http://x" },
           { headers: { "x-request-id": "req-upload-ok" } },
         ),
       ),
@@ -101,7 +101,7 @@ describe("AvatarUploader", () => {
       http.post(`${PROXY}/attach/upload`, () => {
         uploadCalls += 1;
         return HttpResponse.json(
-          { success: true, data: { id: "x", url: "http://x" } },
+          { id: "x", url: "http://x" },
           { headers: { "x-request-id": "req-upload" } },
         );
       }),

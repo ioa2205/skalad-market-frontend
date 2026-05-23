@@ -10,16 +10,16 @@ const TONE_CLASSES: Record<
   { row: string; iconWrap: string }
 > = {
   info: {
-    row: "bg-[#DEECFF]",
-    iconWrap: "bg-white text-[#155DFC]",
+    row: "bg-info-soft",
+    iconWrap: "bg-bg-elevated text-primary-600",
   },
   success: {
-    row: "bg-[#F0FDF4]",
-    iconWrap: "bg-white text-[#00A63E]",
+    row: "bg-success-soft",
+    iconWrap: "bg-bg-elevated text-success",
   },
   neutral: {
-    row: "bg-[#F9FAFB]",
-    iconWrap: "bg-white text-fg-muted",
+    row: "bg-bg-muted",
+    iconWrap: "bg-bg-elevated text-fg-muted",
   },
 };
 

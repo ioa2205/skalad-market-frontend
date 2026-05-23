@@ -3,11 +3,16 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 
 import { Badge } from "@/components/ui/badge";
-import type { CompanyResponseDTO } from "@/lib/api/schemas/company";
+import type { CompanySlugMapResponse, VerificationStatus } from "@/lib/api/schemas";
 import { findRegion } from "@/lib/data/regions";
 
 export interface CompanyProfileCardProps {
-  company: CompanyResponseDTO;
+  company: CompanySlugMapResponse & {
+    shortDescription?: string | null;
+    phonePrimary?: string | null;
+    website?: string | null;
+    verificationStatus?: VerificationStatus;
+  };
 }
 
 /**
@@ -21,6 +26,7 @@ export function CompanyProfileCard({ company }: CompanyProfileCardProps) {
   const tRegions = useTranslations("regionsStub");
   const region = findRegion(company.regionId);
   const regionLabel = region ? tRegions(region.i18nKey) : `#${company.regionId}`;
+  const status = company.verificationStatus ?? company.status;
 
   const rows: { label: string; value: string }[] = [
     { label: t("name"), value: company.name },
@@ -28,7 +34,7 @@ export function CompanyProfileCard({ company }: CompanyProfileCardProps) {
       label: t("industry"),
       value: company.shortDescription ?? t("industryUnknown"),
     },
-    { label: t("phone"), value: company.phonePrimary },
+    { label: t("phone"), value: company.phonePrimary ?? t("phoneMissing") },
     { label: t("email"), value: company.website ?? t("emailMissing") },
     {
       label: t("website"),
@@ -58,7 +64,7 @@ export function CompanyProfileCard({ company }: CompanyProfileCardProps) {
           </h2>
           <p className="text-caption text-fg-muted">{company.shortDescription ?? ""}</p>
         </div>
-        {company.verificationStatus === "VERIFIED" ? (
+        {status === "VERIFIED" ? (
           <Badge variant="success">{t("verified")}</Badge>
         ) : null}
       </header>

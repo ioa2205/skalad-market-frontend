@@ -9,48 +9,70 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import type { CompanyMapResponse } from "@/lib/api/schemas";
 import { featureFlags } from "@/lib/featureFlags";
 
-interface StubPin {
+interface DisplayPin {
   id: number;
   x: number;
   y: number;
   label: string;
+  body: string;
 }
 
-const STUB_PINS: StubPin[] = [
-  { id: 1, x: 35, y: 45, label: "UzMetal Pro" },
-  { id: 2, x: 55, y: 35, label: "Asia Steel Group" },
-  { id: 3, x: 30, y: 60, label: "Metal Trade LLC" },
-  { id: 4, x: 70, y: 50, label: "BuildKaz LLP" },
-  { id: 5, x: 50, y: 75, label: "Алтын Цемент" },
-];
-
-// Coordinates around Tashkent. CompanyResponseDTO doesn't expose lat/lng, so
-// these are stand-ins until the backend exposes them on the public DTO.
-const LEAFLET_BASE: Omit<LeafletMapPin, "body">[] = [
-  { id: 1, lat: 41.3220, lng: 69.2680, label: "UzMetal Pro" },
-  { id: 2, lat: 41.2920, lng: 69.2200, label: "Asia Steel Group" },
-  { id: 3, lat: 41.2680, lng: 69.2050, label: "Metal Trade LLC" },
-  { id: 4, lat: 41.3150, lng: 69.3050, label: "BuildKaz LLP" },
-  { id: 5, lat: 41.2820, lng: 69.2480, label: "Алтын Цемент" },
-];
+export interface CompanyDirectoryMapStubProps {
+  entries: CompanyMapResponse[];
+}
 
 const LEAFLET_CENTER = { lat: 41.2995, lng: 69.2401 };
 
-/**
- * Static SVG stand-in for the company directory map. There is no
- * geo-search endpoint and `CompanyResponseDTO` doesn't expose `lat/lng`,
- * so pins are decorative until Phase 10 (or until backend exposes
- * coordinates, whichever lands first).
- */
-export function CompanyDirectoryMapStub() {
-  const t = useTranslations("company.directory.map");
-  const stubBody = t("stubBody");
-  const leafletPins: LeafletMapPin[] = LEAFLET_BASE.map((pin) => ({
-    ...pin,
-    body: stubBody,
+function numberFrom(value: string | null | undefined): number | null {
+  if (!value) return null;
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+function toLeafletPins(
+  entries: CompanyMapResponse[],
+  fallbackBody: string,
+): LeafletMapPin[] {
+  const pins: LeafletMapPin[] = [];
+  entries.forEach((entry) => {
+    const lat = numberFrom(entry.lat);
+    const lng = numberFrom(entry.lng);
+    if (lat === null || lng === null) return;
+    pins.push({
+      id: entry.companyId,
+      lat,
+      lng,
+      label: entry.companyName,
+      body: entry.companyAddress ?? fallbackBody,
+    });
+  });
+  return pins;
+}
+
+function toDisplayPins(
+  entries: CompanyMapResponse[],
+  fallbackBody: string,
+): DisplayPin[] {
+  return entries.map((entry, index) => ({
+    id: entry.companyId,
+    x: 24 + (index % 4) * 17,
+    y: 32 + (Math.floor(index / 4) % 4) * 14,
+    label: entry.companyName,
+    body: entry.companyAddress ?? fallbackBody,
   }));
+}
+
+export function CompanyDirectoryMapStub({ entries }: CompanyDirectoryMapStubProps) {
+  const t = useTranslations("company.directory.map");
+  const fallbackBody = t("stubBody");
+  const leafletPins = toLeafletPins(entries, fallbackBody);
+  const displayPins = toDisplayPins(entries, fallbackBody);
+  const center = leafletPins[0]
+    ? { lat: leafletPins[0].lat, lng: leafletPins[0].lng }
+    : LEAFLET_CENTER;
 
   if (featureFlags.leafletMap) {
     return (
@@ -66,14 +88,14 @@ export function CompanyDirectoryMapStub() {
             type="button"
             aria-disabled="true"
             onClick={(event) => event.preventDefault()}
-            className="absolute left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-md border border-border px-3 py-1.5 text-body-sm text-fg-muted hover:bg-bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+            className="absolute left-1/2 inline-flex -translate-x-1/2 items-center gap-1 rounded-md border border-border px-3 py-1.5 text-body-sm text-fg-muted hover:bg-bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
           >
             {t("regionTashkent")}
             <ChevronDown aria-hidden="true" className="size-4" />
           </button>
         </div>
         <LeafletMap
-          center={LEAFLET_CENTER}
+          center={center}
           zoom={11}
           pins={leafletPins}
           ariaLabel={t("surfaceLabel")}
@@ -136,7 +158,7 @@ export function CompanyDirectoryMapStub() {
           />
         </svg>
 
-        {STUB_PINS.map((pin) => (
+        {displayPins.map((pin) => (
           <Popover key={pin.id}>
             <PopoverTrigger
               aria-label={t("pinLabel", { id: pin.id })}
@@ -147,7 +169,7 @@ export function CompanyDirectoryMapStub() {
             </PopoverTrigger>
             <PopoverContent side="top" className="w-56 p-3 text-body-sm">
               <p className="font-semibold text-fg">{pin.label}</p>
-              <p className="mt-1 text-fg-muted">{stubBody}</p>
+              <p className="mt-1 text-fg-muted">{pin.body}</p>
             </PopoverContent>
           </Popover>
         ))}

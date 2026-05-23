@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { renderWithIntl, screen } from "@/lib/test/render";
+import { useSidebarStore } from "@/stores/sidebar";
 
 import { Sidebar } from "../sidebar";
 
@@ -17,10 +18,12 @@ function Wrap({ children }: { children: ReactNode }) {
 
 beforeEach(() => {
   localStorage.clear();
+  useSidebarStore.setState({ collapsed: false, hasHydrated: true });
 });
 
 afterEach(() => {
   localStorage.clear();
+  useSidebarStore.setState({ collapsed: false, hasHydrated: true });
 });
 
 describe("Sidebar", () => {

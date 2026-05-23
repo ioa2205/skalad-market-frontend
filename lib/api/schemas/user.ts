@@ -2,12 +2,18 @@ import { z } from "zod";
 
 import { GeneralStatusEnum, RolesEnum } from "./enums";
 
+const nullableStringAsEmpty = z
+  .string()
+  .nullable()
+  .optional()
+  .transform((value) => value ?? "");
+
 export const UsersDTO = z.object({
-  firstName: z.string(),
-  lastName: z.string(),
-  position: z.string(),
-  telegram: z.string(),
-  extraPhone: z.string(),
+  firstName: nullableStringAsEmpty,
+  lastName: nullableStringAsEmpty,
+  position: nullableStringAsEmpty,
+  telegram: nullableStringAsEmpty,
+  extraPhone: nullableStringAsEmpty,
 });
 export type UsersDTO = z.infer<typeof UsersDTO>;
 

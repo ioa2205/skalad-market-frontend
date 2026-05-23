@@ -61,12 +61,12 @@ export function ProductTabs({
       }}
       className={cn("flex flex-col gap-4", className)}
     >
-      <TabsList className="h-auto justify-start gap-6 rounded-none border-b border-[#F0F0F0] bg-transparent p-0 text-[#7F7F7F]">
+      <TabsList className="h-auto justify-start gap-6 rounded-none border-b border-chrome-input-border bg-transparent p-0 text-mod-meta">
         {ORDER.map((key) => (
           <TabsTrigger
             key={key}
             value={key}
-            className="-mb-px rounded-none border-b-2 border-transparent px-0 pb-3 pt-0 text-body font-normal text-[#7F7F7F] data-[state=active]:border-[#155DFC] data-[state=active]:bg-transparent data-[state=active]:font-semibold data-[state=active]:shadow-none data-[state=active]:text-[#155DFC]"
+            className="-mb-px rounded-none border-b-2 border-transparent px-0 pb-3 pt-0 text-body font-normal text-mod-meta data-[state=active]:border-primary-600 data-[state=active]:bg-transparent data-[state=active]:font-semibold data-[state=active]:shadow-none data-[state=active]:text-primary-600"
           >
             {t(key)}
           </TabsTrigger>

@@ -5,10 +5,10 @@ import { z } from "zod";
 import { ApiError } from "@/lib/api/errors";
 import { serverFetch } from "@/lib/api/server";
 import {
-  CompanyResponseDTO,
   CompanyShortDTO,
-  type CompanyResponseDTO as CompanyT,
+  CompanySlugMapResponse,
   type CompanyShortDTO as CompanyShortT,
+  type CompanySlugMapResponse as CompanySlugT,
 } from "@/lib/api/schemas";
 import { log } from "@/lib/log";
 
@@ -54,14 +54,14 @@ export async function fetchSellerCompanies(): Promise<FetchSellerCompaniesResult
 }
 
 export interface FetchSellerCompanyDetailResult {
-  company: CompanyT | null;
+  company: CompanySlugT | null;
   error?: { code: string; correlationId?: string | undefined };
 }
 
 /**
- * Fetches the full `CompanyResponseDTO` for a single owned company by slug.
- * Used by the settings tab. Public endpoint, but called from the seller
- * layout so the bearer is attached for parity with future ownership checks.
+ * Fetches the public slug/map company detail for a single owned company.
+ * Called from the seller layout so the bearer is attached for parity with
+ * future ownership checks.
  */
 export async function fetchSellerCompanyBySlug(
   slug: string,
@@ -70,7 +70,7 @@ export async function fetchSellerCompanyBySlug(
     const data = await serverFetch(
       `/api/v1/companies/${encodeURIComponent(slug)}`,
       {
-        schema: CompanyResponseDTO,
+        schema: CompanySlugMapResponse,
         cache: "no-store",
       },
     );

@@ -3,11 +3,12 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 import { ApiError } from "@/lib/api/errors";
-import type {
+import {
   AttachDTO,
-  UserPhotoDTO,
-  UsersDTO,
-  UsersUpdateRequestDTO,
+  type AttachDTO as AttachDTOT,
+  type UserPhotoDTO,
+  type UsersDTO,
+  type UsersUpdateRequestDTO,
 } from "@/lib/api/schemas/user";
 import { REQUEST_ID_HEADER } from "@/lib/http/requestId";
 import { log } from "@/lib/log";
@@ -123,7 +124,7 @@ export function usePhoto(options: UsePhotoOptions = {}) {
   });
 }
 
-export async function uploadAttach(file: File): Promise<AttachDTO> {
+export async function uploadAttach(file: File): Promise<AttachDTOT> {
   const form = new FormData();
   form.set("file", file);
   const response = await fetch("/api/proxy/api/v1/attach/upload", {
@@ -132,7 +133,40 @@ export async function uploadAttach(file: File): Promise<AttachDTO> {
     headers: { accept: "application/json" },
     body: form,
   });
-  return parseEnvelope<AttachDTO>(response, "attach.upload.failed");
+  const correlationId = response.headers.get(REQUEST_ID_HEADER) ?? undefined;
+  let json: unknown;
+  try {
+    json = await response.json();
+  } catch {
+    throw new ApiError({
+      code: "invalid.response",
+      message: "invalid.response",
+      status: response.status,
+      correlationId,
+    });
+  }
+  if (!response.ok) {
+    const message =
+      typeof json === "object" && json !== null && "message" in json
+        ? String((json as { message?: unknown }).message ?? "attach.upload.failed")
+        : "attach.upload.failed";
+    throw new ApiError({
+      code: message,
+      message,
+      status: response.status,
+      correlationId,
+    });
+  }
+  const parsed = AttachDTO.safeParse(json);
+  if (!parsed.success) {
+    throw new ApiError({
+      code: "invalid.response",
+      message: "invalid.response",
+      status: response.status,
+      correlationId,
+    });
+  }
+  return parsed.data;
 }
 
 export async function setUserPhoto(photoId: string): Promise<void> {

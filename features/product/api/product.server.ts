@@ -3,9 +3,9 @@ import "server-only";
 import { ApiError } from "@/lib/api/errors";
 import { serverFetch } from "@/lib/api/server";
 import {
-  CompanyResponseDTO,
+  CompanySlugMapResponse,
   ProductDetailResponse,
-  type CompanyResponseDTO as CompanyT,
+  type CompanySlugMapResponse as CompanyT,
   type ProductDetailResponse as ProductDetailT,
 } from "@/lib/api/schemas";
 import { log } from "@/lib/log";
@@ -73,7 +73,7 @@ export async function fetchCompanyBySlug(
     const data = await serverFetch(
       `/api/v1/companies/${encodeURIComponent(slug)}`,
       {
-        schema: CompanyResponseDTO,
+        schema: CompanySlugMapResponse,
         next: { revalidate: 300, tags: [`company:${slug}`] },
       },
     );
