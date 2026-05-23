@@ -78,19 +78,19 @@ export function middleware(request: NextRequest): NextResponse {
     return NextResponse.redirect(loginUrl);
   }
 
-  if (pathname.startsWith("/seller") && pathname !== SELLER_ONBOARDING_PATH) {
+  const needsSellerCheck =
+    pathname.startsWith("/seller") && pathname !== SELLER_ONBOARDING_PATH;
+  const needsModeratorCheck = pathname.startsWith("/moderator");
+
+  if (needsSellerCheck || needsModeratorCheck) {
     const payload = decodeAccessToken(accessToken);
-    if (!hasRole(payload, "SELLER")) {
+    if (needsSellerCheck && !hasRole(payload, "SELLER")) {
       const homeUrl = request.nextUrl.clone();
       homeUrl.pathname = "/";
       homeUrl.search = "";
       return NextResponse.redirect(homeUrl);
     }
-  }
-
-  if (pathname.startsWith("/moderator")) {
-    const payload = decodeAccessToken(accessToken);
-    if (!hasAnyRole(payload, MODERATOR_ROLES)) {
+    if (needsModeratorCheck && !hasAnyRole(payload, MODERATOR_ROLES)) {
       const homeUrl = request.nextUrl.clone();
       homeUrl.pathname = "/";
       homeUrl.search = "";

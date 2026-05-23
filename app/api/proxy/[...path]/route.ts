@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 
+import { gatewayFetch, GATEWAY_FETCH_TIMEOUT_MS } from "@/lib/api/gateway";
 import { apiResponseSchema } from "@/lib/api/response";
 import { TokenResponseDTO } from "@/lib/api/schemas/auth";
 import {
@@ -11,12 +12,6 @@ import {
 import { REQUEST_ID_HEADER, resolveRequestId } from "@/lib/http/requestId";
 import { toAcceptLanguage } from "@/lib/i18n/config";
 import { log } from "@/lib/log";
-
-function gatewayUrl(): string {
-  const raw = process.env.GATEWAY_URL;
-  if (!raw) throw new Error("GATEWAY_URL env var is not set.");
-  return raw.replace(/\/$/, "");
-}
 
 const PROXIED_REQUEST_HEADERS = [
   "accept",
@@ -41,7 +36,7 @@ async function refreshTokens(
 ): Promise<TokenRotation | null> {
   let upstream: Response;
   try {
-    upstream = await fetch(`${gatewayUrl()}/api/v1/auth/refresh`, {
+    upstream = await gatewayFetch("/api/v1/auth/refresh", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -94,10 +89,14 @@ async function forward(
   if (accessToken) headers.set("authorization", `Bearer ${accessToken}`);
 
   const search = request.nextUrl.search ?? "";
-  const init: RequestInit = { method: request.method, headers };
+  const init: RequestInit & { timeoutMs?: number } = {
+    method: request.method,
+    headers,
+    timeoutMs: GATEWAY_FETCH_TIMEOUT_MS,
+  };
   if (rawBody && rawBody.byteLength > 0) init.body = rawBody;
 
-  return fetch(`${gatewayUrl()}${upstreamPath}${search}`, init);
+  return gatewayFetch(`${upstreamPath}${search}`, init);
 }
 
 async function handler(request: NextRequest, context: ProxyContext): Promise<NextResponse> {
@@ -176,18 +175,24 @@ async function handler(request: NextRequest, context: ProxyContext): Promise<Nex
     }
   }
 
-  const body = await upstream.arrayBuffer();
-  const response = new NextResponse(body, {
-    status: upstream.status,
-    headers: {
-      "content-type": upstream.headers.get("content-type") ?? "application/json",
-      [REQUEST_ID_HEADER]: requestId,
-    },
-  });
+  // When we need to mutate cookies on the response, NextResponse needs the body
+  // up front. Otherwise we stream the body straight through for lower TTFB.
+  const responseHeaders: HeadersInit = {
+    "content-type": upstream.headers.get("content-type") ?? "application/json",
+    [REQUEST_ID_HEADER]: requestId,
+  };
 
+  let response: NextResponse;
   if (rotated) {
+    const body = await upstream.arrayBuffer();
+    response = new NextResponse(body, { status: upstream.status, headers: responseHeaders });
     setAccessTokenCookie(response.cookies, rotated.accessToken, rotated.expiresIn);
     setRefreshTokenCookie(response.cookies, rotated.refreshToken);
+  } else {
+    response = new NextResponse(upstream.body, {
+      status: upstream.status,
+      headers: responseHeaders,
+    });
   }
 
   if (upstream.status >= 500) {

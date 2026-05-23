@@ -78,13 +78,13 @@ function queueReducer(state: SendQueueState, action: QueueAction): SendQueueStat
   }
 }
 
-function wsBaseUrl(): string {
+function wsBaseUrl(): string | null {
   const raw = process.env.NEXT_PUBLIC_WS_URL;
   if (!raw) {
     log.warn("chat.ws.url.missing", {
-      message: "NEXT_PUBLIC_WS_URL is not set; falling back to ws://localhost:8080",
+      message: "NEXT_PUBLIC_WS_URL is not set; chat disabled. Set it in .env.local.",
     });
-    return "ws://localhost:8080";
+    return null;
   }
   return raw.replace(/\/$/, "");
 }
@@ -149,9 +149,14 @@ export function useChatSocket(options: UseChatSocketOptions): UseChatSocketResul
 
     async function connect() {
       try {
+        const baseUrl = wsBaseUrl();
+        if (!baseUrl) {
+          setConnection("closed");
+          return;
+        }
         const token = await fetchWsToken();
         if (cancelled) return;
-        const url = `${wsBaseUrl()}/api/v1/ws/chat?token=${encodeURIComponent(token.ws_token)}`;
+        const url = `${baseUrl}/api/v1/ws/chat?token=${encodeURIComponent(token.ws_token)}`;
         const factory = socketFactory ?? ((u: string) => new WebSocket(u));
         const socket = factory(url);
         socketRef.current = socket;

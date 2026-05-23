@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 import { describe, expect, it, vi } from "vitest";
 
 import { Toaster } from "@/components/ui/sonner";
+import { authKeys } from "@/features/auth/api/queryKeys";
 import { renderWithIntl, screen, waitFor } from "@/lib/test/render";
 import { mswServer } from "@/lib/test/server";
 
@@ -19,6 +20,13 @@ vi.mock("next/navigation", () => ({
 function withClient(ui: ReactNode) {
   const client = new QueryClient({
     defaultOptions: { queries: { retry: false }, mutations: { retry: false } },
+  });
+  // Seed an authenticated session so the auth-gated notification query runs.
+  client.setQueryData(authKeys.session, {
+    userId: "1",
+    username: "test",
+    roles: ["BUYER"],
+    locale: "ru",
   });
   renderWithIntl(
     <QueryClientProvider client={client}>

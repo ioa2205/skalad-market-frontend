@@ -2,6 +2,7 @@
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
+import { useIsAuthenticated } from "@/features/auth/hooks/useIsAuthenticated";
 import { ApiError } from "@/lib/api/errors";
 import type {
   NotificationPreferences,
@@ -70,10 +71,12 @@ export function useNotifications(
   params: NotificationsListParams,
   options?: { enabled?: boolean; refetchInterval?: number | false },
 ) {
+  const isAuthenticated = useIsAuthenticated();
   return useQuery<NotificationsListResponse, ApiError>({
     queryKey: notificationKeys.list(params),
     queryFn: () => fetchNotifications(params),
-    enabled: options?.enabled ?? true,
+    // Guests have no notifications — gate to skip the 401 round-trip.
+    enabled: isAuthenticated && (options?.enabled ?? true),
     refetchInterval: options?.refetchInterval ?? false,
     staleTime: 15_000,
   });

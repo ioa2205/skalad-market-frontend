@@ -5,6 +5,7 @@ import { REQUEST_ID_HEADER, mintRequestId } from "../http/requestId";
 import { toAcceptLanguage } from "../i18n/config";
 
 import { ApiError } from "./errors";
+import { gatewayPath } from "./gateway";
 import { apiResponseSchema, type ApiDataSchema } from "./response";
 
 export interface ServerFetchOptions<T> {
@@ -18,13 +19,9 @@ export interface ServerFetchOptions<T> {
   next?: NextFetchRequestConfig;
 }
 
-const DEFAULT_SERVER_FETCH_TIMEOUT_MS = 8_000;
-
-function getGatewayUrl(): string {
-  const raw = process.env.GATEWAY_URL;
-  if (!raw) throw new Error("GATEWAY_URL env var is not set.");
-  return raw.replace(/\/$/, "");
-}
+// SSR pages block on this fetch — shorter timeout = faster failure when
+// backend is down, so users don't sit on a blank page for 8s.
+const DEFAULT_SERVER_FETCH_TIMEOUT_MS = 4_000;
 
 export async function serverFetch<T>(
   path: string,
@@ -63,8 +60,7 @@ export async function serverFetch<T>(
   if (cache) init.cache = cache;
   if (next) init.next = next;
 
-  const url = `${getGatewayUrl()}${path.startsWith("/") ? path : `/${path}`}`;
-  const response = await fetch(url, init);
+  const response = await fetch(gatewayPath(path), init);
   const correlationId = response.headers.get(REQUEST_ID_HEADER) ?? requestId;
 
   let json: unknown;

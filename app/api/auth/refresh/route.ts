@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 
+import { gatewayFetch } from "@/lib/api/gateway";
 import { apiResponseSchema } from "@/lib/api/response";
 import { TokenResponseDTO } from "@/lib/api/schemas/auth";
 import {
@@ -10,12 +11,6 @@ import {
 } from "@/lib/auth/cookies";
 import { REQUEST_ID_HEADER, resolveRequestId } from "@/lib/http/requestId";
 import { log } from "@/lib/log";
-
-function gatewayUrl(): string {
-  const raw = process.env.GATEWAY_URL;
-  if (!raw) throw new Error("GATEWAY_URL env var is not set.");
-  return raw.replace(/\/$/, "");
-}
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
   const requestId = resolveRequestId(request.headers);
@@ -33,7 +28,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
   let upstream: Response;
   try {
-    upstream = await fetch(`${gatewayUrl()}${path}`, {
+    upstream = await gatewayFetch(path, {
       method: "POST",
       headers: {
         "content-type": "application/json",

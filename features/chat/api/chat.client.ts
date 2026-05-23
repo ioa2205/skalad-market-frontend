@@ -2,6 +2,7 @@
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
+import { useIsAuthenticated } from "@/features/auth/hooks/useIsAuthenticated";
 import { ApiError } from "@/lib/api/errors";
 import type {
   ChatCreateResponse,
@@ -120,12 +121,16 @@ export async function fetchUnreadCount(): Promise<number> {
 }
 
 export function useUnreadCount(options?: { refetchInterval?: number | false }) {
+  const isAuthenticated = useIsAuthenticated();
   return useQuery<number, ApiError>({
     queryKey: chatKeys.unread(),
     queryFn: fetchUnreadCount,
-    refetchInterval: options?.refetchInterval ?? 30_000,
-    refetchOnWindowFocus: true,
-    staleTime: 10_000,
+    // Guests have no unread chats and would just 401 — skip the request.
+    enabled: isAuthenticated,
+    // Live updates already arrive via the chat WS; the interval is just a
+    // safety net for stale tabs and missed events.
+    refetchInterval: options?.refetchInterval ?? 60_000,
+    staleTime: 30_000,
   });
 }
 

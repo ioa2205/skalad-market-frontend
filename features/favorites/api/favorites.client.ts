@@ -7,6 +7,7 @@ import {
   type QueryClient,
 } from "@tanstack/react-query";
 
+import { useIsAuthenticated } from "@/features/auth/hooks/useIsAuthenticated";
 import { ApiError } from "@/lib/api/errors";
 import { REQUEST_ID_HEADER } from "@/lib/http/requestId";
 import { log } from "@/lib/log";
@@ -87,12 +88,14 @@ async function fetchFavoritedIds(): Promise<Set<number>> {
 }
 
 export function useFavoritedIds() {
+  const isAuthenticated = useIsAuthenticated();
   return useQuery<Set<number>>({
     queryKey: favoritesKeys.ids(),
     queryFn: fetchFavoritedIds,
     staleTime: 30_000,
-    // If the user is signed out the proxy returns 401 → ApiError. Don't retry
-    // — the empty set is the correct UI for an anonymous viewer.
+    // Skip the request entirely for guests — the proxy would 401 and waste
+    // a round-trip on every page navigation.
+    enabled: isAuthenticated,
     retry: false,
   });
 }

@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 
 import { Card } from "@/components/ui/card";
 import {
@@ -24,6 +25,35 @@ import {
   readSessionIdCookie,
   setSessionIdCookie,
 } from "@/lib/auth/cookies";
+
+interface ProductCompanyInput {
+  id: number;
+  name: string;
+  slug: string;
+  logo_path?: string | null;
+}
+
+async function SellerMiniCardAsync({
+  productCompany,
+}: {
+  productCompany: ProductCompanyInput;
+}) {
+  const { data: company } = await fetchCompanyBySlug(productCompany.slug);
+  return (
+    <SellerMiniCard
+      company={{
+        id: productCompany.id,
+        name: productCompany.name,
+        slug: productCompany.slug,
+        logoPath: productCompany.logo_path ?? null,
+        shortDescription: null,
+        verified: company?.status === "VERIFIED",
+      }}
+      stats={{}}
+      className="border-chrome-border"
+    />
+  );
+}
 
 export const dynamic = "force-dynamic";
 
@@ -91,10 +121,6 @@ export default async function ProductDetailPage({ params }: PageProps) {
   }
 
   const product = productResult.data;
-  const companyResult = product.company
-    ? await fetchCompanyBySlug(product.company.slug)
-    : { data: null };
-  const company = companyResult.data;
 
   const attributes = product.attributes ?? null;
   const unit = pickUnit(attributes);
@@ -116,16 +142,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
       alt: product.name,
     })) ?? [];
 
-  const sellerCompany = product.company
-    ? {
-        id: product.company.id,
-        name: product.company.name,
-        slug: product.company.slug,
-        logoPath: product.company.logo_path ?? null,
-        shortDescription: null,
-        verified: company?.status === "VERIFIED",
-      }
-    : null;
+  const productCompany = product.company;
 
   const views = product.views_count_cache ?? 0;
   const categoryName = product.category?.name;
@@ -173,8 +190,8 @@ export default async function ProductDetailPage({ params }: PageProps) {
             productId={product.id}
             productName={product.name}
             productSlug={product.slug}
-            companyId={product.company?.id ?? company?.id ?? 0}
-            companyName={product.company?.name ?? company?.name}
+            companyId={productCompany?.id ?? 0}
+            companyName={productCompany?.name}
             primaryImage={
               product.images?.find((img) => img.is_primary)?.url ??
               product.images?.[0]?.url
@@ -190,12 +207,25 @@ export default async function ProductDetailPage({ params }: PageProps) {
             className="border-chrome-border"
           />
 
-          {sellerCompany ? (
-            <SellerMiniCard
-              company={sellerCompany}
-              stats={{}}
-              className="border-chrome-border"
-            />
+          {productCompany ? (
+            <Suspense
+              fallback={
+                <SellerMiniCard
+                  company={{
+                    id: productCompany.id,
+                    name: productCompany.name,
+                    slug: productCompany.slug,
+                    logoPath: productCompany.logo_path ?? null,
+                    shortDescription: null,
+                    verified: false,
+                  }}
+                  stats={{}}
+                  className="border-chrome-border"
+                />
+              }
+            >
+              <SellerMiniCardAsync productCompany={productCompany} />
+            </Suspense>
           ) : null}
 
           <TrustList className="border-chrome-border" />

@@ -1,17 +1,12 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { z } from "zod";
 
+import { gatewayFetch } from "@/lib/api/gateway";
 import { apiResponseSchema } from "@/lib/api/response";
 import { COOKIE_NAMES } from "@/lib/auth/cookies";
 import { REQUEST_ID_HEADER, resolveRequestId } from "@/lib/http/requestId";
 import { toAcceptLanguage } from "@/lib/i18n/config";
 import { log } from "@/lib/log";
-
-function gatewayUrl(): string {
-  const raw = process.env.GATEWAY_URL;
-  if (!raw) throw new Error("GATEWAY_URL env var is not set.");
-  return raw.replace(/\/$/, "");
-}
 
 interface VerifyContext {
   params: Promise<{ token: string }>;
@@ -37,7 +32,7 @@ export async function GET(
 
   let upstream: Response;
   try {
-    upstream = await fetch(`${gatewayUrl()}${path}`, {
+    upstream = await gatewayFetch(path, {
       method: "GET",
       headers: {
         accept: "application/json",
