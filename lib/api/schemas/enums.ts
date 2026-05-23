@@ -1,6 +1,9 @@
 import { z } from "zod";
 
-export const RolesEnum = z.enum(["ADMIN", "SUPER_ADMIN", "BUYER", "SELLER", "MODERATOR"]);
+export const RolesEnum = z.preprocess(
+  (val) => (typeof val === "string" ? val.toUpperCase() : val),
+  z.enum(["ADMIN", "SUPER_ADMIN", "BUYER", "SELLER", "MODERATOR"]),
+);
 export type Roles = z.infer<typeof RolesEnum>;
 
 export const GeneralStatusEnum = z.enum(["IN_REGISTRATION", "ACTIVE", "BLOCK"]);
