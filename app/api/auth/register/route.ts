@@ -2,8 +2,8 @@ import { NextResponse, type NextRequest } from "next/server";
 import { z } from "zod";
 
 import { gatewayFetch } from "@/lib/api/gateway";
-import { apiResponseSchema } from "@/lib/api/response";
 import { RegistrationDTO } from "@/lib/api/schemas/auth";
+import { readUpstreamEnvelope } from "@/lib/api/upstream";
 import {
   COOKIE_NAMES,
   setRegisterIntentCookie,
@@ -79,47 +79,34 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     );
   }
 
-  let json: unknown;
-  try {
-    json = await upstream.json();
-  } catch {
+  const result = await readUpstreamEnvelope(upstream, z.string());
+  if (!result.ok) {
     log.error("register.upstream.invalid", {
       path,
       method: "POST",
       status: upstream.status,
       requestId,
+      code: result.message,
     });
     return NextResponse.json(
-      { success: false, message: "invalid.response" },
-      { status: 502, headers: { [REQUEST_ID_HEADER]: requestId } },
+      { success: false, message: result.message },
+      {
+        status: result.schemaMismatch ? 502 : upstream.status,
+        headers: { [REQUEST_ID_HEADER]: requestId },
+      },
     );
   }
 
-  const envelope = apiResponseSchema(z.string()).safeParse(json);
-  if (!envelope.success) {
-    log.error("register.schema.invalid", {
-      path,
-      method: "POST",
-      status: upstream.status,
-      requestId,
-      code: "schema.mismatch",
-    });
-    return NextResponse.json(
-      { success: false, message: "invalid.response" },
-      { status: 502, headers: { [REQUEST_ID_HEADER]: requestId } },
-    );
-  }
-
-  if (!envelope.data.success) {
+  if (!result.envelope.success) {
     log.warn("register.rejected", {
       path,
       method: "POST",
       status: upstream.status,
       requestId,
-      code: envelope.data.message,
+      code: result.envelope.message,
     });
     return NextResponse.json(
-      { success: false, message: envelope.data.message ?? "registration.failed" },
+      { success: false, message: result.envelope.message ?? "registration.failed" },
       {
         status: upstream.status >= 400 ? upstream.status : 400,
         headers: { [REQUEST_ID_HEADER]: requestId },

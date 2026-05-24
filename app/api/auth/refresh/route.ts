@@ -1,8 +1,8 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 import { gatewayFetch } from "@/lib/api/gateway";
-import { apiResponseSchema } from "@/lib/api/response";
 import { TokenResponseDTO } from "@/lib/api/schemas/auth";
+import { readUpstreamEnvelope } from "@/lib/api/upstream";
 import {
   COOKIE_NAMES,
   clearAuthCookies,
@@ -51,34 +51,24 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     );
   }
 
-  let json: unknown;
-  try {
-    json = await upstream.json();
-  } catch {
-    return NextResponse.json(
-      { success: false, message: "invalid.response" },
-      { status: 502, headers: { [REQUEST_ID_HEADER]: requestId } },
-    );
-  }
-
-  const envelope = apiResponseSchema(TokenResponseDTO).safeParse(json);
-  if (!envelope.success || !envelope.data.success || !envelope.data.data) {
+  const result = await readUpstreamEnvelope(upstream, TokenResponseDTO);
+  if (!result.ok || !result.envelope.success || !result.envelope.data) {
     log.warn("refresh.rejected", {
       path,
       method: "POST",
       status: upstream.status,
       requestId,
-      code: envelope.success ? envelope.data.message : "schema.mismatch",
+      code: result.ok ? result.envelope.message : result.message,
     });
     const response = NextResponse.json(
-      { success: false, message: "refresh.token.invalid.expired" },
+      { success: false, message: result.ok ? "refresh.token.invalid.expired" : result.message },
       { status: 401, headers: { [REQUEST_ID_HEADER]: requestId } },
     );
     clearAuthCookies(response.cookies);
     return response;
   }
 
-  const tokens = envelope.data.data;
+  const tokens = result.envelope.data;
   const response = NextResponse.json(
     { success: true, data: { expiresIn: tokens.expires_in } },
     { headers: { [REQUEST_ID_HEADER]: requestId } },

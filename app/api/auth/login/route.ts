@@ -1,8 +1,8 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 import { gatewayFetch } from "@/lib/api/gateway";
-import { apiResponseSchema } from "@/lib/api/response";
 import { LoginDTO, ProfileDTO } from "@/lib/api/schemas/auth";
+import { readUpstreamEnvelope } from "@/lib/api/upstream";
 import {
   clearRegisterIntentCookie,
   COOKIE_NAMES,
@@ -66,52 +66,39 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     );
   }
 
-  let json: unknown;
-  try {
-    json = await upstream.json();
-  } catch {
+  const result = await readUpstreamEnvelope(upstream, ProfileDTO);
+  if (!result.ok) {
     log.error("login.upstream.invalid", {
       path,
       method: "POST",
       status: upstream.status,
       requestId,
+      code: result.message,
     });
     return NextResponse.json(
-      { success: false, message: "invalid.response" },
-      { status: 502, headers: { [REQUEST_ID_HEADER]: requestId } },
+      { success: false, message: result.message },
+      {
+        status: result.schemaMismatch ? 502 : upstream.status,
+        headers: { [REQUEST_ID_HEADER]: requestId },
+      },
     );
   }
 
-  const envelope = apiResponseSchema(ProfileDTO).safeParse(json);
-  if (!envelope.success) {
-    log.error("login.schema.invalid", {
-      path,
-      method: "POST",
-      status: upstream.status,
-      requestId,
-      code: "schema.mismatch",
-    });
-    return NextResponse.json(
-      { success: false, message: "invalid.response" },
-      { status: 502, headers: { [REQUEST_ID_HEADER]: requestId } },
-    );
-  }
-
-  if (!envelope.data.success || !envelope.data.data) {
+  if (!result.envelope.success || !result.envelope.data) {
     log.warn("login.rejected", {
       path,
       method: "POST",
       status: upstream.status,
       requestId,
-      code: envelope.data.message,
+      code: result.envelope.message,
     });
     return NextResponse.json(
-      { success: false, message: envelope.data.message ?? "login.failed" },
+      { success: false, message: result.envelope.message ?? "login.failed" },
       { status: upstream.status === 200 ? 401 : upstream.status, headers: { [REQUEST_ID_HEADER]: requestId } },
     );
   }
 
-  const profile = envelope.data.data;
+  const profile = result.envelope.data;
   const intent = readRegisterIntent(request.cookies);
   const redirectTo = intent?.role === "SELLER" ? "/seller/onboarding" : "/";
 

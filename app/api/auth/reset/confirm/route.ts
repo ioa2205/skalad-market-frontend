@@ -2,8 +2,8 @@ import { NextResponse, type NextRequest } from "next/server";
 import { z } from "zod";
 
 import { gatewayFetch } from "@/lib/api/gateway";
-import { apiResponseSchema } from "@/lib/api/response";
 import { UpdatePasswordDTO } from "@/lib/api/schemas/auth";
+import { readUpstreamEnvelope } from "@/lib/api/upstream";
 import { COOKIE_NAMES } from "@/lib/auth/cookies";
 import { REQUEST_ID_HEADER, resolveRequestId } from "@/lib/http/requestId";
 import { toAcceptLanguage } from "@/lib/i18n/config";
@@ -60,34 +60,27 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     );
   }
 
-  let json: unknown;
-  try {
-    json = await upstream.json();
-  } catch {
+  const result = await readUpstreamEnvelope(upstream, z.string());
+  if (!result.ok) {
     return NextResponse.json(
-      { success: false, message: "invalid.response" },
-      { status: 502, headers: { [REQUEST_ID_HEADER]: requestId } },
+      { success: false, message: result.message },
+      {
+        status: result.schemaMismatch ? 502 : upstream.status,
+        headers: { [REQUEST_ID_HEADER]: requestId },
+      },
     );
   }
 
-  const envelope = apiResponseSchema(z.string()).safeParse(json);
-  if (!envelope.success) {
-    return NextResponse.json(
-      { success: false, message: "invalid.response" },
-      { status: 502, headers: { [REQUEST_ID_HEADER]: requestId } },
-    );
-  }
-
-  if (!envelope.data.success) {
+  if (!result.envelope.success) {
     log.warn("reset.confirm.rejected", {
       path,
       method: "POST",
       status: upstream.status,
       requestId,
-      code: envelope.data.message,
+      code: result.envelope.message,
     });
     return NextResponse.json(
-      { success: false, message: envelope.data.message ?? "reset.confirm.failed" },
+      { success: false, message: result.envelope.message ?? "reset.confirm.failed" },
       {
         status: upstream.status >= 400 ? upstream.status : 400,
         headers: { [REQUEST_ID_HEADER]: requestId },

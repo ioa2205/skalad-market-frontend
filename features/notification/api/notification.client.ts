@@ -24,6 +24,20 @@ interface NotificationsListResponse {
   meta: { total: number; page: number; perPage: number; totalPages: number };
 }
 
+type WirePageMeta = NotificationsListResponse["meta"] & {
+  per_page?: number;
+  total_pages?: number;
+};
+
+function normalizeMeta(meta: WirePageMeta): NotificationsListResponse["meta"] {
+  return {
+    total: meta.total,
+    page: meta.page,
+    perPage: meta.perPage ?? meta.per_page ?? 0,
+    totalPages: meta.totalPages ?? meta.total_pages ?? 0,
+  };
+}
+
 async function parseJson<T>(
   response: Response,
   fallbackCode: string,
@@ -64,7 +78,11 @@ export async function fetchNotifications(
     `/api/proxy/api/v1/notifications?${search.toString()}`,
     { credentials: "include", headers: { accept: "application/json" } },
   );
-  return parseJson<NotificationsListResponse>(response, "notifications.list.failed");
+  const data = await parseJson<NotificationsListResponse>(
+    response,
+    "notifications.list.failed",
+  );
+  return { ...data, meta: normalizeMeta(data.meta as WirePageMeta) };
 }
 
 export function useNotifications(

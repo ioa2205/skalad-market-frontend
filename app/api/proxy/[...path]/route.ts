@@ -175,6 +175,21 @@ async function handler(request: NextRequest, context: ProxyContext): Promise<Nex
     }
   }
 
+  if (upstream.status === 401) {
+    log.warn("proxy.upstream.4xx", {
+      path: upstreamPath,
+      method: request.method,
+      status: upstream.status,
+      requestId,
+    });
+    const response = NextResponse.json(
+      { success: false, message: "session.expired" },
+      { status: 401, headers: { [REQUEST_ID_HEADER]: requestId } },
+    );
+    clearAuthCookies(response.cookies);
+    return response;
+  }
+
   // When we need to mutate cookies on the response, NextResponse needs the body
   // up front. Otherwise we stream the body straight through for lower TTFB.
   const responseHeaders: HeadersInit = {

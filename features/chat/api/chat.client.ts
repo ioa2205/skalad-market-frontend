@@ -36,6 +36,25 @@ interface ChatMessagesResponse {
   meta: { total: number; page: number; perPage: number; totalPages: number };
 }
 
+type WirePageMeta = ChatThreadsResponse["meta"] & {
+  per_page?: number;
+  total_pages?: number;
+};
+
+function normalizeMeta<T extends { meta: WirePageMeta }>(
+  data: T,
+): Omit<T, "meta"> & { meta: ChatThreadsResponse["meta"] } {
+  return {
+    ...data,
+    meta: {
+      total: data.meta.total,
+      page: data.meta.page,
+      perPage: data.meta.perPage ?? data.meta.per_page ?? 0,
+      totalPages: data.meta.totalPages ?? data.meta.total_pages ?? 0,
+    },
+  };
+}
+
 async function parseJson<T>(response: Response, fallbackCode: string): Promise<T> {
   const correlationId = response.headers.get(REQUEST_ID_HEADER) ?? undefined;
   let json: ProxyEnvelope<T>;
@@ -71,7 +90,8 @@ export async function fetchThreads(
     credentials: "include",
     headers: { accept: "application/json" },
   });
-  return parseJson<ChatThreadsResponse>(response, "chat.threads.failed");
+  const data = await parseJson<ChatThreadsResponse>(response, "chat.threads.failed");
+  return normalizeMeta(data);
 }
 
 export function useThreads(params: ChatThreadsParams) {
@@ -96,7 +116,8 @@ export async function fetchMessages(
     `/api/proxy/api/v1/chats/${params.threadId}/messages?${search.toString()}`,
     { credentials: "include", headers: { accept: "application/json" } },
   );
-  return parseJson<ChatMessagesResponse>(response, "chat.messages.failed");
+  const data = await parseJson<ChatMessagesResponse>(response, "chat.messages.failed");
+  return normalizeMeta(data);
 }
 
 export function useMessages(params: ChatMessagesParams, enabled = true) {
